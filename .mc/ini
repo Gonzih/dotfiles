@@ -122,7 +122,7 @@ permission_mode=0
 
 [Layout]
 equal_split=1
-first_panel_size=40
+first_panel_size=106
 message_visible=1
 keybar_visible=1
 xterm_title=1

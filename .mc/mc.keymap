@@ -1,7 +1,7 @@
 [panel]
 PanelStartSearch=/
-PanelMoveDown=j
-PanelMoveUp=k
-PanelMoveLeft=h
-PanelMoveRight=l
+PanelMoveDown=h
+PanelMoveUp=t
+PanelMoveLeft=d
+PanelMoveRight=n
 PanelSmartGotoParentDir=backspace
