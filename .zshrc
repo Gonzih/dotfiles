@@ -20,6 +20,7 @@ alias full_update='yaourt -Syu --aur --noconfirm'
 alias ff='MOZ_NO_REMOTE= firefox -p default &'
 alias ff_dev='MOZ_NO_REMOTE= firefox -p development &'
 alias vundle='vim -c "BundleInstall"'
+alias vundle_update='vim -c "BundleInstall!"'
 
 #------------------------------
 # History stuff
