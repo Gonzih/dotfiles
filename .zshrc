@@ -4,6 +4,14 @@ export PATH=/var/lib/gems/1.9/bin:$PATH
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # Load RVM into a shell session *as a function*
 
 #------------------------------
+# setopt
+#------------------------------
+setopt APPEND_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+
+#------------------------------
 # Alias stuff
 #------------------------------
 alias ls="ls --color -F"
@@ -25,7 +33,7 @@ alias vundle_update='vim -c "BundleInstall!"'
 #------------------------------
 # History stuff
 #------------------------------
-HISTFILE=~/.histfile
+HISTFILE=~/.zsh_histfile
 HISTSIZE=100000
 SAVEHIST=100000
 
