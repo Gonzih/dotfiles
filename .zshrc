@@ -29,7 +29,7 @@ alias ff='MOZ_NO_REMOTE= firefox -p default &'
 alias ff_dev='MOZ_NO_REMOTE= firefox -p development &'
 alias vundle='vim -c "BundleInstall"'
 alias vundle_update='vim -c "BundleInstall!"'
-alias p2p_start='p2p_gui& ; screen rtorrent'
+alias p2p_start='p2p-gui& ; screen rtorrent'
 
 #------------------------------
 # History stuff
