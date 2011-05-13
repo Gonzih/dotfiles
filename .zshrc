@@ -3,6 +3,11 @@ export PATH=/var/lib/gems/1.9/bin:$PATH
 #rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # Load RVM into a shell session *as a function*
 
+#auto install bundle
+if ! command -v bundle ; then
+  gem install bundler
+fi
+
 #------------------------------
 # setopt
 #------------------------------
