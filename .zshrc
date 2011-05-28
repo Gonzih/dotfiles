@@ -22,14 +22,15 @@ alias semegre="sudo emerge"
 alias vimt='vim -c "NERDTree" $1'
 alias gvimt='gvim -c "NERDTree" $1'
 alias gvim='gvim -c "colorscheme neverland" $1'
-alias ssh_proxy='ssh -ND 4447 gonzih@devio.us'
+alias ssh-proxy='ssh -ND 4447 gonzih@devio.us'
 alias git-rm-after='git ls-files --deleted | xargs git rm'
-alias full_update='yaourt -Syu --aur --noconfirm'
+alias full-update='yaourt -Syu --aur --noconfirm'
 alias ff='MOZ_NO_REMOTE= firefox -p default &'
-alias ff_dev='MOZ_NO_REMOTE= firefox -p development &'
+alias ff-dev='MOZ_NO_REMOTE= firefox -p development &'
 alias vundle='vim -c "BundleInstall"'
-alias vundle_update='vim -c "BundleInstall!"'
-alias p2p_start='p2p-gui& ; screen rtorrent'
+alias vundle-update='vim -c "BundleInstall!"'
+alias pacman-remove-unused="sudo pacman -Rsn \$(pacman -Qqdt)"
+alias p2p-start='p2p-gui& ; screen rtorrent'
 
 #------------------------------
 # History stuff
