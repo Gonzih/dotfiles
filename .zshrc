@@ -30,7 +30,6 @@ alias ff-dev='MOZ_NO_REMOTE= firefox -p development &'
 alias vundle='vim -c "BundleInstall"'
 alias vundle-update='vim -c "BundleInstall!"'
 alias pacman-remove-unused="sudo pacman -Rsn \$(pacman -Qqdt)"
-alias p2p-start='p2p-gui& ; screen rtorrent'
 
 #------------------------------
 # History stuff
