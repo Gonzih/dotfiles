@@ -1,0 +1,3 @@
+my dotfiles
+quick install:
+  wget --no-check-certificate https://raw.github.com/Gonzih/dotfiles/master/.init.sh -O - | sh
