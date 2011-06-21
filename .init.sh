@@ -2,7 +2,7 @@ cd ~
 
 echo "====================================> Installing dotfiles"
 git clone git@github.com:Gonzih/dotfiles.git
-mv ~/dotfiles/* ~/ -rf
+mv ~/dotfiles/* ~/ -f
 rm ~/dotfiles -rf
 
 echo "====================================> Installing submodules"
