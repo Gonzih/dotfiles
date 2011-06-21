@@ -1,5 +1,7 @@
 echo "====================================> Installing dotfiles"
 git clone git@github.com:Gonzih/dotfiles.git
+mv ~/dotfiles/* ~/ -rf
+rm ~/dotfiles -rf
 echo "====================================> Installing submodules"
 git submodule init
 git submodule update
