@@ -136,7 +136,6 @@ free_space=1
 
 classic_progressbar=true
 
-first_panel_size=63
 
 [Dirs]
 other_dir=/home/gnzh
