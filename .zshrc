@@ -26,7 +26,6 @@ plugins=(git rails3 ruby bundler cap gem rvm thor vundle)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/var/lib/gems/1.9/bin:/var/lib/gems/1.8/bin:/home/gnzh/.rvm/gems/ruby-1.9.2-p180@default/bin:/home/gnzh/.rvm/gems/ruby-1.9.2-p180@global/bin:/home/gnzh/.rvm/rubies/ruby-1.9.2-p180/bin:/home/gnzh/.rvm/bin:/var/lib/gems/1.9/bin:/var/lib/gems/1.8/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl:/home/gnzh/bin:/home/gnzh/bin
-
+export PATH=/var/lib/gems/1.9/bin:/var/lib/gems/1.8/bin:/var/lib/gems/1.9/bin:/var/lib/gems/1.8/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl:/home/gnzh/bin
 # My aliases
 . ~/.zsh/rc
