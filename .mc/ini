@@ -122,7 +122,6 @@ permission_mode=0
 
 [Layout]
 equal_split=1
-first_panel_size=70
 message_visible=1
 keybar_visible=1
 xterm_title=1
@@ -136,6 +135,8 @@ filetype_mode=1
 free_space=1
 
 classic_progressbar=true
+
+first_panel_size=63
 
 [Dirs]
 other_dir=/home/gnzh
