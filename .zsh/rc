@@ -48,8 +48,8 @@ bindkey '^[[B' down-line-or-search
 bindkey '^[[C' forward-char
 bindkey '^R' history-incremental-search-backward
 #vim style for dvorak
-bindkey '^T' up-line-or-history
-bindkey '^H' down-line-or-history
+bindkey '^T' up-line-or-search
+bindkey '^H' down-line-or-search
 # for rxvt
 bindkey "\e[8~" end-of-line
 bindkey "\e[7~" beginning-of-line
