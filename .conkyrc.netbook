@@ -83,6 +83,7 @@ Swap: ${swapperc}% ${alignr}${swapbar 8,60}
 Uptime: ${alignr}${uptime}
 
 Updates: $alignr ${texeci 10800 ruby ~/scripts/archnotify.rb}
+GMail: $alignr ${texeci 900 ruby ~/scripts/gmailnotify.rb}
 
 BATTERY ${hr 2}
 
