@@ -82,6 +82,8 @@ RAM: ${memperc}% ${alignr}${membar 8,60}
 Swap: ${swapperc}% ${alignr}${swapbar 8,60}
 Uptime: ${alignr}${uptime}
 
+Updates: $alignr ${texeci 10800 ruby ~/scripts/archnotify.rb}
+
 BATTERY ${hr 2}
 
 Status: ${battery} ${alignr}${battery_bar 8,60}
@@ -135,6 +137,7 @@ ${font PizzaDude Bullets:size=14}${font}NETWORK ${hr 2}
 
 Network Unavailable
 ${endif}${endif}${endif}${endif}${endif}
+Connections: ${alignr} ${tcp_portmon 1 32767 count} in ${tcp_portmon 32768 61000 count} out
 
 PROCESSES $processes $running_processes ${hr 2}
 
