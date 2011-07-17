@@ -149,9 +149,3 @@ ${top_mem name 2} $alignc ${top_mem pid 2} $alignr ${top_mem mem_res 2}
 ${top_mem name 3} $alignc ${top_mem pid 3} $alignr ${top_mem mem_res 3}
 ${top_mem name 4} $alignc ${top_mem pid 4} $alignr ${top_mem mem_res 4}
 ${top_mem name 5} $alignc ${top_mem pid 5} $alignr ${top_mem mem_res 5}
-
-${top_time name 1} $alignc ${top_time pid 1} $alignr ${top_time time 1}
-${top_time name 2} $alignc ${top_time pid 2} $alignr ${top_time time 2}
-${top_time name 3} $alignc ${top_time pid 3} $alignr ${top_time time 3}
-${top_time name 4} $alignc ${top_time pid 4} $alignr ${top_time time 4}
-${top_time name 5} $alignc ${top_time pid 5} $alignr ${top_time time 5}
