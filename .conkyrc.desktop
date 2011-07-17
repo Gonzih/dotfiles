@@ -159,27 +159,3 @@ ${top_mem name 6} $alignc ${top_mem pid 6} $alignr ${top_mem mem_res 6}
 ${top_mem name 7} $alignc ${top_mem pid 7} $alignr ${top_mem mem_res 7}
 ${top_mem name 8} $alignc ${top_mem pid 8} $alignr ${top_mem mem_res 8}
 ${top_mem name 9} $alignc ${top_mem pid 9} $alignr ${top_mem mem_res 9}
-
-NAME $alignc PID $alignr TIME
-
-${top_time name 1} $alignc ${top_time pid 1} $alignr ${top_time time 1}
-${top_time name 2} $alignc ${top_time pid 2} $alignr ${top_time time 2}
-${top_time name 3} $alignc ${top_time pid 3} $alignr ${top_time time 3}
-${top_time name 4} $alignc ${top_time pid 4} $alignr ${top_time time 4}
-${top_time name 5} $alignc ${top_time pid 5} $alignr ${top_time time 5}
-${top_time name 6} $alignc ${top_time pid 6} $alignr ${top_time time 6}
-${top_time name 7} $alignc ${top_time pid 7} $alignr ${top_time time 7}
-${top_time name 8} $alignc ${top_time pid 8} $alignr ${top_time time 8}
-${top_time name 9} $alignc ${top_time pid 9} $alignr ${top_time time 9}
-
-NAME $alignc PID $alignr IO
-
-${top_io name 1} $alignc ${top_io pid 1} $alignr ${top_io io_perc 1}%
-${top_io name 2} $alignc ${top_io pid 2} $alignr ${top_io io_perc 2}%
-${top_io name 3} $alignc ${top_io pid 3} $alignr ${top_io io_perc 3}%
-${top_io name 4} $alignc ${top_io pid 4} $alignr ${top_io io_perc 4}%
-${top_io name 5} $alignc ${top_io pid 5} $alignr ${top_io io_perc 5}%
-${top_io name 6} $alignc ${top_io pid 6} $alignr ${top_io io_perc 6}%
-${top_io name 7} $alignc ${top_io pid 7} $alignr ${top_io io_perc 7}%
-${top_io name 8} $alignc ${top_io pid 8} $alignr ${top_io io_perc 8}%
-${top_io name 9} $alignc ${top_io pid 9} $alignr ${top_io io_perc 9}%
