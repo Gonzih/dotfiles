@@ -8,4 +8,6 @@ begin
   gmail.logout
 resque LoadError
   puts 'sudo gem install gmail'
+rescue Exception
+  puts 'Error'
 end
