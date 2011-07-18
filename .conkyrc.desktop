@@ -84,7 +84,7 @@ RAM: $memperc% ${alignr}${membar 8,60}
 Swap: $swapperc% ${alignr}${swapbar 8,60}
 Uptime: ${alignr}${uptime}
 
-Updates: $alignr ${texeci 10800 rvm system exec ruby ~/scripts/archnotify.rb}
+Updates: $alignr ${texeci 900 rvm system exec ruby ~/scripts/archnotify.rb}
 GMail: $alignr ${texeci 300 rvm system exec ruby ~/scripts/gmailnotify.rb}
 
 HDD ${hr 2}
