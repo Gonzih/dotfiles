@@ -6,8 +6,6 @@ begin
   new_count = gmail.inbox.count(:unread).to_i
   puts "#{new_count > 0 ? "#{new_count} new" : 'No new'} email#{new_count > 1 || new_count == 0 ? 's' : nil}"
   gmail.logout
-rescue LoadError
+resque LoadError
   puts 'sudo gem install gmail'
-rescue Exception => exc
-  p exc
 end
