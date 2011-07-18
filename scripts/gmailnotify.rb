@@ -9,5 +9,5 @@ begin
 rescue LoadError
   puts 'sudo gem install gmail'
 rescue Exception => exc
-  p exc
+  puts exc.class
 end
