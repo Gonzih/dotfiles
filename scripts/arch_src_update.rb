@@ -29,11 +29,11 @@ begin
   end
 
   if src_dep_command.length > 0
-    system "sudo srcpac -Subm #{src_dep_command}"
+    system "yes | sudo srcpac -Subm #{src_dep_command}"
   end
 
   if src_command.length > 0
-    system "sudo srcpac -Sub #{src_command}"
+    system "yes | sudo srcpac -Sub #{src_command}"
   end
 
   system "yaourt -Su --aur --noconfirm"
