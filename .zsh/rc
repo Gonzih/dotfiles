@@ -61,3 +61,11 @@ bindkey "^[[F" end-of-line
 bindkey "\eOH" beginning-of-line
 bindkey "\eOF" end-of-line
 
+#------------------------------
+# Local rc file
+#------------------------------
+if [ -f ~/.zsh/local ]; then
+  . ~/.zsh/local
+else
+  touch ~/.zsh/local
+fi
