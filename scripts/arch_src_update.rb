@@ -49,3 +49,4 @@ class Updater
 end
 
 Updater.new
+#TODO dont duplicate packages in deps and normal build (builds with deps and after that builds from config file)
