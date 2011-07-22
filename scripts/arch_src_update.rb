@@ -1,3 +1,10 @@
+def get_deps package
+  info = `pacman -Si #{package}`
+  if info =~ /Depends On\s*:\s*(.*)$/
+    $1.split.each { |dep| dep.sub! /\=.*$/, '' } || []
+  end
+end
+
 begin
   `srcpac`
   system "sudo srcpac -Sy"
@@ -13,6 +20,9 @@ begin
     if pkg =~ /\+$/
       pkg.gsub! /\+$/, ''
       src_dep_command += "#{pkg} " if upd_pac.include? pkg
+      get_deps(pkg).each do |dep|
+        src_command += "#{dep} " if upd_pac.include? dep
+      end
     else
       src_command += "#{pkg} " if upd_pac.include? pkg
     end
