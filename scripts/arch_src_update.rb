@@ -1,42 +1,51 @@
-def get_deps package
-  info = `pacman -Si #{package}`
-  if info =~ /Depends On\s*:\s*(.*)$/
-    $1.split.each { |dep| dep.sub! /\=.*$/, '' } || []
-  end
-end
+class Updater
 
-begin
-  `srcpac`
-  system "sudo srcpac -Sy"
-  upd_pac = `pacman -Qu`.lines.to_a
-  upd_pac.each { |l| l.sub! /\s.*$/, '' }
-  upd_pac.each { |l| l.chomp! }
-  `touch ~/.arch_source_packages` unless File.exist? '~/.arch_source_packages'
-  src_pac = `cat ~/.arch_source_packages`.lines.to_a
-  src_command, src_dep_command = '', ''
-
-  src_pac.each do |pkg|
-    pkg.chomp!
-    if pkg =~ /\+$/
-      pkg.gsub! /\+$/, ''
-      src_dep_command += "#{pkg} " if upd_pac.include? pkg
-      get_deps(pkg).each do |dep|
-        src_command += "#{dep} " if upd_pac.include? dep
-      end
-    else
-      src_command += "#{pkg} " if upd_pac.include? pkg
+  def get_deps package
+    info = `pacman -Si #{package}`
+    if info =~ /Depends On\s*:\s*(.*)$/
+      $1.split.each { |dep| dep.sub! /\=.*$/, '' } || []
     end
   end
 
-  if src_dep_command.length > 0
-    system "yes | sudo srcpac -Subm #{src_dep_command} --noconfirm"
+  def add_pkg? pkg
+    @upd_pac.include?(pkg) && !@src_array.include?(pkg) && !@src_dep_array.include?(pkg)
   end
 
-  if src_command.length > 0
-    system "yes | sudo srcpac -Sub #{src_command} --noconfirm"
-  end
+  def initialize
+    `srcpac`
+    @src_array, @src_dep_array, @upd_pac, @src_pac = [], [], [], []
+    system "sudo srcpac -Sy"
+    @upd_pac = `pacman -Qu`.lines.to_a
+    @upd_pac.each { |l| l.sub! /\s.*$/, '' }
+    @upd_pac.each { |l| l.chomp! }
+    `touch ~/.arch_source_packages` unless File.exist? '~/.arch_source_packages'
+    @src_pac = `cat ~/.arch_source_packages`.lines.to_a
 
-  system "yaourt -Su --aur --noconfirm"
-rescue Exception => ex
-  puts ex.message
+    @src_pac.each do |pkg|
+      pkg.chomp!
+
+      if pkg =~ /\+$/
+        pkg.gsub! /\+$/, ''
+        @src_dep_array << pkg if add_pkg? pkg
+      else
+        @src_array << pkg if add_pkg? pkg
+      end
+
+      get_deps(pkg).each do |dep|
+        @src_array << dep if add_pkg? dep
+      end
+    end
+
+    if @src_dep_array.count > 0
+      system "sudo srcpac -Subm #{@src_dep_array.join ' '} --noconfirm"
+    end
+
+    if @src_array.count > 0
+      system "sudo srcpac -Sub #{@src_array.join ' '} --noconfirm"
+    end
+
+    system "yaourt -Su --aur --noconfirm"
+  end
 end
+
+Updater.new
