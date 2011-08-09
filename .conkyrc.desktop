@@ -93,6 +93,7 @@ Temp: ${alignr}${hddtemp /dev/sda} C
 Home: ${fs_free /home}/${fs_size /home} ${alignr}${fs_bar 8,60 /home}
 Root: ${fs_free /root}/${fs_size /root} ${alignr}${fs_bar 8,60 /root}
 Stor: ${fs_free /mnt/storage}/${fs_size /mnt/storage} ${alignr}${fs_bar 8,60 /mnt/storage}
+Back: ${fs_free /mnt/backups}/${fs_size /mnt/backups} ${alignr}${fs_bar 8,60 /mnt/backups}
 ${if_existing /proc/net/route wlan0}
 #wlan0
 NETWORK wlan0 ${hr 2}
