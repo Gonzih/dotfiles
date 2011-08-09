@@ -11,6 +11,7 @@ alias ssh-proxy='ssh -ND 4447 gonzih@devio.us'
 alias git-rm-after='git ls-files --deleted | xargs git rm'
 alias full-update='yaourt -Syu --aur --noconfirm'
 alias full-update-src='ruby ~/scripts/arch_src_update.rb'
+alias full-backup='/etc/backup/rbackup.sh'
 alias ff='MOZ_NO_REMOTE= firefox -p default &'
 alias ff-dev='MOZ_NO_REMOTE= firefox -p development &'
 alias pacman-remove-unused="sudo pacman-color -Rsn \$(pacman -Qqdt)"
