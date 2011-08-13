@@ -1,6 +1,12 @@
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
 
+# Customize to your needs...
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/gnzh/bin
+
+# My aliases
+. ~/.zsh/rc
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -24,8 +30,3 @@ export ZSH_THEME="gnzh"
 plugins=(git rails3 ruby bundler cap gem thor vundle)
 
 source $ZSH/oh-my-zsh.sh
-
-# Customize to your needs...
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/gnzh/bin
-# My aliases
-. ~/.zsh/rc
