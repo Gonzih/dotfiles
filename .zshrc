@@ -21,11 +21,11 @@ export ZSH_THEME="gnzh"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rails3 ruby bundler cap gem rvm thor vundle)
+plugins=(git rails3 ruby bundler cap gem thor vundle)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/var/lib/gems/1.9/bin:/var/lib/gems/1.8/bin:/var/lib/gems/1.9/bin:/var/lib/gems/1.8/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl:/home/gnzh/bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/gnzh/bin
 # My aliases
 . ~/.zsh/rc
