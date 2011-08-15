@@ -65,8 +65,3 @@ if [ -f ~/.zsh/local ]; then
 else
   touch ~/.zsh/local
 fi
-
-#------------------------------
-# rbenv
-#------------------------------
-export PATH="$HOME/.rbenv/bin:$PATH"
