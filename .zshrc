@@ -30,7 +30,7 @@ export ZSH_THEME="gnzh"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rails3 ruby bundler cap gem thor vundle)
+plugins=(git rails3 ruby bundler cap gem thor vundle npm node)
 
 source $ZSH/oh-my-zsh.sh
 
