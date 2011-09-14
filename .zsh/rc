@@ -66,3 +66,13 @@ if [ -f ~/.zsh/local ]; then
 else
   touch ~/.zsh/local
 fi
+
+#------------------------------
+# bundle install alias with binstubs
+#------------------------------
+alias bi="bundle install --binstubs=.bin"
+
+#------------------------------
+# add local bin dir to path
+#------------------------------
+export PATH="./.bin:$PATH"
