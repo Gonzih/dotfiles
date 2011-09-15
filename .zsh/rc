@@ -70,7 +70,7 @@ fi
 #------------------------------
 # bundle install alias with binstubs
 #------------------------------
-alias bi="bundle install --binstubs=.bin"
+alias bi="bundle install --binstubs=.bin --path vendor/bundle"
 
 #------------------------------
 # add local bin dir to path
