@@ -80,3 +80,8 @@ alias bp="bundle package"
 # add local bin dir to path
 #------------------------------
 export PATH="./.bin:$PATH"
+
+#------------------------------
+# stop correctiong commands
+#------------------------------
+setopt nocorrectall
