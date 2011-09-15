@@ -18,4 +18,4 @@ source $ZSH/oh-my-zsh.sh
 # My rc file
 . ~/.zsh/rc
 
-rvm use default
+[[ $TERM = "screen" ]] && rvm use default
