@@ -68,9 +68,13 @@ else
 fi
 
 #------------------------------
-# bundle install alias with binstubs
+# bundle aliases
 #------------------------------
 alias bi="bundle install --binstubs=.bin --path vendor/bundle"
+alias be="bundle exec"                                                                                                                                     \u2502Resolving wdp.dlws.microsoft.com... 213.199.148.244, 21                            
+alias bl="bundle list"                                                                                                                                     \u2502Connecting to wdp.dlws.microsoft.com|213.199.148.244|:8                            
+alias bu="bundle update"                                                                                                                                   \u25020... connected.                                                                    
+alias bp="bundle package"
 
 #------------------------------
 # add local bin dir to path
