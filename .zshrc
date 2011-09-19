@@ -10,6 +10,9 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_THEME="gnzh"
+export CASE_SENSITIVE="true" # enable case sensitive
+
+
 
 plugins=(git rails3 ruby cap gem thor vundle npm node knife)
 
