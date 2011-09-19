@@ -90,3 +90,8 @@ setopt nocorrectall
 # enable case sensetive
 #------------------------------
 export CASE_SENSITIVE="true"
+
+#------------------------------
+# disable auto title change
+#------------------------------
+export DISABLE_AUTO_TITLE="true"
