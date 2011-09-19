@@ -11,7 +11,7 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_THEME="gnzh"
 
-plugins=(git rails3 ruby cap gem thor vundle npm node)
+plugins=(git rails3 ruby cap gem thor vundle npm node knife)
 
 source $ZSH/oh-my-zsh.sh
 
