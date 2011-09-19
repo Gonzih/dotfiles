@@ -85,3 +85,8 @@ export PATH="./.bin:$PATH"
 # stop correctiong commands
 #------------------------------
 setopt nocorrectall
+
+#------------------------------
+# enable case sensetive
+#------------------------------
+export CASE_SENSITIVE="true"
