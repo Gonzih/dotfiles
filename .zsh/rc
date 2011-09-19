@@ -85,8 +85,3 @@ export PATH="./.bin:$PATH"
 # stop correctiong commands
 #------------------------------
 setopt nocorrectall
-
-#------------------------------
-# disable auto title change
-#------------------------------
-export DISABLE_AUTO_TITLE="true"
