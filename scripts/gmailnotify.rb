@@ -8,6 +8,8 @@ begin
   gmail.logout
 rescue LoadError
   puts 'sudo gem install gmail'
+rescue NoMethodError
+  puts 'Could not connect'
 rescue Exception => exc
   puts exc.class
 end
