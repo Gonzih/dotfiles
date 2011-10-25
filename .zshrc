@@ -21,3 +21,8 @@ source $ZSH/oh-my-zsh.sh
 . ~/.zsh/rc
 
 [[ $TERM = "screen" ]] && rvm use default
+
+#------------------------------
+# add local bin dir to path
+#------------------------------
+export PATH="./.bin:$PATH"
