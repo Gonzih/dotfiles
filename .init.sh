@@ -26,7 +26,7 @@ echo "====================================> Reset .zshrc"
 git reset --hard
 
 echo "====================================> Running vundle"
-vim -c "execute 'BundleInstall!' | q"
+vim -c "execute 'BundleInstall!' | q | q"
 
 echo "====================================> Running zsh"
 zsh
