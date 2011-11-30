@@ -1,0 +1,25 @@
+[panel]
+Search = slash
+Down = down; h
+Up = up; t
+CdParentSmart = backspace
+
+[listbox]
+Down = down; h
+Up = up; t
+
+[tree]
+Down = down; h
+Up = up; t
+
+[help]
+Down = down; h
+Up = up; t
+
+[viewer]
+Down = down; h
+Up = up; t
+
+[diffviewer]
+Down = down; h
+Up = up; t
