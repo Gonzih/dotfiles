@@ -26,3 +26,4 @@ source $ZSH/oh-my-zsh.sh
 # add local bin dir to path
 #------------------------------
 export PATH="./.bin:$PATH"
+export PATH="./script:$PATH"
