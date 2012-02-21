@@ -1,5 +1,5 @@
 # Customize to your needs...
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/gnzh/bin:$PATH"
+export PATH="/home/gnzh/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH"
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
