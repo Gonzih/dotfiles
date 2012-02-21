@@ -27,3 +27,5 @@ source $ZSH/oh-my-zsh.sh
 #------------------------------
 export PATH="./.bin:$PATH"
 export PATH="./script:$PATH"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
