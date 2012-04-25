@@ -13,7 +13,7 @@ export ZSH_THEME="gnzh"
 export CASE_SENSITIVE="true"
 export DISABLE_AUTO_TITLE="true"
 
-plugins=(git ruby gem vundle ssh-agent)
+plugins=(git ruby gem vundle)
 
 source $ZSH/oh-my-zsh.sh
 
