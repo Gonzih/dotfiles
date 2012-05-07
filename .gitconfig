@@ -30,7 +30,7 @@
 [core]
   pager = less -FRSX
   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol,space-before-tab
-	excludesfile = /home/gnzh/.gitignore.global
+  excludesfile = /home/gnzh/.gitignore.global
 
 [alias]
   co = checkout
