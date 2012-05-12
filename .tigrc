@@ -1,0 +1,4 @@
+bind generic t move-up
+bind generic h move-down
+bind generic j view-help
+bind generic k view-tree
