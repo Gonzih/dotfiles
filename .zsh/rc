@@ -110,7 +110,7 @@ enc() {
 
 dec(){
   [[ -z "$1" ]] && { echo "usage: dec <input> [output]" >&2; return 1; }
-  [[ -n "$2" ]] && { openssl enc -d -aes-256-ecb -in "$1" > "$2" } || { openssl enc -d -aes-256-ecb -in "$1" }
+  [[ -n "$2" ]] && { openssl enc -d -aes-256-ecb -in "$1" -out "$2" } || { openssl enc -d -aes-256-ecb -in "$1" }
 }
 
 #------------------------------
