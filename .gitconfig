@@ -45,3 +45,5 @@
 
 [apply]
   whitespace = fix
+[push]
+	default = simple
