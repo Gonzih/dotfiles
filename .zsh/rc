@@ -75,6 +75,7 @@ alias be="bundle exec"
 alias bl="bundle list"
 alias bu="bundle update"
 alias bp="bundle package"
+alias bo="bundle outdated"
 
 #------------------------------
 # stop correctiong commands
