@@ -115,5 +115,12 @@ dec(){
 }
 
 #------------------------------
+# check site availability
+#------------------------------
+down4me() {
+  wget -qO - "http://www.downforeveryoneorjustme.com/$1" | sed '/just you/!d;s/<[^>]*>//g' ;
+}
+
+#------------------------------
 # vim:set ts=2 sw=2 et:
 #------------------------------
