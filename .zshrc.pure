@@ -1,4 +1,5 @@
 ## Command history configuration
+#---------------------------------------------
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
@@ -12,12 +13,65 @@ setopt hist_verify
 setopt inc_append_history
 setopt share_history # share command history data
 
+#---------------------------------------------
 autoload -U compinit
 compinit
 
+#---------------------------------------------
 autoload -U promptinit
 promptinit
 prompt fire black grey black white white white
 
+#---------------------------------------------
 alias ll="ls -l --color"
 alias l="ls -lah --color"
+alias gvimt='gvim -c "NERDTree" $1'
+alias vimt='vim -c "NERDTree" $1'
+alias git-rm-after='git ls-files --deleted | xargs git rm'
+alias bi="bundle install --binstubs=.bin --path vendor/bundle"
+alias be="bundle exec"
+alias bo="bundle outdated"
+
+#---------------------------------------------
+bindkey -v
+typeset -g -A key
+bindkey '^R' history-incremental-search-backward
+bindkey '^T' up-line-or-search
+bindkey '^H' down-line-or-search
+# for rxvt
+bindkey "\e[8~" end-of-line
+bindkey "\e[7~" beginning-of-line
+# for konsole
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
+# for gnome-terminal
+bindkey "\eOH" beginning-of-line
+bindkey "\eOF" end-of-line
+
+#---------------------------------------------
+setopt nocorrectall
+
+#---------------------------------------------
+alias tmux="tmux -2"
+
+tm() {
+  [[ -z "$1" ]] && { echo "usage: tm <session>" >&2; return 1; }
+  tmux has -t $1 && tmux attach -t $1 || tmux new -s $1
+}
+
+function __tmux-sessions() {
+  local expl
+  local -a sessions
+  sessions=( ${${(f)"$(command tmux list-sessions)"}/:[ $'\t']##/:} )
+  _describe -t sessions 'sessions' sessions "$@"
+}
+compdef __tmux-sessions tm
+
+#---------------------------------------------
+down4me() {
+  wget -qO - "http://www.downforeveryoneorjustme.com/$1" | sed '/just you/!d;s/<[^>]*>//g' ;
+}
+
+#------------------------------
+# vim:set ts=2 sw=2 et:
+#------------------------------
