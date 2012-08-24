@@ -20,7 +20,7 @@ compinit
 #---------------------------------------------
 autoload -U promptinit
 promptinit
-prompt fire black grey black white white white
+prompt fade green
 
 #---------------------------------------------
 alias ll="ls -l --color"
