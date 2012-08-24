@@ -28,6 +28,7 @@ alias l="ls -lah --color"
 alias gvimt='gvim -c "NERDTree" $1'
 alias vimt='vim -c "NERDTree" $1'
 alias git-rm-after='git ls-files --deleted | xargs git rm'
+alias g='git'
 alias bi="bundle install --binstubs=.bin --path vendor/bundle"
 alias be="bundle exec"
 alias bo="bundle outdated"
