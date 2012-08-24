@@ -87,6 +87,9 @@ down4me() {
   wget -qO - "http://www.downforeveryoneorjustme.com/$1" | sed '/just you/!d;s/<[^>]*>//g' ;
 }
 
+#---------------------------------------------
+PATH=$PATH:$HOME/bin # Add RVM to PATH for scripting
+
 #------------------------------
 # vim:set ts=2 sw=2 et:
 #------------------------------
