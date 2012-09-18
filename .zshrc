@@ -1,6 +1,8 @@
 # Customize to your needs...
-export PATH="/home/gnzh/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH"
+export PATH="./.bin:./script:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH"
 
+# Add RVM to PATH for scripting
+export PATH="$HOME/.rvm/bin:$PATH"
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 
@@ -22,10 +24,3 @@ source $ZSH/oh-my-zsh.sh
 
 [[ $TERM = "screen" ]] && rvm use default
 
-#------------------------------
-# add local bin dir to path
-#------------------------------
-export PATH="./.bin:$PATH"
-export PATH="./script:$PATH"
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
