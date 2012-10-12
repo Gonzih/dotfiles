@@ -10,10 +10,10 @@ function uploadImage {
 
 cd /tmp
 
-if which gnome-terminal &> /dev/null; then
-  gnome-terminal -e 'scrot -s "shoot.png"' --geometry '0x0'
+if [ "$1" == "full" ]; then
+  scrot -b -s "shoot.png"
 else
-  scrot -s "shoot.png"
+  scrot "shoot.png"
 fi
 
 uploadImage "shoot.png" | xclip -selection c
