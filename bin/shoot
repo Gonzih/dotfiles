@@ -11,9 +11,9 @@ function uploadImage {
 cd /tmp
 
 if [ "$1" == "full" ]; then
-  scrot -b -s "shoot.png"
-else
   scrot "shoot.png"
+else
+  scrot -b -s "shoot.png"
 fi
 
 uploadImage "shoot.png" | xclip -selection c
