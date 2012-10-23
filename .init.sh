@@ -20,7 +20,7 @@ echo "====================================> Installing oh_my_zsh"
 wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
 
 echo "====================================> Installing rvm"
-bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
+curl -L https://get.rvm.io | bash -s stable
 
 echo "====================================> Reset .zshrc"
 git reset --hard
