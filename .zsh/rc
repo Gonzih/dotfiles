@@ -121,6 +121,13 @@ down4me() {
   wget -qO - "http://www.downforeveryoneorjustme.com/$1" | sed '/just you/!d;s/<[^>]*>//g' ;
 }
 
+
+#------------------------------
+# vnc server start and stop
+#------------------------------
+alias vnc-start="vncserver -geometry 1440x900 -alwaysshared -dpi 96 :1"
+alias vnc-stop="/usr/bin/vncserver -kill :1"
+
 #------------------------------
 # vim:set ts=2 sw=2 et:
 #------------------------------

@@ -20,7 +20,7 @@ compinit
 #---------------------------------------------
 autoload -U promptinit
 promptinit
-prompt fire black grey black white white white
+prompt fade green
 
 #---------------------------------------------
 alias ll="ls -l --color"
@@ -28,6 +28,7 @@ alias l="ls -lah --color"
 alias gvimt='gvim -c "NERDTree" $1'
 alias vimt='vim -c "NERDTree" $1'
 alias git-rm-after='git ls-files --deleted | xargs git rm'
+alias g='git'
 alias bi="bundle install --binstubs=.bin --path vendor/bundle"
 alias be="bundle exec"
 alias bo="bundle outdated"
@@ -35,7 +36,21 @@ alias bo="bundle outdated"
 #---------------------------------------------
 bindkey -v
 typeset -g -A key
+bindkey '\e[1~' beginning-of-line
+bindkey '\e[4~' end-of-line
+bindkey '\e[2~' overwrite-mode
+bindkey '^?' backward-delete-char
+bindkey '^[[1~' beginning-of-line
+bindkey '^[[5~' up-line-or-history
+bindkey '^[[3~' delete-char
+bindkey '^[[4~' end-of-line
+bindkey '^[[6~' down-line-or-history
+bindkey '^[[A' up-line-or-search
+bindkey '^[[D' backward-char
+bindkey '^[[B' down-line-or-search
+bindkey '^[[C' forward-char
 bindkey '^R' history-incremental-search-backward
+#vim style for dvorak
 bindkey '^T' up-line-or-search
 bindkey '^H' down-line-or-search
 # for rxvt
@@ -71,6 +86,9 @@ compdef __tmux-sessions tm
 down4me() {
   wget -qO - "http://www.downforeveryoneorjustme.com/$1" | sed '/just you/!d;s/<[^>]*>//g' ;
 }
+
+#---------------------------------------------
+PATH=$PATH:$HOME/bin # Add RVM to PATH for scripting
 
 #------------------------------
 # vim:set ts=2 sw=2 et:
