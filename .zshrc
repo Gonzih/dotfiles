@@ -11,7 +11,7 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 [[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm"
 
 export ZSH=$HOME/.oh-my-zsh
-export ZSH_THEME="gnzh"
+export ZSH_THEME="agnoster"
 export CASE_SENSITIVE="true"
 export DISABLE_AUTO_TITLE="true"
 
