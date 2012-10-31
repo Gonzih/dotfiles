@@ -85,7 +85,7 @@ setopt nocorrectall
 #------------------------------
 # tmux aliases and functions
 #------------------------------
-alias tmux="tmux -2"
+alias tmux="tmux -2 -u"
 
 tm() {
   [[ -z "$1" ]] && { echo "usage: tm <session>" >&2; return 1; }
