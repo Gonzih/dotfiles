@@ -57,6 +57,9 @@ bindkey "^[[F" end-of-line
 # for gnome-terminal
 bindkey "\eOH" beginning-of-line
 bindkey "\eOF" end-of-line
+# Emacs style
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
 
 #------------------------------
 # Local rc file
