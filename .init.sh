@@ -16,9 +16,6 @@ sh ~/.vim/rcinit.sh
 echo "====================================> Installing vundle"
 git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
-echo "====================================> Installing oh_my_zsh"
-wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
-
 echo "====================================> Installing rvm"
 curl -L https://get.rvm.io | bash -s stable
 
