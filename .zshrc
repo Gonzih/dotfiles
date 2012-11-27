@@ -172,11 +172,38 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 
 if [ -f $HOME/.zsh/git.zsh ]; then
   source $HOME/.zsh/git.zsh
+
+  if [ -f $HOME/.zsh/agnoster.zsh-theme ]; then
+    source $HOME/.zsh/agnoster.zsh-theme
+  fi
 fi
 
-if [ -f $HOME/.zsh/agnoster.zsh-theme ]; then
-  source $HOME/.zsh/agnoster.zsh-theme
-fi
+#------------------------------
+# vundle functions
+#------------------------------
+
+function vundle-init () {
+  if [ ! -d ~/.vim/bundle/vundle/ ]
+  then
+    mkdir -p ~/.vim/bundle/vundle/
+  fi
+
+  if [ ! -d ~/.vim/bundle/vundle/.git/ ]
+  then
+    git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+    echo "\n\tRead about vim configuration for vundle at https://github.com/gmarik/vundle\n"
+  fi
+}
+
+function vundle () {
+  vundle-init
+  vim -c "execute \"BundleInstall\" | q | q"
+}
+
+function vundle-update () {
+  vundle-init
+  vim -c "execute \"BundleInstall!\" | q | q"
+}
 
 #------------------------------
 # vim:set ts=2 sw=2 et:
