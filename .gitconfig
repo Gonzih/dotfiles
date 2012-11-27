@@ -35,7 +35,7 @@
 [alias]
   co = checkout
   glog = log --graph
-  st = status
+  st = status -s
   ci = commit
   w = whatchanged
   br = branch
