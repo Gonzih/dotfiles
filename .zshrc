@@ -43,6 +43,7 @@ alias ff-dev='MOZ_NO_REMOTE= firefox -p development &'
 alias pacman-remove-unused="sudo pacman-color -Rsn \$(pacman -Qqdt)"
 alias g="git"
 alias l="ls -lha --color=auto"
+alias fact="curl -s randomfunfacts.com | sed -n 's/.*<i>\(.*\)<\/i>.*/\1/p'"
 
 #------------------------------
 # Variables
