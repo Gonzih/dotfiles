@@ -160,7 +160,12 @@ alias vnc-stop="/usr/bin/vncserver -kill :1"
 # path and etc
 #------------------------------
 export PATH="./.bin:./script:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH"
+
+#------------------------------
+# rbenv
+#------------------------------
 export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 # rvm
 
