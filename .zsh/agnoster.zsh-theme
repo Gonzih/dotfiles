@@ -63,7 +63,7 @@ prompt_context() {
   local user=`whoami`
 
   if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment black default "%(!.%{%F{yellow}%}.)$user %{%F{27}%}λ %{%F{default}%}%m"
+    prompt_segment black default "%(!.%{%F{yellow}%}.)$user %{%F{blue}%}λ %{%F{default}%}%m"
   fi
 }
 
