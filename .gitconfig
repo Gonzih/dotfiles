@@ -51,5 +51,6 @@
 
 [grep]
   lineNumber = true
+
 [help]
-	autocorrect = 1
+  autocorrect = 1
