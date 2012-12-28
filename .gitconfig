@@ -54,6 +54,6 @@
   lineNumber = true
 
 [help]
-  autocorrect = 1
+  autocorrect = 0
 [branch]
 	autosetuprebase = always
