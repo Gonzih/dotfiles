@@ -55,5 +55,6 @@
 
 [help]
   autocorrect = 0
+
 [branch]
-	autosetuprebase = always
+  autosetuprebase = always
