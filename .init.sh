@@ -6,9 +6,8 @@ mv ~/dotfiles/* -t ~/ -f
 mv ~/dotfiles/.* -t ~/ -f
 rm ~/dotfiles -rf
 
-echo "====================================> Installing submodules"
-git submodule init
-git submodule update
+echo "====================================> Installing .vim"
+git clone git@github.com:Gonzih/.vim.git ~/.vim
 
 echo "====================================> Init vim"
 sh ~/.vim/rcinit.sh
