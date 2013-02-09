@@ -1,5 +1,5 @@
 [panel]
-Search = slash
+Search = ?
 Down = down; h
 Up = up; t
 CdParentSmart = backspace
