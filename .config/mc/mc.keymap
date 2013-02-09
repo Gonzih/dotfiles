@@ -8,8 +8,8 @@ Up = up; t
 CdParentSmart = backspace
 MarkUp = shift-t
 MarkDown = shift-h
-PageUp = pgup; alt-v; ctrl-f
-PageDown = pgdn; ctrl-v; ctrl-b
+PageUp = pgup; alt-v; ctrl-b
+PageDown = pgdn; ctrl-v; ctrl-f
 Top = alt-lt; home; a1; g
 Bottom = alt-gt; end; c1; G
 
