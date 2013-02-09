@@ -2,7 +2,7 @@
 ConnectSftp = alt-s
 
 [panel]
-Search = ctrl-s
+Search = ctrl-s; ?
 Down = down; h
 Up = up; t
 CdParentSmart = backspace
