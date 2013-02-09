@@ -21,7 +21,6 @@ compinit
 #---------------------------------------------
 autoload -U promptinit
 promptinit
-prompt fade green
 
 #------------------------------
 # Alias stuff
@@ -176,10 +175,13 @@ export PATH="./.bin:./script:$PATH"
 # agnoster theme
 #------------------------------
 
-if [ -f $HOME/.zsh/git.zsh ]; then
-  source $HOME/.zsh/git.zsh
+if [[ /proc/$PPID/exe -ef /usr/bin/mc ]]; then
+  prompt redhat
+else
+  prompt fire
 
-  if [ -f $HOME/.zsh/agnoster.zsh-theme ]; then
+  if [[ -f $HOME/.zsh/git.zsh && -f $HOME/.zsh/agnoster.zsh-theme ]]; then
+    source $HOME/.zsh/git.zsh
     source $HOME/.zsh/agnoster.zsh-theme
   fi
 fi
