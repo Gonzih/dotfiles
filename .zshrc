@@ -191,9 +191,6 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="./.bin:./script:$PATH"
 
-# rvm
-
-[[ $TERM = "screen" ]] && rvm use default
 
 #------------------------------
 # agnoster theme
