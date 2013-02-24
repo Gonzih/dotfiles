@@ -66,6 +66,7 @@ alias g="git"
 alias l="ls -lha --color=auto"
 alias fact="curl -s randomfunfacts.com | sed -n 's/.*<i>\(.*\)<\/i>.*/\1/p'"
 alias e="emacs -nw"
+alias rbenv-update="cd ~/.rbenv/plugins/ruby-build && git pull && cd ~/.rbenv/ && git pull"
 
 #------------------------------
 # Variables
