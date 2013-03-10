@@ -175,6 +175,11 @@ down4me() {
 }
 
 #------------------------------
+# find files by name
+#------------------------------
+fname() { find . -iname "*$@*" }
+
+#------------------------------
 # vnc server start and stop
 #------------------------------
 alias vnc-start="vncserver -geometry 1440x900 -alwaysshared -dpi 96 :1"
