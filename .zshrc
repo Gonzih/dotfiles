@@ -48,6 +48,7 @@ alias 9='cd +9'
 alias pu='pushd'
 alias po='popd'
 alias d='dirs -v | head -10'
+alias cd='pushd'
 
 alias spm="sudo pacman"
 alias spmc="sudo pacman-color"
