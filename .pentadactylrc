@@ -1,0 +1,6 @@
+map -builtin h j
+map -builtin t k
+map -builtin j h
+map -builtin k t
+map -builtin ; :
+map -builtin : ;
