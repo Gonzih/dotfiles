@@ -1,6 +1,16 @@
-map -builtin h j
-map -builtin t k
-map -builtin j h
-map -builtin k t
-map -builtin ; :
-map -builtin : ;
+map -b -m v,i,t,c,o <C-c> <Esc>
+map -b h j
+map -b t k
+map -b k t
+map -b ; :
+map -b : ;
+map -b j d
+map -b <C-j> <C-d>
+map -b d h
+map -b n l
+map -b l n
+map -b d :tp<CR>
+map -b n :tn<CR>
+map -b , @:
+
+colorscheme solarized-dark
