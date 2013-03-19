@@ -2,17 +2,24 @@ map -b -m v,i,t,c,o <C-c> <Esc>
 map -b h j
 map -b t k
 map -b k t
+map -b j d
+map -b K T
+map -b J D
 map -b ; :
 map -b : ;
-map -b j d
 map -b <C-j> <C-d>
 map -b d h
 map -b n l
 map -b l n
 map -b d :tp<CR>
 map -b n :tn<CR>
+map -b D :tabmove -1<CR>
+map -b N :tabmove +1<CR>
 map -b , @:
 
 colorscheme solarized-dark
 
 js editor.defaultRegister="+"
+
+set defsearch=duckduckgo
+set hintkeys="aoeuidhtns"
