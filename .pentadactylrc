@@ -23,3 +23,5 @@ js editor.defaultRegister="+"
 
 set defsearch=duckduckgo
 set hintkeys="aoeuidhtns"
+
+map -m i <C-p> <C-v><C-v>
