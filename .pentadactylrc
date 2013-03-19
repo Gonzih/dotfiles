@@ -14,3 +14,5 @@ map -b n :tn<CR>
 map -b , @:
 
 colorscheme solarized-dark
+
+js editor.defaultRegister="+"
