@@ -251,6 +251,11 @@ if [[ -f $HOME/.zsh/racket-completion.zsh ]]; then
   source $HOME/.zsh/racket-completion.zsh
 fi
 
+# Enable Ctrl-e to edit command line
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^E' edit-command-line
+
 #------------------------------
 # vim:set ts=2 sw=2 et:
 #------------------------------
