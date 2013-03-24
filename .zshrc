@@ -244,6 +244,14 @@ function vundle-update () {
 }
 
 #------------------------------
+# libs
+#------------------------------
+
+if [[ -f $HOME/.zsh/racket-completion.zsh ]]; then
+  source $HOME/.zsh/racket-completion.zsh
+fi
+
+#------------------------------
 # vim:set ts=2 sw=2 et:
 #------------------------------
 
