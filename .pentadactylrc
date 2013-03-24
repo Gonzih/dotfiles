@@ -26,3 +26,5 @@ set hintkeys="aoeuidhtns"
 
 map -m i <C-p> <C-v><C-v>
 map -m i <C-y> <C-v><C-c>
+
+map -m i <C-e> <C-i>
