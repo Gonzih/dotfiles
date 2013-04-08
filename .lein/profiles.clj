@@ -4,4 +4,9 @@
                   [lein-exec "0.3.0"]
                   [lein-drip "0.1.1-SNAPSHOT"]
                   [lein-cljsbuild "0.3.0"]
-                  [lein-kibit "0.0.7"]]}}
+                  [lein-kibit "0.0.7"]
+                  [lein-pprint "1.1.1"]]
+        :injections  [(require '[spyscope core]
+                               '[redl core complete])]
+        :dependencies [[spyscope "0.1.2"]
+                       [redl "0.1.0"]]}}
