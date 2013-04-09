@@ -3,7 +3,7 @@
                   [lein-drip "0.1.1-SNAPSHOT"]
                   [lein-cljsbuild "0.3.0"]
                   [lein-kibit "0.0.7"]
-                  [lein-simpleton "1.0.0"]]
+                  [lein-simpleton "1.0.1"]]
         :injections  [(require '[spyscope core]
                                '[redl core complete])]
         :dependencies [[spyscope "0.1.2"]
