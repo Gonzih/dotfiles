@@ -9,6 +9,9 @@ rm ~/dotfiles -rf
 echo "====================================> Installing .vim"
 git clone git@github.com:Gonzih/.vim.git ~/.vim
 
+echo "====================================> Installing .mc"
+git clone git@github.com:Gonzih/.mc.git ~/.config/mc
+
 echo "====================================> Init vim"
 sh ~/.vim/rcinit.sh
 
