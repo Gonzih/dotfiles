@@ -52,7 +52,6 @@ alias d='dirs -v | head -10'
 alias cd='pushd'
 
 alias spm="sudo pacman"
-alias spmc="sudo pacman-color"
 alias semegre="sudo emerge"
 alias vimt='vim -c "NERDTree" $1'
 alias gvimt='gvim -c "NERDTree" $1'
@@ -63,7 +62,7 @@ alias full-update='yaourt -Syu --aur --noconfirm'
 alias full-update-src='ruby ~/scripts/arch_src_update.rb'
 alias ff='MOZ_NO_REMOTE= firefox -p default &'
 alias ff-dev='MOZ_NO_REMOTE= firefox -p development &'
-alias pacman-remove-unused="sudo pacman-color -Rsn \$(pacman -Qqdt)"
+alias pacman-remove-unused="sudo pacman -Rsn \$(pacman -Qqdt)"
 alias g="git"
 alias l="ls -lha --color=auto"
 alias fact="curl -s randomfunfacts.com | sed -n 's/.*<i>\(.*\)<\/i>.*/\1/p'"
