@@ -75,7 +75,7 @@ alias myip="curl http://devio.us/~gonzih/ip.php"
 #------------------------------
 export EDITOR="vim"
 export PAGER="vimpager"
-export PATH="${PATH}:${HOME}/bin"
+export PATH="${PATH}:${HOME}/bin:${HOME}/.cabal/bin"
 
 #------------------------------
 # Keybindings
