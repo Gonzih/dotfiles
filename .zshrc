@@ -135,7 +135,7 @@ alias bo="bundle outdated"
 #------------------------------
 # stop correctiong commands
 #------------------------------
-setopt nocorrectall
+setopt correctall
 
 #------------------------------
 # tmux aliases and functions
