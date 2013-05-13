@@ -22,6 +22,9 @@ compinit
 autoload -U promptinit
 promptinit
 
+#---------------------------------------------
+autoload -U zmv
+
 #------------------------------
 # Alias stuff
 #------------------------------
