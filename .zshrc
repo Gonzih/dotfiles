@@ -216,6 +216,14 @@ else
 fi
 
 #------------------------------
+# syntax-highlighting
+#------------------------------
+
+if [ -f $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+#------------------------------
 # vundle functions
 #------------------------------
 

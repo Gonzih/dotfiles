@@ -25,6 +25,10 @@ git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-buil
 echo "====================================> Reset .zshrc"
 git reset --hard
 
+echo "====================================> Intalling zsh-syntax-highlighting"
+
+git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+
 echo "====================================> Running vundle"
 vim -c "execute 'BundleInstall!' | q | q"
 
