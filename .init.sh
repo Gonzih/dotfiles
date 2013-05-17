@@ -12,6 +12,9 @@ git clone git@github.com:Gonzih/.vim.git ~/.vim
 echo "====================================> Installing .mc"
 git clone git@github.com:Gonzih/.mc.git ~/.config/mc
 
+echo "====================================> Installing fish configuration"
+git clone git@github.com:Gonzih/.fish.git ~/.config/fish
+
 echo "====================================> Init vim"
 sh ~/.vim/rcinit.sh
 
