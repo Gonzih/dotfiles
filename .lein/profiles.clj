@@ -7,5 +7,5 @@
                   [lein-ancient "0.2.0"]]
         :injections  [(require '[spyscope core]
                                '[redl core complete])]
-        :dependencies [[spyscope "0.1.2"]
+        :dependencies [[spyscope "0.1.3"]
                        [redl "0.1.0"]]}}
