@@ -4,8 +4,10 @@
                   [lein-cljsbuild "0.3.2"]
                   [lein-kibit "0.0.8"]
                   [lein-simpleton "1.1.0"]
-                  [lein-ancient "0.2.0"]]
-        :injections  [(require '[spyscope core]
-                               '[redl core complete])]
-        :dependencies [[spyscope "0.1.3"]
-                       [redl "0.1.0"]]}}
+                  [lein-ancient "0.4.3"]
+                  [lein-try "0.3.0"]]
+        ;:injections  [(require '[spyscope core]
+                               ;'[redl core complete])]
+        ;:dependencies [[spyscope "0.1.3"]
+                       ;[redl "0.1.0"]]
+        }}
