@@ -19,7 +19,7 @@
   (if (<= perc 50)
     (hibernate)
     (do
-      (Thread/sleep (* 1000 60 5))
+      (Thread/sleep (* 1000 10))
       (recur (current-percantage)))))
 
 (run (current-percantage))
