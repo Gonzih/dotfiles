@@ -10,4 +10,7 @@
                                ;'[redl core complete])]
         ;:dependencies [[spyscope "0.1.3"]
                        ;[redl "0.1.0"]]
+
+        :repl-options {:prompt (fn [ns] (str "\u001B[35m[\u001B[34m" ns "\u001B[35m]\u001B[33mcλ:\u001B[m " ))
+                       :welcome (println "Time for  REPL Driven Development!")}
         }}
