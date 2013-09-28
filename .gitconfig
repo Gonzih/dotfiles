@@ -58,6 +58,3 @@
 
 [branch]
   autosetuprebase = always
-
-[merge]
-  ff = only
