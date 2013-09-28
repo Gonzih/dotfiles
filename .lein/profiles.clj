@@ -7,7 +7,7 @@
                   [lein-ancient "0.4.3"]
                   [lein-try "0.3.0"]
                   [lein-typed "0.3.0"]
-                  [lein-swank "1.4.5"]]
+                  [lein-ritz "0.7.0"]]
         ;:injections  [(require '[spyscope core]
                                ;'[redl core complete])]
         ;:dependencies [[spyscope "0.1.3"]
