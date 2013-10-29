@@ -5,7 +5,7 @@
                   [lein-kibit "0.0.8"]
                   [lein-simpleton "1.1.0"]
                   [lein-ancient "0.4.3"]
-                  [lein-try "0.3.0"]
+                  [lein-try "0.4.0"]
                   [lein-typed "0.3.0"]
                   [lein-ritz "0.7.0"]]
         ;:injections  [(require '[spyscope core]
