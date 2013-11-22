@@ -21,7 +21,7 @@ colorscheme solarized-dark
 
 js editor.defaultRegister="+"
 
-set defsearch=duckduckgo
+set defsearch=google
 set hintkeys="aoeuidhtns"
 
 map -m i <C-p> <C-v><C-v>
