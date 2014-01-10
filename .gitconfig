@@ -58,3 +58,6 @@
 
 [branch]
   autosetuprebase = always
+
+[pull]
+  rebase = preserve
