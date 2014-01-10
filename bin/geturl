@@ -1,0 +1,116 @@
+#!/usr/bin/env python2
+
+from subprocess import CalledProcessError
+try:
+    from subprocess import check_output
+except ImportError:
+    import subprocess
+
+    def check_output(*popenargs, **kwargs):
+        process = subprocess.Popen(stdout=subprocess.PIPE, *popenargs, **kwargs)
+        output, unused_err = process.communicate()
+        retcode = process.poll()
+        if retcode:
+            cmd = kwargs.get("args")
+            if cmd is None:
+                cmd = popenargs[0]
+            error = subprocess.CalledProcessError(retcode, cmd)
+            error.output = output
+            raise error
+        return output
+
+import urllib
+import json
+import sys
+import os
+import ConfigParser
+import argparse
+
+#######################
+# Constants
+FPURL = "https://www.filepicker.io"
+FPAPIURL = "https://developers.filepicker.io"
+CONFIG_FILE = os.path.expanduser('~/.geturl')
+
+#######################
+# Loading Config
+APIKEY = ""
+config = ConfigParser.ConfigParser()
+config.read(CONFIG_FILE)
+if config.has_option('filepicker', 'apikey'):
+    APIKEY = config.get('filepicker', 'apikey')
+
+#######################
+# Make sure we have curl
+try:
+    check_output('curl --help > /dev/null', shell=True)
+except CalledProcessError:
+    exit("`curl` is required. Please install it")
+
+#######################
+# Find or register for an Filepicker.io account
+if not APIKEY:
+    email = ''
+    while not email:
+        email = raw_input('Enter your email to link or create your filepicker.io acccount: ')
+
+    # pretty sure this isn't public. found it by looking at the jotform integration
+    APIKEY = check_output(['curl', '--silent', "%(fpurl)s/getKey?email=%(email)s" % {'fpurl': FPAPIURL, 'email': email}])
+
+    if not config.has_section('filepicker'):
+        config.add_section('filepicker')
+    config.set('filepicker', 'apikey', APIKEY)
+    config.write(open(CONFIG_FILE, 'w+'))
+
+#######################
+# parse args and print usage
+parser = argparse.ArgumentParser(
+    prog='geturl',
+    description='upload a file or multiple files to filepicker.io and copy address to clipboard',
+)
+parser.add_argument('file', default=[], nargs='+', help='file or files to create a public link for')
+args = parser.parse_args()
+files = args.file
+urls = []
+
+#######################
+# Upload the file(s)
+print
+for file in files:
+    print "Uploading %s to Filepicker.io..." % file
+    output = check_output('curl --progress-bar -F "fileUpload=@%(filename)s" -F "apikey=%(apikey)s" %(fpurl)s/api/path/storage/%(fileurl)s' %
+            {"filename": file, "apikey": APIKEY, "fpurl": FPURL, "fileurl": urllib.pathname2url(file)}, shell=True)
+    try:
+        data = json.loads(output)
+        url = data['data'][0]['url']
+        urls.append(url)
+    except (ValueError, IndexError):
+        print "***ERROR***"
+        print output
+        print
+print
+
+for file, url in zip(files, urls):
+    print "A Public Share URL for: %s" % file
+    print url
+print
+
+#######################
+# Copy to the clipboard
+if len(files) == 1:
+    try:
+        if sys.platform == 'darwin':
+            check_output('echo "%s" | pbcopy' % (url), shell=True)
+            print "Also in your clipboard"
+        elif sys.platform == 'linux2':
+            try:
+                check_output('echo "%s" | xclip -selection clipboard > /dev/null 2>&1' % (url), shell=True)
+                print "Also in your clipboard"
+            except CalledProcessError:
+                try:
+                    check_output('echo "%s" | xsel -b -i > /dev/null 2>&1' % (url), shell=True)
+                    print "Also in your clipboard"
+                except CalledProcessError:
+                    pass
+    except Exception:
+        pass
