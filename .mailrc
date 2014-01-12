@@ -1,0 +1,8 @@
+#your email id here
+set from="gonzih@gmail.com"
+
+#location of msmtp's binary executable
+set sendmail="/usr/bin/msmtp-enqueue.sh"
+
+#additional arguments to msmtp goes here (optional) (-a indicates account name to be used to send mails)
+set message-sendmail-extra-arguments="-a gonzih"
