@@ -15,7 +15,8 @@ git clone git@github.com:Gonzih/.mutt.git ~/.mutt
 sh ~/.vim/init.sh
 sh ~/.mutt/init.sh
 
-curl -sSL https://get.rvm.io | bash
+git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 
 git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
