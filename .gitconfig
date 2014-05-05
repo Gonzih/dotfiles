@@ -36,7 +36,7 @@
   co = checkout
   glog = log --graph
   st = status -s
-  ci = commit
+  ci = commit --verbose
   w = whatchanged
   br = branch
   hist = "!tig"
