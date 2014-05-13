@@ -31,4 +31,4 @@ map -m i <C-a> <C-v><C-a>
 
 map -m i <C-e> <C-i>
 
-map -ex gm :js CommandExMode().open("!youtube-stream '" + content.location + "'")
+map -ex gm :js CommandExMode().open("!youtube-play '" + content.location + "'")
