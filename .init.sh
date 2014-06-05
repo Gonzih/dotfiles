@@ -20,6 +20,6 @@ git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-bu
 
 git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
-vim -c "execute 'BundleInstall!' | q | q"
+vim -c "execute 'BundleInstall!' | qa!"
 
 fish
