@@ -29,7 +29,7 @@ run perc = do
     newPerc <- currentPerc
     if perc < 50
       then hibernate
-      else run newPerc
+      else return ()
 
 main :: IO ()
 main = do
