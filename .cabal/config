@@ -22,7 +22,7 @@ world-file: /home/gnzh/.cabal/world
 -- program-suffix:
 -- library-vanilla: True
 -- library-profiling: False
-shared: True
+-- shared: True
 -- executable-dynamic: False
 -- executable-profiling: False
 -- optimization: True
