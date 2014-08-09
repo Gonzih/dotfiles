@@ -17,3 +17,5 @@ import Control.Concurrent
 :}
 
 :def search return . (":! hoogle " ++)
+
+:set prompt "λ: "
