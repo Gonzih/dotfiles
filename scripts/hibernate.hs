@@ -1,6 +1,7 @@
+import Control.Concurrent (threadDelay)
+import Control.Monad (liftM2)
 import System.Cmd (system)
 import System.Exit (exitWith)
-import Control.Monad (liftM2)
 
 getValue :: String -> IO Float
 getValue value = do
@@ -24,7 +25,9 @@ currentPerc = liftM2 toPerc getNow getMax
 
 run :: Float -> IO ()
 run perc | perc < 50 = hibernate
-         | otherwise = currentPerc >>= run
+         | otherwise = print perc
+                       >> threadDelay 10000000
+                       >> currentPerc >>= run
 
 main :: IO ()
 main = currentPerc >>= run
