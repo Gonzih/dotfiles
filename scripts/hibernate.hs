@@ -1,5 +1,6 @@
 import System.Cmd (system)
 import System.Exit (exitWith)
+import Control.Monad (liftM2)
 
 getValue :: String -> IO Float
 getValue value = do
@@ -13,25 +14,17 @@ getNow :: IO Float
 getNow = getValue "now"
 
 hibernate :: IO ()
-hibernate = do
-    code <- system "s-hibernate"
-    exitWith code
+hibernate = system "s-hibernate" >>= exitWith
+
+toPerc :: Float -> Float -> Float
+toPerc now max = now / max * 100
 
 currentPerc :: IO Float
-currentPerc = do
-    valueNow <- getNow
-    valueMax <- getMax
-    return $ valueNow / valueMax * 100
+currentPerc = liftM2 toPerc getNow getMax
 
 run :: Float -> IO ()
-run perc = do
-    print (show perc)
-    newPerc <- currentPerc
-    if perc < 50
-      then hibernate
-      else return ()
+run perc | perc < 50 = hibernate
+         | otherwise = currentPerc >>= run
 
 main :: IO ()
-main = do
-    perc <- currentPerc
-    run perc
+main = currentPerc >>= run
