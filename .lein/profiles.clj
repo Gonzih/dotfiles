@@ -5,7 +5,6 @@
                   [lein-simpleton "1.1.0"]
                   [lein-ancient "0.4.3"]
                   [lein-try "0.4.0"]
-                  [lein-typed "0.3.0"]
                   [lein-ritz "0.7.0"]
                   [hiccup-bridge "1.0.0-SNAPSHOT"]
                   [lein-gorilla "0.1.2"]]
