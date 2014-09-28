@@ -1,15 +1,18 @@
-#!/usr/bin/env lein-exec
+#!/home/gnzh/bin/clojure
+
+(require '[clojure.java.shell :as shell])
+(require '[clojure.string :as string])
 
 (defn get-value [value]
   (-> (str "/sys/class/power_supply/BAT0/energy_" value)
       slurp
-      clojure.string/trim-newline
+      string/trim-newline
       Integer/parseInt))
 
 (defn get-max [] (get-value "full"))
 (defn get-now [] (get-value "now"))
 
-(defn hibernate [] (clojure.java.shell/sh "s-hibernate"))
+(defn hibernate [] (shell/sh "s-hibernate"))
 
 (defn current-percantage []
   (* (double (/ (get-now) (get-max))) 100))
