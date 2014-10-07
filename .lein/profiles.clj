@@ -6,7 +6,6 @@
                   [lein-ancient "0.4.3"]
                   [lein-try "0.4.0"]
                   [lein-ritz "0.7.0"]
-                  [hiccup-bridge "1.0.0-SNAPSHOT"]
                   [lein-gorilla "0.1.2"]]
 
         :dependencies [[clj-stacktrace "0.2.7"]]
