@@ -1,2 +1,10 @@
 set :tmux, true
-set :tmux_theme, "#[fg=colour238,bg=colour39,nobold]#[fg=%s,bg=colour238]  %s"
+set :tmux_theme, "#[fg=colour238,bg=colour39,nobold]#[fg=%s,bg=colour238] %s "
+
+def dialog(string)
+  system "kdialog --passivepopup '#{string}' 30"
+end
+
+after do |seconds_left|
+  dialog("Thyme's Up!") if seconds_left == 0
+end
