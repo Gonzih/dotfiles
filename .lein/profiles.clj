@@ -6,7 +6,7 @@
                   [lein-ancient "0.4.3"]
                   [lein-try "0.4.0"]
                   [lein-ritz "0.7.0"]
-                  [lein-gorilla "0.1.2"]
+                  [lein-gorilla "0.3.3"]
                   [cider/cider-nrepl "0.8.1"]]
 
         :dependencies [[clj-stacktrace "0.2.7"]]
