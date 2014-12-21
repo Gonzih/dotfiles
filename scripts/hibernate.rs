@@ -6,8 +6,7 @@ use std::time::duration::Duration;
 
 fn get_value(v: &'static str) -> f64 {
     let path_str = format!("/sys/class/power_supply/BAT0/energy_{}", v);
-    let path = Path::new(path_str);
-    let data = File::open(&path)
+    let data = File::open(&Path::new(path_str))
         .read_to_end()
         .ok()
         .expect("No file!");
