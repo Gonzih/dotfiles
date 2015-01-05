@@ -2,7 +2,7 @@
   allowUnfree = true;
   packageOverrides = pkgs : with pkgs; {
     rvmEnv = pkgs.myEnvFun {
-      name = "rvm";
+      name = "ruby-build";
       buildInputs = [ stdenv which readline zlib openssl libxml2 libxslt libiconv mysql ];
       extraCmds = ''
         unset http_proxy
