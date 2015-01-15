@@ -1,4 +1,4 @@
-#!/home/gnzh/bin/clojure
+#!/usr/bin/env boot
 
 (require '[clojure.java.shell :as shell])
 (require '[clojure.string :as string])
@@ -25,4 +25,5 @@
       (Thread/sleep (* 1000 10))
       (recur (current-percantage)))))
 
-(run (current-percantage))
+(defn -main [& args]
+  (run (current-percantage)))
