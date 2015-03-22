@@ -1,4 +1,5 @@
-map -b -m v,i,t,c,o <C-c> <Esc>
+// map -b -m v,i,t,c,o <C-c> <Esc>
+map -b -m v,i,t,c,o <C-]> <Esc>
 map -b h j
 map -b t k
 map -b k t
@@ -32,3 +33,5 @@ map -m i <C-a> <C-v><C-a>
 map -m i <C-e> <C-i>
 
 map -ex gm :js CommandExMode().open("!youtube-play '" + content.location + "'")
+
+set! extensions.pterosaur.exitkey "<C-c>"
