@@ -1,7 +1,7 @@
 map -b -m v,t,c,o <C-c> <Esc>
 map -b -m v,i,t,c,o <C-]> <Esc>
-map -b h 5j
-map -b t 5k
+map -b h 20j
+map -b t 20k
 map -b k t
 map -b j d
 map -b K T
