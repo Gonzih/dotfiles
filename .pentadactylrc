@@ -35,3 +35,4 @@ map -m i <C-e> <C-i>
 map -ex gm :js CommandExMode().open("!youtube-play '" + content.location + "'")
 
 set! extensions.pterosaur.exitkey "<C-c>"
+set! extensions.pterosaur.contentonly false
