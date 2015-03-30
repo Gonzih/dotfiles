@@ -24,7 +24,7 @@ js editor.defaultRegister="+"
 
 set defsearch=google
 set hintkeys="aoeuidhtns"
-set guioptions=bCrs
+set guioptions=bCrsn
 
 map -m i <C-p> <C-v><C-v>
 map -m i <C-y> <C-v><C-c>
