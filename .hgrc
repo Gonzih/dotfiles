@@ -1,0 +1,9 @@
+[ui]
+username = Max Gonzih <gonzih@gmail.com>
+
+[extensions]
+hgext.bookmarks =
+hgext.git =
+record =
+color =
+purge =
