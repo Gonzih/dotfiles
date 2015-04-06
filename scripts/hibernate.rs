@@ -1,19 +1,25 @@
-use std::str::from_utf8;
-use std::io::Command;
-use std::io::File;
-use std::io::timer::sleep;
-use std::time::duration::Duration;
+use std::str::{FromStr};
+use std::process::Command;
+use std::io::Read;
+use std::fs::File;
+use std::path::Path;
+use std::thread;
 
-fn get_value(v: &'static str) -> f64 {
+fn get_value(v: &str) -> f64 {
     let path_str = format!("/sys/class/power_supply/BAT0/energy_{}", v);
-    let data = File::open(&Path::new(path_str))
-        .read_to_end()
+    let mut string = String::new();
+    let mut file = File::open(&Path::new(&path_str))
         .ok()
-        .expect("No file!");
-    let s = from_utf8(data.as_slice()).unwrap().trim();
-    let n: Option<f64> = from_str(s);
+        .expect(&(format!("Can't open file {}", path_str)));
 
-    n.unwrap()
+    file.read_to_string(&mut string)
+        .ok()
+        .expect("Error reading file to the end");
+
+    let s = string.trim();
+    let n = FromStr::from_str(s);
+
+    n.ok().expect(&format!("Error parsing str({}) -> f64", s))
 }
 
 fn get_now () -> f64 { get_value("now")  }
@@ -21,7 +27,12 @@ fn get_max () -> f64 { get_value("full") }
 
 fn to_perc (now: f64, max: f64) -> f64 { now / max * 100.0 }
 
-fn hibernate () { let _ = Command::new("hibernate").spawn(); }
+fn hibernate () {
+    Command::new("hibernate")
+        .spawn()
+        .ok()
+        .expect("Error while hibernating");
+}
 
 fn main() {
     loop {
@@ -33,6 +44,6 @@ fn main() {
             break;
         }
 
-        sleep(Duration::minutes(1));
+        thread::sleep_ms(60_000);
     }
 }
