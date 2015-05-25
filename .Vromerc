@@ -11,6 +11,8 @@ map L L
 map k t
 map K T
 
+set follow_new_tab=0
+
 set autocomplete_prev=<S-Tab>
 set autocomplete_next=<Tab>
 set autocomplete_prev_10=<Up>
