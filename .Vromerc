@@ -1,0 +1,29 @@
+map ; :
+
+map h 5j
+map t 5k
+map d gT
+map n gt
+map j dc
+map u u
+map l n
+map L L
+map k t
+map K T
+
+set autocomplete_prev=<S-Tab>
+set autocomplete_next=<Tab>
+set autocomplete_prev_10=<Up>
+set autocomplete_next_10=<Down>
+
+set hintkeys=aoeuidhtns
+
+set editor=gvim -f
+
+" add custom quick marks
+set qm_e=chrome://extensions
+" custom quick marks longer than one key
+set qm_hn=http://news.ycombinator.com
+" custom quick mark triggering JS (view below)
+set qm_r=::javascript::CustomMark.readLater();
+" vim: set ft=vim:
