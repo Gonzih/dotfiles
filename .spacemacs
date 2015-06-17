@@ -168,17 +168,24 @@ before layers configuration."
   (add-hook 'emacs-lisp-mode-hook (lambda () (paredit-mode 1)))
 
   (eval-after-load 'dired
-   '(progn
-           ;; use the standard Dired bindings as a base
-           (evil-make-overriding-map dired-mode-map 'normal t)
-           (evil-define-key 'normal dired-mode-map
-            "d" 'evil-backward-char
-            "h" 'evil-next-line
-            "t" 'evil-previous-line
-            "n" 'evil-forward-char
-            "H" 'dired-goto-file
-            "T" 'dired-do-kill-lines
-            "r" 'dired-do-redisplay)))
+    '(progn
+       ;; use the standard Dired bindings as a base
+       (evil-make-overriding-map dired-mode-map 'normal t)
+       (evil-define-key 'normal dired-mode-map
+         "d" 'evil-backward-char
+         "h" 'evil-next-line
+         "t" 'evil-previous-line
+         "n" 'evil-forward-char
+         "H" 'dired-goto-file
+         "T" 'dired-do-kill-lines
+         "r" 'dired-do-redisplay)))
+
+  (eval-after-load 'helm
+    '(progn
+       (define-key helm-map (kbd "C-h") 'helm-next-line)
+       (define-key helm-map (kbd "C-t") 'helm-previous-line)
+       (define-key helm-map (kbd "C-M-h") 'helm-next-source)
+       (define-key helm-map (kbd "C-M-t") 'helm-previous-source)))
 
   ;; DVP
   (define-key evil-normal-state-map "d" 'evil-backward-char)
