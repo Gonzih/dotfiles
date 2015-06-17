@@ -267,8 +267,6 @@ before layers configuration."
                    (kbd "X") 'paredit-backward-delete
                    (kbd "x") 'paredit-forward-delete)
 
-  (define-key evil-normal-state-map "gcc" 'evilnc-comment-or-uncomment-lines)
-
   (evil-leader/set-key "S" 'paredit-splice-sexp)
   (evil-leader/set-key "W" 'paredit-wrap-round)
   (evil-leader/set-key ">" 'paredit-forward-slurp-sexp)
@@ -291,7 +289,11 @@ before layers configuration."
     (cond
     ;; If we're in one of the Evil states that defines [escape] key, return [escape] so as
     ;; Key Lookup will use it.
-     ((or (evil-insert-state-p) (evil-normal-state-p) (evil-replace-state-p) (evil-visual-state-p) (evil-lisp-state-p)) [escape])
+     ((or (evil-insert-state-p)
+          (evil-normal-state-p)
+          (evil-replace-state-p)
+          (evil-visual-state-p)
+          (evil-lisp-state-p)) [escape])
     ;; This is the best way I could infer for now to have C-c work during evil-read-key.
     ;; Note: As long as I return [escape] in normal-state, I don't need this.
     ;;((eq overriding-terminal-local-map evil-read-key-map) (keyboard-quit) (kbd ""))
