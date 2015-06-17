@@ -19,6 +19,7 @@
      ;; ----------------------------------------------------------------
      ;; auto-completion
      ;; better-defaults
+     haskell
      clojure
      emacs-lisp
      (git :variables
@@ -154,6 +155,8 @@ before layers configuration."
   This function is called at the very end of Spacemacs initialization after
   layers configuration."
 
+  (global-linum-mode)
+
   (add-hook 'clojure-mode-hook    (lambda () (paredit-mode 1)))
   (add-hook 'cider-repl-mode-hook (lambda () (paredit-mode 1)))
   (add-hook 'emacs-lisp-mode-hook (lambda () (paredit-mode 1)))
@@ -228,6 +231,9 @@ before layers configuration."
   (evil-leader/set-key "W" 'paredit-wrap-round)
   (evil-leader/set-key ">" 'paredit-forward-slurp-sexp)
   (evil-leader/set-key "<" 'paredit-forward-barf-sexp)
+
+  (evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)
+  (evil-define-key 'visual evil-surround-mode-map "S" 'evil-surround-region)
 
   (define-key evil-window-map "-" 'split-window-vertically)
   (define-key evil-window-map "\\" 'split-window-horizontally)
