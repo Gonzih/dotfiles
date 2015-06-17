@@ -20,6 +20,12 @@
      ;; auto-completion
      ;; better-defaults
      haskell
+     ruby
+     git
+     html
+     sass
+     scss
+     css
      clojure
      emacs-lisp
      (git :variables
@@ -231,6 +237,8 @@ before layers configuration."
   (evil-leader/set-key "W" 'paredit-wrap-round)
   (evil-leader/set-key ">" 'paredit-forward-slurp-sexp)
   (evil-leader/set-key "<" 'paredit-forward-barf-sexp)
+
+  (evil-leader/set-key ";" 'helm-M-x)
 
   (evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)
   (evil-define-key 'visual evil-surround-mode-map "S" 'evil-surround-region)
