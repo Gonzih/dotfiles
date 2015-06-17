@@ -209,10 +209,10 @@ before layers configuration."
 
   (define-key evil-normal-state-map "gcc" 'evilnc-comment-or-uncomment-lines)
 
-  ; (evil-leader/set-key "S" 'paredit-splice-sexp)
-  ; (evil-leader/set-key "W" 'paredit-wrap-round)
-  ; (evil-leader/set-key ">" 'paredit-forward-slurp-sexp)
-  ; (evil-leader/set-key "<" 'paredit-forward-barf-sexp)
+  (evil-leader/set-key "S" 'paredit-splice-sexp)
+  (evil-leader/set-key "W" 'paredit-wrap-round)
+  (evil-leader/set-key ">" 'paredit-forward-slurp-sexp)
+  (evil-leader/set-key "<" 'paredit-forward-barf-sexp)
 
   (define-key evil-window-map "-" 'split-window-vertically)
   (define-key evil-window-map "\\" 'split-window-horizontally)
