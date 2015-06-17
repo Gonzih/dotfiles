@@ -21,11 +21,11 @@
      ;; better-defaults
      clojure
      emacs-lisp
-     ;; (git :variables
-     ;;      git-gutter-use-fringe t)
-     ;; markdown
+     (git :variables
+          git-gutter-use-fringe t)
+     markdown
      ;; org
-     ;; shell
+     shell
      ;; syntax-checking
      )
    ;; List of additional packages that will be installed wihout being
