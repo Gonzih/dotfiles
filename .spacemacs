@@ -65,7 +65,8 @@ before layers configuration."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(solarized-light
+   dotspacemacs-themes '(gruvbox
+                         solarized-light
                          solarized-dark
                          leuven
                          monokai
@@ -148,6 +149,10 @@ before layers configuration."
   ;; User initialization goes here
   )
 
+(add-hook 'clojure-mode-hook (lambda () (paredit-mode 1)))
+(add-hook 'cider-repl-mode-hook (lambda () (paredit-mode 1)))
+(add-hook 'emacs-lisp-mode-hook (lambda () (paredit-mode 1)))
+
 (defun dotspacemacs/config ()
   "Configuration function.
   This function is called at the very end of Spacemacs initialization after
@@ -202,7 +207,7 @@ before layers configuration."
   ;                  (kbd "X") 'paredit-backward-delete
   ;                  (kbd "x") 'paredit-forward-delete)
 
-  ; (define-key evil-normal-state-map "gcc" 'evilnc-comment-or-uncomment-lines)
+  (define-key evil-normal-state-map "gcc" 'evilnc-comment-or-uncomment-lines)
 
   ; (evil-leader/set-key "S" 'paredit-splice-sexp)
   ; (evil-leader/set-key "W" 'paredit-wrap-round)
