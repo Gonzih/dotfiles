@@ -187,6 +187,35 @@ before layers configuration."
        (define-key helm-map (kbd "C-M-h") 'helm-next-source)
        (define-key helm-map (kbd "C-M-t") 'helm-previous-source)))
 
+  ;; (defconst evil-lisp-customizations
+  ;;   '(
+  ;;     ("js" . sp-kill-symbol)
+  ;;     ("Js" . sp-backward-kill-symbol)
+  ;;     ("jw" . sp-kill-word)
+  ;;     ("Jw" . sp-backward-kill-word)
+  ;;     ("jx" . sp-kill-sexp)
+  ;;     ("Jx" . sp-backward-kill-sexp)
+
+  ;;     ("k" . sp-transpose-sexp)
+
+  ;;     ("d" . sp-backward-symbol)
+  ;;     ("D" . sp-backward-sexp)
+  ;;     ("h" . lisp-state-next-closing-paren)
+  ;;     ("H" . sp-join-sexp)
+  ;;     ("t" . lisp-state-prev-opening-paren)
+  ;;     ("T" . lisp-state-forward-symbol)
+  ;;     ("n" . lisp-state-forward-symbol)
+  ;;     ("N" . sp-forward-sexp)))
+
+  ;; (eval-after-load 'evil-lisp-state
+  ;;   '(progn
+  ;;      (dolist (x evil-lisp-customizations)
+  ;;        (let ((key (car x))
+  ;;              (cmd (cdr x)))
+  ;;          (eval
+  ;;           `(progn
+  ;;              (define-key evil-lisp-state-map ,(kbd key) ',cmd)))))))
+
   ;; DVP
   (define-key evil-normal-state-map "d" 'evil-backward-char)
   (define-key evil-normal-state-map "D" 'evil-delete-line)
@@ -262,7 +291,7 @@ before layers configuration."
     (cond
     ;; If we're in one of the Evil states that defines [escape] key, return [escape] so as
     ;; Key Lookup will use it.
-    ((or (evil-insert-state-p) (evil-normal-state-p) (evil-replace-state-p) (evil-visual-state-p)) [escape])
+     ((or (evil-insert-state-p) (evil-normal-state-p) (evil-replace-state-p) (evil-visual-state-p) (evil-lisp-state-p)) [escape])
     ;; This is the best way I could infer for now to have C-c work during evil-read-key.
     ;; Note: As long as I return [escape] in normal-state, I don't need this.
     ;;((eq overriding-terminal-local-map evil-read-key-map) (keyboard-quit) (kbd ""))
