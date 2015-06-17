@@ -307,6 +307,9 @@ before layers configuration."
   ;; Not sure what behavior this changes, but might as well set it, seeing the Elisp manual's
   ;; documentation of it.
   ;;(set-quit-char (kbd "C-c"))
+  (setq inferior-lisp-program "lein repl")
+  (evil-leader/set-key (kbd "ed") 'lisp-eval-defun)
+  (evil-leader/set-key (kbd "er") 'lisp-eval-region)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
