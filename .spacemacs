@@ -158,6 +158,19 @@ before layers configuration."
   (add-hook 'cider-repl-mode-hook (lambda () (paredit-mode 1)))
   (add-hook 'emacs-lisp-mode-hook (lambda () (paredit-mode 1)))
 
+  (eval-after-load 'dired
+   '(progn
+           ;; use the standard Dired bindings as a base
+           (evil-make-overriding-map dired-mode-map 'normal t)
+           (evil-define-key 'normal dired-mode-map
+            "d" 'evil-backward-char
+            "h" 'evil-next-line
+            "t" 'evil-previous-line
+            "n" 'evil-forward-char
+            "H" 'dired-goto-file
+            "T" 'dired-do-kill-lines
+            "r" 'dired-do-redisplay)))
+
   ;; DVP
   (define-key evil-normal-state-map "d" 'evil-backward-char)
   (define-key evil-normal-state-map "D" 'evil-delete-line)
