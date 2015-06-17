@@ -195,17 +195,19 @@ before layers configuration."
 
   (global-set-key (kbd "C-q") 'execute-extended-command)
 
-  ; (evil-define-key 'normal evil-paredit-mode-map
-  ;                  (kbd "j") 'evil-paredit-delete
-  ;                  (kbd "d") 'evil-backward-char
-  ;                  (kbd "c") 'evil-paredit-change
-  ;                  (kbd "y") 'evil-paredit-yank
-  ;                  (kbd "D") 'evil-paredit-delete-line
-  ;                  (kbd "C") 'evil-paredit-change-line
-  ;                  (kbd "S") 'evil-paredit-change-whole-line
-  ;                  (kbd "Y") 'evil-paredit-yank-line
-  ;                  (kbd "X") 'paredit-backward-delete
-  ;                  (kbd "x") 'paredit-forward-delete)
+  (evil-define-key 'normal evil-paredit-mode-map
+                   (kbd "j") 'evil-paredit-delete
+                   (kbd "d") 'evil-backward-char
+                   (kbd "c") 'evil-paredit-change
+                   (kbd "y") 'evil-paredit-yank
+                   (kbd "D") 'evil-paredit-delete-line
+                   (kbd "C") 'evil-paredit-change-line
+                   (kbd "S") 'evil-paredit-change-whole-line
+                   (kbd "S") 'evil-paredit-change-whole-line
+                   (kbd "S") 'evil-paredit-change-whole-line
+                   (kbd "Y") 'evil-paredit-yank-line
+                   (kbd "X") 'paredit-backward-delete
+                   (kbd "x") 'paredit-forward-delete)
 
   (define-key evil-normal-state-map "gcc" 'evilnc-comment-or-uncomment-lines)
 
@@ -221,7 +223,6 @@ before layers configuration."
   (define-key evil-normal-state-map "\C-r" 'undo-tree-redo)
 
   ; C-c as general purpose escape key sequence.
-  ;;
   (defun my-esc (prompt)
   "Functionality for escaping generally.  Includes exiting Evil insert state and C-g binding. "
     (cond
@@ -232,6 +233,7 @@ before layers configuration."
     ;; Note: As long as I return [escape] in normal-state, I don't need this.
     ;;((eq overriding-terminal-local-map evil-read-key-map) (keyboard-quit) (kbd ""))
     (t (kbd "C-g"))))
+
   (define-key key-translation-map (kbd "C-c") 'my-esc)
   ;; Works around the fact that Evil uses read-event directly when in operator state, which
   ;; doesn't use the key-translation-map.
