@@ -20,6 +20,7 @@
      ;; auto-completion
      ;; better-defaults
      haskell
+     scala
      ruby
      git
      html
