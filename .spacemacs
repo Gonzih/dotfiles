@@ -330,11 +330,10 @@ before layers configuration."
 
   (setup-C-c-key)
 
+  (evil-leader/set-key ";" 'helm-M-x)
   (define-key evil-motion-state-map ";" 'evil-ex)
   (define-key evil-motion-state-map "_" 'evil-first-non-blank)
   (define-key evil-motion-state-map "-" 'evil-end-of-line)
-
-  (evil-leader/set-key ";" 'helm-M-x)
 
   (define-key evil-window-map "-" 'split-window-vertically)
   (define-key evil-window-map "\\" 'split-window-horizontally)
