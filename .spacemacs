@@ -158,6 +158,20 @@ before layers configuration."
   )
 
 (defun remap-evil-lisp-mode-keys ()
+  ;; (evil-define-key 'normal evil-paredit-mode-map
+  ;;   (kbd "j") 'evil-paredit-delete
+  ;;   (kbd "d") 'evil-backward-char
+  ;;   (kbd "c") 'evil-paredit-change
+  ;;   (kbd "y") 'evil-paredit-yank
+  ;;   (kbd "D") 'evil-paredit-delete-line
+  ;;   (kbd "C") 'evil-paredit-change-line
+  ;;   (kbd "S") 'evil-paredit-change-whole-line
+  ;;   (kbd "S") 'evil-paredit-change-whole-line
+  ;;   (kbd "S") 'evil-paredit-change-whole-line
+  ;;   (kbd "Y") 'evil-paredit-yank-line
+  ;;   (kbd "X") 'paredit-backward-delete
+  ;;   (kbd "x") 'paredit-forward-delete)
+
   (define-key evil-lisp-state-map "d" 'evil-backward-char)
   (define-key evil-lisp-state-map "h" 'evil-next-visual-line)
   (define-key evil-lisp-state-map "t" 'evil-previous-visual-line)
@@ -324,21 +338,6 @@ before layers configuration."
 
   (define-key evil-window-map "-" 'split-window-vertically)
   (define-key evil-window-map "\\" 'split-window-horizontally)
-
-  (evil-define-key 'normal evil-paredit-mode-map
-                   (kbd "j") 'evil-paredit-delete
-                   (kbd "d") 'evil-backward-char
-                   (kbd "c") 'evil-paredit-change
-                   (kbd "y") 'evil-paredit-yank
-                   (kbd "D") 'evil-paredit-delete-line
-                   (kbd "C") 'evil-paredit-change-line
-                   (kbd "S") 'evil-paredit-change-whole-line
-                   (kbd "S") 'evil-paredit-change-whole-line
-                   (kbd "S") 'evil-paredit-change-whole-line
-                   (kbd "Y") 'evil-paredit-yank-line
-                   (kbd "X") 'paredit-backward-delete
-                   (kbd "x") 'paredit-forward-delete)
-
 
   (evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)
   (evil-define-key 'visual evil-surround-mode-map "S" 'evil-surround-region)
