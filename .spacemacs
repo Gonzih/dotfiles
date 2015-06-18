@@ -224,6 +224,11 @@ before layers configuration."
   (define-key evil-normal-state-map "t" 'evil-previous-line)
   (define-key evil-normal-state-map "n" 'evil-forward-char)
 
+  (define-key evil-normal-state-map (kbd "<right>") 'evil-window-increase-width)
+  (define-key evil-normal-state-map (kbd "<left>")  'evil-window-decrease-width)
+  (define-key evil-normal-state-map (kbd "<down>")  'evil-window-increase-height)
+  (define-key evil-normal-state-map (kbd "<up>")    'evil-window-decrease-height)
+
   (define-key evil-motion-state-map "d" 'evil-backward-char)
   (define-key evil-motion-state-map "h" 'evil-next-line)
   (define-key evil-motion-state-map "t" 'evil-previous-line)
