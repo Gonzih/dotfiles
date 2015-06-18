@@ -345,8 +345,7 @@ before layers configuration."
 
   (setq inferior-lisp-program "lein figwheel")
   (evil-leader/set-key (kbd "ed") 'lisp-eval-defun)
-  (evil-leader/set-key (kbd "er") 'lisp-eval-region)
-  )
+  (evil-leader/set-key (kbd "er") 'lisp-eval-region))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
