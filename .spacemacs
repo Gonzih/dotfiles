@@ -157,17 +157,60 @@ before layers configuration."
   ;; User initialization goes here
   )
 
-(defun dotspacemacs/config ()
-  "Configuration function.
-  This function is called at the very end of Spacemacs initialization after
-  layers configuration."
+(defun remap-evil-lisp-mode-keys ()
+  (define-key evil-lisp-state-map "d" 'evil-backward-char)
+  (define-key evil-lisp-state-map "h" 'evil-next-visual-line)
+  (define-key evil-lisp-state-map "t" 'evil-previous-visual-line)
+  (define-key evil-lisp-state-map "n" 'evil-forward-char)
 
-  (global-linum-mode)
+  (define-key evil-lisp-state-map "j" nil)
+  (define-key evil-lisp-state-map "J" nil)
 
-  (add-hook 'clojure-mode-hook    (lambda () (paredit-mode 1)))
-  (add-hook 'cider-repl-mode-hook (lambda () (paredit-mode 1)))
-  (add-hook 'emacs-lisp-mode-hook (lambda () (paredit-mode 1)))
+  (defconst evil-lisp-customizations
+    '(("js" . sp-kill-symbol)
+      ("Js" . sp-backward-kill-symbol)
+      ("jw" . sp-kill-word)
+      ("Jw" . sp-backward-kill-word)
+      ("jx" . sp-kill-sexp)
+      ("Jx" . sp-backward-kill-sexp)
 
+      ("k" . sp-transpose-sexp)
+
+      ("d" . sp-backward-symbol)
+      ("D" . sp-backward-sexp)
+      ("h" . lisp-state-next-closing-paren)
+      ("H" . sp-join-sexp)
+      ("t" . lisp-state-prev-opening-paren)
+      ("T" . lisp-state-forward-symbol)
+      ("n" . lisp-state-forward-symbol)
+      ("N" . sp-forward-sexp)))
+
+  (eval-after-load 'evil-lisp-state
+  (dolist (x evil-lisp-customizations)
+    (let ((key (car x))
+          (cmd (cdr x)))
+      (eval
+       `(progn
+          (define-key evil-lisp-state-map ,(kbd key) ',cmd)
+          ;; (if evil-lisp-state-global
+          ;;     (evil-leader/set-key
+          ;;       ,(kbd (concat evil-lisp-state-leader-prefix " " key))
+          ;;       (evil-lisp-state-enter-command ,cmd))
+          ;;   (dolist (mm evil-lisp-state-major-modes)
+          ;;     (evil-leader/set-key-for-mode mm
+          ;;       ,(kbd (concat evil-lisp-state-leader-prefix " " key))
+          ;;       (evil-lisp-state-enter-command ,cmd))))
+          ))))))
+
+(defun remap-helm-keys ()
+  (eval-after-load 'helm
+    '(progn
+       (define-key helm-map (kbd "C-h") 'helm-next-line)
+       (define-key helm-map (kbd "C-t") 'helm-previous-line)
+       (define-key helm-map (kbd "C-M-h") 'helm-next-source)
+       (define-key helm-map (kbd "C-M-t") 'helm-previous-source))))
+
+(defun remap-dired-keys ()
   (eval-after-load 'dired
     '(progn
        ;; use the standard Dired bindings as a base
@@ -179,44 +222,14 @@ before layers configuration."
          "n" 'evil-forward-char
          "H" 'dired-goto-file
          "T" 'dired-do-kill-lines
-         "r" 'dired-do-redisplay)))
+         "r" 'dired-do-redisplay))))
 
-  (eval-after-load 'helm
-    '(progn
-       (define-key helm-map (kbd "C-h") 'helm-next-line)
-       (define-key helm-map (kbd "C-t") 'helm-previous-line)
-       (define-key helm-map (kbd "C-M-h") 'helm-next-source)
-       (define-key helm-map (kbd "C-M-t") 'helm-previous-source)))
+(defun add-paredit-hooks ()
+  (add-hook 'clojure-mode-hook    (lambda () (paredit-mode 1)))
+  (add-hook 'cider-repl-mode-hook (lambda () (paredit-mode 1)))
+  (add-hook 'emacs-lisp-mode-hook (lambda () (paredit-mode 1))))
 
-  ;; (defconst evil-lisp-customizations
-  ;;   '(
-  ;;     ("js" . sp-kill-symbol)
-  ;;     ("Js" . sp-backward-kill-symbol)
-  ;;     ("jw" . sp-kill-word)
-  ;;     ("Jw" . sp-backward-kill-word)
-  ;;     ("jx" . sp-kill-sexp)
-  ;;     ("Jx" . sp-backward-kill-sexp)
-
-  ;;     ("k" . sp-transpose-sexp)
-
-  ;;     ("d" . sp-backward-symbol)
-  ;;     ("D" . sp-backward-sexp)
-  ;;     ("h" . lisp-state-next-closing-paren)
-  ;;     ("H" . sp-join-sexp)
-  ;;     ("t" . lisp-state-prev-opening-paren)
-  ;;     ("T" . lisp-state-forward-symbol)
-  ;;     ("n" . lisp-state-forward-symbol)
-  ;;     ("N" . sp-forward-sexp)))
-
-  ;; (eval-after-load 'evil-lisp-state
-  ;;   '(progn
-  ;;      (dolist (x evil-lisp-customizations)
-  ;;        (let ((key (car x))
-  ;;              (cmd (cdr x)))
-  ;;          (eval
-  ;;           `(progn
-  ;;              (define-key evil-lisp-state-map ,(kbd key) ',cmd)))))))
-
+(defun remap-evil-for-dvp ()
   ;; DVP
   (define-key evil-normal-state-map "d" 'evil-backward-char)
   (define-key evil-normal-state-map "D" 'evil-delete-line)
@@ -225,9 +238,9 @@ before layers configuration."
   (define-key evil-normal-state-map "n" 'evil-forward-char)
 
   (define-key evil-normal-state-map (kbd "<right>") 'evil-window-increase-width)
-  (define-key evil-normal-state-map (kbd "<left>")  'evil-window-decrease-width)
-  (define-key evil-normal-state-map (kbd "<down>")  'evil-window-increase-height)
-  (define-key evil-normal-state-map (kbd "<up>")    'evil-window-decrease-height)
+  (define-key evil-normal-state-map (kbd "<left>") 'evil-window-decrease-width)
+  (define-key evil-normal-state-map (kbd "<down>") 'evil-window-increase-height)
+  (define-key evil-normal-state-map (kbd "<up>")   'evil-window-decrease-height)
 
   (define-key evil-motion-state-map "d" 'evil-backward-char)
   (define-key evil-motion-state-map "h" 'evil-next-line)
@@ -250,46 +263,16 @@ before layers configuration."
   (define-key evil-motion-state-map "j" 'evil-delete)
 
   (define-key evil-motion-state-map "l" 'evil-search-next)
-  (define-key evil-motion-state-map "L" 'evil-search-previous)
+  (define-key evil-motion-state-map "L" 'evil-search-previous))
 
-  (define-key evil-motion-state-map ";" 'evil-ex)
-
-  (define-key evil-motion-state-map "_" 'evil-first-non-blank)
-  (define-key evil-motion-state-map "-" 'evil-end-of-line)
-
-  (global-set-key (kbd "C-q") 'execute-extended-command)
-
-  (evil-define-key 'normal evil-paredit-mode-map
-                   (kbd "j") 'evil-paredit-delete
-                   (kbd "d") 'evil-backward-char
-                   (kbd "c") 'evil-paredit-change
-                   (kbd "y") 'evil-paredit-yank
-                   (kbd "D") 'evil-paredit-delete-line
-                   (kbd "C") 'evil-paredit-change-line
-                   (kbd "S") 'evil-paredit-change-whole-line
-                   (kbd "S") 'evil-paredit-change-whole-line
-                   (kbd "S") 'evil-paredit-change-whole-line
-                   (kbd "Y") 'evil-paredit-yank-line
-                   (kbd "X") 'paredit-backward-delete
-                   (kbd "x") 'paredit-forward-delete)
-
+(defun add-vim-like-paredit-bindings ()
   (evil-leader/set-key "S" 'paredit-splice-sexp)
   (evil-leader/set-key "W" 'paredit-wrap-round)
   (evil-leader/set-key ">" 'paredit-forward-slurp-sexp)
-  (evil-leader/set-key "<" 'paredit-forward-barf-sexp)
+  (evil-leader/set-key "<" 'paredit-forward-barf-sexp))
 
-  (evil-leader/set-key ";" 'helm-M-x)
-
-  (evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)
-  (evil-define-key 'visual evil-surround-mode-map "S" 'evil-surround-region)
-
-  (define-key evil-window-map "-" 'split-window-vertically)
-  (define-key evil-window-map "\\" 'split-window-horizontally)
-
-  (define-key evil-normal-state-map "u" 'undo-tree-undo)
-  (define-key evil-normal-state-map "\C-r" 'undo-tree-redo)
-
-  ; C-c as general purpose escape key sequence.
+(defun setup-C-c-key ()
+  ;; C-c as general purpose escape key sequence.
   (defun my-esc (prompt)
   "Functionality for escaping generally.  Includes exiting Evil insert state and C-g binding. "
     (cond
@@ -313,7 +296,54 @@ before layers configuration."
   ;; Not sure what behavior this changes, but might as well set it, seeing the Elisp manual's
   ;; documentation of it.
   ;;(set-quit-char (kbd "C-c"))
-  (setq inferior-lisp-program "lein repl")
+  )
+
+(defun dotspacemacs/config ()
+  "Configuration function.
+  This function is called at the very end of Spacemacs initialization after
+  layers configuration."
+
+  (global-linum-mode)
+
+  (add-paredit-hooks)
+
+  (remap-dired-keys)
+  (remap-helm-keys)
+  (remap-evil-lisp-mode-keys)
+  (remap-evil-for-dvp)
+
+  (add-vim-like-paredit-bindings)
+
+  (setup-C-c-key)
+
+  (define-key evil-motion-state-map ";" 'evil-ex)
+  (define-key evil-motion-state-map "_" 'evil-first-non-blank)
+  (define-key evil-motion-state-map "-" 'evil-end-of-line)
+
+  (evil-leader/set-key ";" 'helm-M-x)
+
+  (define-key evil-window-map "-" 'split-window-vertically)
+  (define-key evil-window-map "\\" 'split-window-horizontally)
+
+  (evil-define-key 'normal evil-paredit-mode-map
+                   (kbd "j") 'evil-paredit-delete
+                   (kbd "d") 'evil-backward-char
+                   (kbd "c") 'evil-paredit-change
+                   (kbd "y") 'evil-paredit-yank
+                   (kbd "D") 'evil-paredit-delete-line
+                   (kbd "C") 'evil-paredit-change-line
+                   (kbd "S") 'evil-paredit-change-whole-line
+                   (kbd "S") 'evil-paredit-change-whole-line
+                   (kbd "S") 'evil-paredit-change-whole-line
+                   (kbd "Y") 'evil-paredit-yank-line
+                   (kbd "X") 'paredit-backward-delete
+                   (kbd "x") 'paredit-forward-delete)
+
+
+  (evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)
+  (evil-define-key 'visual evil-surround-mode-map "S" 'evil-surround-region)
+
+  (setq inferior-lisp-program "lein figwheel")
   (evil-leader/set-key (kbd "ed") 'lisp-eval-defun)
   (evil-leader/set-key (kbd "er") 'lisp-eval-region)
   )
