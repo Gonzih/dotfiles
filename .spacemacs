@@ -19,6 +19,7 @@
      ;; ----------------------------------------------------------------
      ;; auto-completion
      ;; better-defaults
+     rust
      haskell
      scala
      ruby
