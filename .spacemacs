@@ -338,12 +338,11 @@ before layers configuration."
   (define-key evil-window-map "-" 'split-window-vertically)
   (define-key evil-window-map "\\" 'split-window-horizontally)
 
-  (evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)
-  (evil-define-key 'visual evil-surround-mode-map "S" 'evil-surround-region)
-
   (setq inferior-lisp-program "lein figwheel")
   (evil-leader/set-key (kbd "ed") 'lisp-eval-defun)
-  (evil-leader/set-key (kbd "er") 'lisp-eval-region))
+  (evil-leader/set-key (kbd "er") 'lisp-eval-region)
+
+  (spacemacs/toggle-truncate-lines))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
