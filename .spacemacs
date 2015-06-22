@@ -17,8 +17,11 @@
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;; auto-completion
      ;; better-defaults
+     (auto-completion :variables
+                      auto-completion-return-key-behaviour 'complete
+                      auto-completion-tab-key-behaviour 'cycle
+                      auto-completion-complete-with-key-sequence nil)
      rust
      haskell
      scala
@@ -218,16 +221,16 @@ before layers configuration."
           ))))))
 
 (defun remap-helm-keys ()
-  (eval-after-load 'helm
-    '(progn
-       (define-key helm-map (kbd "C-h") 'helm-next-line)
-       (define-key helm-map (kbd "C-t") 'helm-previous-line)
-       (define-key helm-map (kbd "C-n") 'helm-next-source)
-       (define-key helm-map (kbd "C-d") 'helm-previous-source)
-       (define-key helm-find-files-map (kbd "C-h") 'helm-next-line)
-       (define-key helm-find-files-map (kbd "C-t") 'helm-previous-line)
-       (define-key helm-projectile-find-file-map (kbd "C-h") 'helm-next-line)
-       (define-key helm-projectile-find-file-map (kbd "C-t") 'helm-previous-line))))
+  (with-eval-after-load 'helm
+    (define-key helm-map (kbd "C-h") 'helm-next-line)
+    (define-key helm-map (kbd "C-t") 'helm-previous-line)
+    (define-key helm-map (kbd "C-n") 'helm-next-source)
+    (define-key helm-map (kbd "C-d") 'helm-previous-source)
+    (define-key helm-find-files-map (kbd "C-h") 'helm-next-line)
+    (define-key helm-find-files-map (kbd "C-t") 'helm-previous-line))
+  (with-eval-after-load 'helm-projectile-find-file-map
+    (define-key helm-projectile-find-file-map (kbd "C-h") 'helm-next-line)
+    (define-key helm-projectile-find-file-map (kbd "C-t") 'helm-previous-line)))
 
 (defun remap-dired-keys ()
   (eval-after-load 'dired
@@ -242,6 +245,13 @@ before layers configuration."
          "H" 'dired-goto-file
          "T" 'dired-do-kill-lines
          "r" 'dired-do-redisplay))))
+
+(defun remap-auto-completion-keys ()
+  (with-eval-after-load 'company
+    (define-key company-active-map (kbd "C-d") 'company-show-doc-buffer)
+    (define-key company-active-map (kbd "C-h") 'company-select-next)
+    (define-key company-active-map (kbd "C-t") 'company-select-previous)
+    (define-key company-active-map (kbd "C-l") 'company-complete-selection)))
 
 (defun add-paredit-hooks ()
   (add-hook 'clojure-mode-hook    (lambda () (paredit-mode 1)))
@@ -282,7 +292,9 @@ before layers configuration."
   (define-key evil-motion-state-map "j" 'evil-delete)
 
   (define-key evil-motion-state-map "l" 'evil-search-next)
-  (define-key evil-motion-state-map "L" 'evil-search-previous))
+  (define-key evil-motion-state-map "L" 'evil-search-previous)
+
+  (define-key evil-noral-state-map (kbd "C-t") nil))
 
 (defun add-vim-like-paredit-bindings ()
   (evil-leader/set-key ">" 'paredit-forward-slurp-sexp)
@@ -328,6 +340,7 @@ before layers configuration."
   (remap-helm-keys)
   (remap-evil-lisp-mode-keys)
   (remap-evil-for-dvp)
+  (remap-auto-completion-keys)
 
   (add-vim-like-paredit-bindings)
 
