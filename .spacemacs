@@ -258,6 +258,10 @@ before layers configuration."
   (add-hook 'cider-repl-mode-hook (lambda () (paredit-mode 1)))
   (add-hook 'emacs-lisp-mode-hook (lambda () (paredit-mode 1))))
 
+(defun add-clojure-hooks ()
+  (add-hook 'cider-repl-mode-hook #'company-mode)
+  (add-hook 'cider-mode-hook #'company-mode))
+
 (defun remap-evil-for-dvp ()
   ;; DVP
   (define-key evil-normal-state-map "d" 'evil-backward-char)
@@ -335,6 +339,7 @@ before layers configuration."
   (global-linum-mode)
 
   (add-paredit-hooks)
+  (add-clojure-hooks)
 
   (remap-dired-keys)
   (remap-helm-keys)
