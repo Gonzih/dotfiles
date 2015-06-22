@@ -294,7 +294,7 @@ before layers configuration."
   (define-key evil-motion-state-map "l" 'evil-search-next)
   (define-key evil-motion-state-map "L" 'evil-search-previous)
 
-  (define-key evil-noral-state-map (kbd "C-t") nil))
+  (define-key evil-normal-state-map (kbd "C-t") nil))
 
 (defun add-vim-like-paredit-bindings ()
   (evil-leader/set-key ">" 'paredit-forward-slurp-sexp)
