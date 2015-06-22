@@ -28,7 +28,7 @@
      sass
      scss
      css
-     clojure
+     (clojure :variables clojure-enable-fancy-symbols t)
      emacs-lisp
      (git :variables
           git-gutter-use-fringe t)
@@ -222,8 +222,12 @@ before layers configuration."
     '(progn
        (define-key helm-map (kbd "C-h") 'helm-next-line)
        (define-key helm-map (kbd "C-t") 'helm-previous-line)
-       (define-key helm-map (kbd "C-M-h") 'helm-next-source)
-       (define-key helm-map (kbd "C-M-t") 'helm-previous-source))))
+       (define-key helm-map (kbd "C-n") 'helm-next-source)
+       (define-key helm-map (kbd "C-d") 'helm-previous-source)
+       (define-key helm-find-files-map (kbd "C-h") 'helm-next-line)
+       (define-key helm-find-files-map (kbd "C-t") 'helm-previous-line)
+       (define-key helm-projectile-find-file-map (kbd "C-h") 'helm-next-line)
+       (define-key helm-projectile-find-file-map (kbd "C-t") 'helm-previous-line))))
 
 (defun remap-dired-keys ()
   (eval-after-load 'dired
