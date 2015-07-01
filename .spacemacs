@@ -31,6 +31,8 @@
      sass
      scss
      css
+     scheme
+     racket
      (clojure :variables clojure-enable-fancy-symbols t)
      emacs-lisp
      (git :variables
