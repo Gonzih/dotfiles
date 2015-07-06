@@ -33,7 +33,7 @@
      css
      scheme
      racket
-     (clojure :variables clojure-enable-fancy-symbols t)
+     (clojure :variables clojure-enable-fancify-symbols t)
      emacs-lisp
      (git :variables
           git-gutter-use-fringe t)
