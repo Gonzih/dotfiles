@@ -206,21 +206,21 @@ before layers configuration."
       ("N" . sp-forward-sexp)))
 
   (eval-after-load 'evil-lisp-state
-  (dolist (x evil-lisp-customizations)
-    (let ((key (car x))
-          (cmd (cdr x)))
-      (eval
-       `(progn
-          (define-key evil-lisp-state-map ,(kbd key) ',cmd)
-          ;; (if evil-lisp-state-global
-          ;;     (evil-leader/set-key
-          ;;       ,(kbd (concat evil-lisp-state-leader-prefix " " key))
-          ;;       (evil-lisp-state-enter-command ,cmd))
-          ;;   (dolist (mm evil-lisp-state-major-modes)
-          ;;     (evil-leader/set-key-for-mode mm
-          ;;       ,(kbd (concat evil-lisp-state-leader-prefix " " key))
-          ;;       (evil-lisp-state-enter-command ,cmd))))
-          ))))))
+    (dolist (x evil-lisp-customizations)
+      (let ((key (car x))
+            (cmd (cdr x)))
+        (eval
+         `(progn
+            (define-key evil-lisp-state-map ,(kbd key) ',cmd)
+            ;; (if evil-lisp-state-global
+            ;;     (evil-leader/set-key
+            ;;       ,(kbd (concat evil-lisp-state-leader-prefix " " key))
+            ;;       (evil-lisp-state-enter-command ,cmd))
+            ;;   (dolist (mm evil-lisp-state-major-modes)
+            ;;     (evil-leader/set-key-for-mode mm
+            ;;       ,(kbd (concat evil-lisp-state-leader-prefix " " key))
+            ;;       (evil-lisp-state-enter-command ,cmd))))
+            ))))))
 
 (defun remap-helm-keys ()
   (with-eval-after-load 'helm
