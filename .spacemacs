@@ -40,6 +40,7 @@
      markdown
      ;; org
      shell
+     org
      ;; syntax-checking
      )
    ;; List of additional packages that will be installed wihout being
@@ -52,7 +53,10 @@
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'
-   dotspacemacs-delete-orphan-packages t))
+   dotspacemacs-delete-orphan-packages t
+
+   ;; Clojure fix
+   evil-move-beyond-eol t))
 
 (defun dotspacemacs/init ()
   "Initialization function.
@@ -302,6 +306,51 @@ before layers configuration."
 
   (define-key evil-normal-state-map (kbd "C-t") nil))
 
+(defun remap-org-mode-keys ()
+
+  (evil-define-key 'normal evil-org-mode-map
+    "d" 'evil-backward-char
+    "h" 'evil-next-line
+    "t" 'evil-previous-line
+    "n" 'evil-forward-char)
+
+  ;; normal state shortcuts
+  (evil-define-key 'normal evil-org-mode-map
+    "gd" 'outline-up-heading
+    "gh" (if (fboundp 'org-forward-same-level) ;to be backward compatible with older org version
+             'org-forward-same-level
+           'org-forward-heading-same-level)
+    "gt" (if (fboundp 'org-backward-same-level)
+             'org-backward-same-level
+           'org-backward-heading-same-level)
+    "gn" 'outline-next-visible-heading
+    "k" 'org-todo
+    "K" '(lambda () (interactive) (evil-org-eol-call (lambda() (org-insert-todo-heading nil))))
+    "D" 'org-beginning-of-line
+    "N" 'org-end-of-line
+    "-" 'org-end-of-line
+    "_" 'org-beginning-of-line
+    "+" 'org-cycle-list-bullet
+    (kbd "TAB") 'org-cycle)
+
+  ;; normal & insert state shortcuts.
+  (mapc (lambda (state)
+          (evil-define-key state evil-org-mode-map
+            (kbd "M-n") 'org-metaright
+            (kbd "M-d") 'org-metaleft
+            (kbd "M-t") 'org-metaup
+            (kbd "M-h") 'org-metadown
+            (kbd "M-N") 'org-shiftmetaright
+            (kbd "M-D") 'org-shiftmetaleft
+            (kbd "M-T") 'org-shiftmetaup
+            (kbd "M-H") 'org-shiftmetadown
+            (kbd "M-k") '(lambda () (interactive)
+                           (evil-org-eol-call
+                            '(lambda()
+                               (org-insert-todo-heading nil)
+                               (org-metaright))))))
+        '(normal insert)))
+
 (defun add-vim-like-paredit-bindings ()
   (evil-leader/set-key ">" 'paredit-forward-slurp-sexp)
   (evil-leader/set-key "<" 'paredit-forward-barf-sexp))
@@ -348,6 +397,7 @@ before layers configuration."
   (remap-evil-lisp-mode-keys)
   (remap-evil-for-dvp)
   (remap-auto-completion-keys)
+  (remap-org-mode-keys)
 
   (add-vim-like-paredit-bindings)
 
@@ -365,7 +415,8 @@ before layers configuration."
   (evil-leader/set-key (kbd "ed") 'lisp-eval-defun)
   (evil-leader/set-key (kbd "er") 'lisp-eval-region)
 
-  (spacemacs/toggle-truncate-lines))
+  ;; (spacemacs/toggle-truncate-lines)
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
