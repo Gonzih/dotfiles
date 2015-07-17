@@ -307,49 +307,48 @@ before layers configuration."
   (define-key evil-normal-state-map (kbd "C-t") nil))
 
 (defun remap-org-mode-keys ()
+  (eval-after-load 'evil-org
+    '(progn
+       ;; normal state shortcuts
+       (evil-define-key 'normal evil-org-mode-map
+         "d" 'evil-backward-char
+         "h" 'evil-next-line
+         "t" 'evil-previous-line
+         "n" 'evil-forward-char
+         "gd" 'outline-up-heading
+         "gh" (if (fboundp 'org-forward-same-level) ;to be backward compatible with older org version
+                  'org-forward-same-level
+                'org-forward-heading-same-level)
+         "gt" (if (fboundp 'org-backward-same-level)
+                  'org-backward-same-level
+                'org-backward-heading-same-level)
+         "gn" 'outline-next-visible-heading
+         "k" 'org-todo
+         "K" '(lambda () (interactive) (evil-org-eol-call (lambda() (org-insert-todo-heading nil))))
+         "D" 'org-beginning-of-line
+         "N" 'org-end-of-line
+         "-" 'org-end-of-line
+         "_" 'org-beginning-of-line
+         "+" 'org-cycle-list-bullet
+         (kbd "TAB") 'org-cycle)
 
-  (evil-define-key 'normal evil-org-mode-map
-    "d" 'evil-backward-char
-    "h" 'evil-next-line
-    "t" 'evil-previous-line
-    "n" 'evil-forward-char)
-
-  ;; normal state shortcuts
-  (evil-define-key 'normal evil-org-mode-map
-    "gd" 'outline-up-heading
-    "gh" (if (fboundp 'org-forward-same-level) ;to be backward compatible with older org version
-             'org-forward-same-level
-           'org-forward-heading-same-level)
-    "gt" (if (fboundp 'org-backward-same-level)
-             'org-backward-same-level
-           'org-backward-heading-same-level)
-    "gn" 'outline-next-visible-heading
-    "k" 'org-todo
-    "K" '(lambda () (interactive) (evil-org-eol-call (lambda() (org-insert-todo-heading nil))))
-    "D" 'org-beginning-of-line
-    "N" 'org-end-of-line
-    "-" 'org-end-of-line
-    "_" 'org-beginning-of-line
-    "+" 'org-cycle-list-bullet
-    (kbd "TAB") 'org-cycle)
-
-  ;; normal & insert state shortcuts.
-  (mapc (lambda (state)
-          (evil-define-key state evil-org-mode-map
-            (kbd "M-n") 'org-metaright
-            (kbd "M-d") 'org-metaleft
-            (kbd "M-t") 'org-metaup
-            (kbd "M-h") 'org-metadown
-            (kbd "M-N") 'org-shiftmetaright
-            (kbd "M-D") 'org-shiftmetaleft
-            (kbd "M-T") 'org-shiftmetaup
-            (kbd "M-H") 'org-shiftmetadown
-            (kbd "M-k") '(lambda () (interactive)
-                           (evil-org-eol-call
-                            '(lambda()
-                               (org-insert-todo-heading nil)
-                               (org-metaright))))))
-        '(normal insert)))
+       ;; normal & insert state shortcuts.
+       (mapc (lambda (state)
+               (evil-define-key state evil-org-mode-map
+                 (kbd "M-n") 'org-metaright
+                 (kbd "M-d") 'org-metaleft
+                 (kbd "M-t") 'org-metaup
+                 (kbd "M-h") 'org-metadown
+                 (kbd "M-N") 'org-shiftmetaright
+                 (kbd "M-D") 'org-shiftmetaleft
+                 (kbd "M-T") 'org-shiftmetaup
+                 (kbd "M-H") 'org-shiftmetadown
+                 (kbd "M-k") '(lambda () (interactive)
+                                (evil-org-eol-call
+                                 '(lambda()
+                                    (org-insert-todo-heading nil)
+                                    (org-metaright))))))
+             '(normal insert)))))
 
 (defun add-vim-like-paredit-bindings ()
   (evil-leader/set-key ">" 'paredit-forward-slurp-sexp)
