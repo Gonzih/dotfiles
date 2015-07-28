@@ -41,7 +41,7 @@
      ;; org
      shell
      org
-     ;; syntax-checking
+     syntax-checking
      )
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
