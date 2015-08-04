@@ -6,7 +6,10 @@ mv ~/dotfiles/.* -t ~/ -f
 rm ~/dotfiles -rf
 git reset --hard
 
+git clone --recursive https://github.com/syl20bnr/spacemacs ~/.emacs.d
+
 git clone git@github.com:Gonzih/.vim.git ~/.vim
+
 git clone git@github.com:Gonzih/.mc.git ~/.config/mc
 git clone git@github.com:Gonzih/.fish.git ~/.config/fish
 git clone git@github.com:Gonzih/.xmonad.git ~/.xmonad
