@@ -23,6 +23,8 @@
                       auto-completion-tab-key-behaviour 'cycle
                       auto-completion-complete-with-key-sequence nil)
      rust
+     nim
+     dockerfile
      haskell
      scala
      ruby
