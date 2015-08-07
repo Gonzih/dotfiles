@@ -22,8 +22,10 @@
                       auto-completion-return-key-behaviour 'complete
                       auto-completion-tab-key-behaviour 'cycle
                       auto-completion-complete-with-key-sequence nil)
+     shell-scripts
      rust
      nim
+     go
      dockerfile
      haskell
      scala
