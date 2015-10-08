@@ -33,3 +33,5 @@ map -m i <C-a> <C-v><C-a>
 map -m i <C-e> <C-i>
 
 map -ex gm :js CommandExMode().open("!youtube-play '" + content.location + "'")
+
+set editor='emacsclient -c'
