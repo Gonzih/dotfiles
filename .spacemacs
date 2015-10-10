@@ -418,6 +418,9 @@ before layers configuration."
   (evil-leader/set-key (kbd "ed") 'lisp-eval-defun)
   (evil-leader/set-key (kbd "er") 'lisp-eval-region)
 
+  (require 'epa-file)
+  (epa-file-enable)
+
   ;; (spacemacs/toggle-truncate-lines)
   )
 
