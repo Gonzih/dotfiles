@@ -1,22 +1,22 @@
-map -b -m v,i,t,c,o <C-c> <Esc>
-map -b -m v,i,t,c,o <C-]> <Esc>
-map -b h 20j
-map -b t 20k
-map -b k t
-map -b j d
-map -b K T
-map -b J D
-map -b ; :
-map -b : ;
-map -b <C-j> <C-d>
-map -b d h
-map -b n l
-map -b l n
-map -b d :tp<CR>
-map -b n :tn<CR>
-map -b D :tabmove -1<CR>
-map -b N :tabmove +1<CR>
-map -b , @:
+noremap -b -m v,i,t,c,o <C-c> <Esc>
+noremap -b -m v,i,t,c,o <C-]> <Esc>
+noremap -b h 20j
+noremap -b t 20k
+noremap -b k t
+noremap -b j d
+noremap -b K T
+noremap -b J D
+noremap -b ; :
+noremap -b : ;
+noremap -b <C-j> <C-d>
+noremap -b d h
+noremap -b n l
+noremap -b l n
+noremap -b d :tp<CR>
+noremap -b n :tn<CR>
+noremap -b D :tabmove -1<CR>
+noremap -b N :tabmove +1<CR>
+noremap -b , @:
 
 colorscheme solarized-dark
 
@@ -26,12 +26,12 @@ set defsearch=google
 set hintkeys="aoeuidhtns"
 set guioptions=bCrsn
 
-map -m i <C-p> <C-v><C-v>
-map -m i <C-y> <C-v><C-c>
-map -m i <C-a> <C-v><C-a>
+noremap -m i <C-p> <C-v><C-v>
+noremap -m i <C-y> <C-v><C-c>
+noremap -m i <C-a> <C-v><C-a>
 
-map -m i <C-e> <C-i>
+noremap -m i <C-e> <C-i>
 
-map -ex gm :js CommandExMode().open("!youtube-play '" + content.location + "'")
+noremap -ex gm :js CommandExMode().open("!youtube-play '" + content.location + "'")
 
 set editor='emacsclient -c'
