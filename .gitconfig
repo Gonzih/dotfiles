@@ -61,3 +61,5 @@
 
 [pull]
   rebase = preserve
+[rebase]
+	autostash = true
