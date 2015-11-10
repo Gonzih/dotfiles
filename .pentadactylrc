@@ -35,3 +35,6 @@ noremap -m i <C-e> <C-i>
 noremap -ex gm :js CommandExMode().open("!youtube-play '" + content.location + "'")
 
 set editor='emacsclient -c'
+
+noremap <BS> :back<CR>
+noremap <Del> :forward<CR>
