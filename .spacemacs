@@ -173,7 +173,7 @@ before layers configuration."
   ;; User initialization goes here
   )
 
-(defun remap-evil-lisp-mode-keys ()
+(defun gnzh/remap-evil-lisp-mode-keys ()
   ;; (evil-define-key 'normal evil-paredit-mode-map
   ;;   (kbd "j") 'evil-paredit-delete
   ;;   (kbd "d") 'evil-backward-char
@@ -232,7 +232,7 @@ before layers configuration."
             ;;       (evil-lisp-state-enter-command ,cmd))))
             ))))))
 
-(defun remap-helm-keys ()
+(defun gnzh/remap-helm-keys ()
   (with-eval-after-load 'helm
     (define-key helm-map (kbd "C-h") 'helm-next-line)
     (define-key helm-map (kbd "C-t") 'helm-previous-line)
@@ -244,7 +244,7 @@ before layers configuration."
     (define-key helm-projectile-find-file-map (kbd "C-h") 'helm-next-line)
     (define-key helm-projectile-find-file-map (kbd "C-t") 'helm-previous-line)))
 
-(defun remap-dired-keys ()
+(defun gnzh/remap-dired-keys ()
   (eval-after-load 'dired
     '(progn
        ;; use the standard Dired bindings as a base
@@ -258,7 +258,7 @@ before layers configuration."
          "T" 'dired-do-kill-lines
          "r" 'dired-do-redisplay))))
 
-(defun remap-auto-completion-keys ()
+(defun gnzh/remap-auto-completion-keys ()
   (with-eval-after-load 'company
     (define-key company-active-map (kbd "C-d") 'company-show-doc-buffer)
     (define-key company-active-map (kbd "C-h") 'company-select-next)
@@ -274,7 +274,7 @@ before layers configuration."
   (add-hook 'cider-repl-mode-hook #'company-mode)
   (add-hook 'cider-mode-hook #'company-mode))
 
-(defun remap-evil-for-dvp ()
+(defun gnzh/remap-evil-for-dvp ()
   ;; DVP
   (define-key evil-normal-state-map "d" 'evil-backward-char)
   (define-key evil-normal-state-map "D" 'evil-delete-line)
@@ -312,7 +312,7 @@ before layers configuration."
 
   (define-key evil-normal-state-map (kbd "C-t") nil))
 
-(defun remap-org-mode-keys ()
+(defun gnzh/remap-org-mode-keys ()
   (eval-after-load 'evil-org
     '(progn
        ;; normal state shortcuts
@@ -419,6 +419,11 @@ before layers configuration."
     (evil-leader/set-key "\"y" 'copy-to-clipboard)
     (evil-leader/set-key "\"p" 'paste-from-clipboard)))
 
+(defun gnzh/customize-git-commit-mode ()
+  (evil-define-key 'normal git-commit-mode-map
+    "ZQ" 'with-editor-cancel
+    "ZZ" 'with-editor-finish))
+
 (defun dotspacemacs/config ()
   "Configuration function.
   This function is called at the very end of Spacemacs initialization after
@@ -429,12 +434,12 @@ before layers configuration."
   (add-paredit-hooks)
   (add-clojure-hooks)
 
-  (remap-dired-keys)
-  (remap-helm-keys)
-  (remap-evil-lisp-mode-keys)
-  (remap-evil-for-dvp)
-  (remap-auto-completion-keys)
-  (remap-org-mode-keys)
+  (gnzh/remap-dired-keys)
+  (gnzh/remap-helm-keys)
+  (gnzh/remap-evil-lisp-mode-keys)
+  (gnzh/remap-evil-for-dvp)
+  (gnzh/remap-auto-completion-keys)
+  (gnzh/remap-org-mode-keys)
 
   (add-vim-like-paredit-bindings)
 
@@ -467,6 +472,9 @@ before layers configuration."
 
   (gnzh/init-xsel)
 
+  (gnzh/customize-git-commit-mode)
+
+  (setq magit-push-always-verify nil)
   ;; (spacemacs/toggle-truncate-lines)
   )
 
