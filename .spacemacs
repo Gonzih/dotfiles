@@ -387,6 +387,38 @@ before layers configuration."
   ;;(set-quit-char (kbd "C-c"))
   )
 
+(defun gnzh/init-xsel ()
+  (when (and (not window-system)
+             (getenv "DISPLAY")
+             (executable-find "xsel"))
+
+    (defun copy-to-clipboard ()
+      "Copies selection to x-clipboard."
+      (interactive)
+      (if (display-graphic-p)
+          (progn
+            (message "Yanked region to x-clipboard!")
+            (call-interactively 'clipboard-kill-ring-save)
+            )
+        (if (region-active-p)
+            (progn
+              (shell-command-on-region (region-beginning) (region-end) "xsel -i -b")
+              (message "Yanked region to clipboard!")
+              (deactivate-mark))
+          (message "No region active; can't yank to clipboard!"))))
+
+    (defun paste-from-clipboard ()
+      "Pastes from x-clipboard."
+      (interactive)
+      (if (display-graphic-p)
+          (progn
+            (clipboard-yank)
+            (message "graphics active"))
+        (insert (shell-command-to-string "xsel -o -b"))))
+
+    (evil-leader/set-key "\"y" 'copy-to-clipboard)
+    (evil-leader/set-key "\"p" 'paste-from-clipboard)))
+
 (defun dotspacemacs/config ()
   "Configuration function.
   This function is called at the very end of Spacemacs initialization after
@@ -432,6 +464,8 @@ before layers configuration."
    web-mode-css-indent-offset 2
    web-mode-code-indent-offset 2
    web-mode-attr-indent-offset 2)
+
+  (gnzh/init-xsel)
 
   ;; (spacemacs/toggle-truncate-lines)
   )
