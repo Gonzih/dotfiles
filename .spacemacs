@@ -265,12 +265,12 @@ before layers configuration."
     (define-key company-active-map (kbd "C-t") 'company-select-previous)
     (define-key company-active-map (kbd "C-l") 'company-complete-selection)))
 
-(defun add-paredit-hooks ()
+(defun gnzh/add-paredit-hooks ()
   (add-hook 'clojure-mode-hook    (lambda () (paredit-mode 1)))
   (add-hook 'cider-repl-mode-hook (lambda () (paredit-mode 1)))
   (add-hook 'emacs-lisp-mode-hook (lambda () (paredit-mode 1))))
 
-(defun add-clojure-hooks ()
+(defun gnzh/add-clojure-hooks ()
   (add-hook 'cider-repl-mode-hook #'company-mode)
   (add-hook 'cider-mode-hook #'company-mode))
 
@@ -356,7 +356,7 @@ before layers configuration."
                                     (org-metaright))))))
              '(normal insert)))))
 
-(defun add-vim-like-paredit-bindings ()
+(defun gnzh/add-vim-like-paredit-bindings ()
   (evil-leader/set-key ">" 'paredit-forward-slurp-sexp)
   (evil-leader/set-key "<" 'paredit-forward-barf-sexp))
 
@@ -431,8 +431,8 @@ before layers configuration."
 
   (global-linum-mode)
 
-  (add-paredit-hooks)
-  (add-clojure-hooks)
+  (gnzh/add-paredit-hooks)
+  (gnzh/add-clojure-hooks)
 
   (gnzh/remap-dired-keys)
   (gnzh/remap-helm-keys)
@@ -441,7 +441,7 @@ before layers configuration."
   (gnzh/remap-auto-completion-keys)
   (gnzh/remap-org-mode-keys)
 
-  (add-vim-like-paredit-bindings)
+  (gnzh/add-vim-like-paredit-bindings)
 
   (setup-C-c-key)
 
