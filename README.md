@@ -8,6 +8,7 @@
 ## requirements:
   * git
   * vim
+  * emacs
   * wget
   * curl
   * bash
