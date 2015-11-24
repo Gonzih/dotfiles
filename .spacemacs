@@ -424,28 +424,28 @@ before layers configuration."
     "ZQ" 'with-editor-cancel
     "ZZ" 'with-editor-finish))
 
-(spacemacs|use-package-add-hook magit
-  :post-config
-  (progn
-    (evil-define-key 'motion magit-mode-map
-      "d" 'evil-backward-char
-      "l" 'evil-forward-char
-      "h" 'evil-next-visual-line
-      "t" 'evil-previous-visual-line
-      )
-    (dolist (map (list magit-branch-section-map
-                       magit-commit-section-map
-                       magit-file-section-map
-                       magit-hunk-section-map
-                       magit-remote-section-map
-                       magit-staged-section-map
-                       magit-unstaged-section-map
-                       ))
-      (define-key map "d" 'evil-backward-char)
-      (define-key map "l" 'evil-forward-char)
-      (define-key map "h" 'evil-next-visual-line)
-      (define-key map "t" 'evil-previous-visual-line)
-      )))
+;; (spacemacs|use-package-add-hook magit
+;;   :post-config
+;;   (progn
+;;     (evil-define-key 'motion magit-mode-map
+;;       "d" 'evil-backward-char
+;;       "l" 'evil-forward-char
+;;       "h" 'evil-next-visual-line
+;;       "t" 'evil-previous-visual-line
+;;       )
+;;     (dolist (map (list magit-branch-section-map
+;;                        magit-commit-section-map
+;;                        magit-file-section-map
+;;                        magit-hunk-section-map
+;;                        magit-remote-section-map
+;;                        magit-staged-section-map
+;;                        magit-unstaged-section-map
+;;                        ))
+;;       (define-key map "d" 'evil-backward-char)
+;;       (define-key map "l" 'evil-forward-char)
+;;       (define-key map "h" 'evil-next-visual-line)
+;;       (define-key map "t" 'evil-previous-visual-line)
+;;       )))
 
 (defun dotspacemacs/config ()
   "Configuration function.
