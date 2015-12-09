@@ -21,7 +21,7 @@ sh ~/.mutt/init.sh
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 
-git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 
 vim -c "execute 'BundleInstall!' | qa!"
 
