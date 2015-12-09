@@ -34,7 +34,7 @@ map -builtin -m i <C-e> <C-i>
 
 map -builtin -ex gm :js CommandExMode().open("!youtube-play '" + content.location + "'")
 
-set editor='emacsclient -c'
+set editor='gvim'
 
 map -builtin <BS> :back<CR>
 map -builtin <Del> :forward<CR>
