@@ -63,3 +63,5 @@
   rebase = preserve
 [rebase]
 	autostash = true
+[rerere]
+	enabled = true
