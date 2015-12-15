@@ -34,7 +34,7 @@ map -builtin -m i <C-e> <C-i>
 
 map -builtin -ex gm :js CommandExMode().open("!youtube-play '" + content.location + "'")
 
-set editor='gvim'
+set editor='xfce4-terminal -e "vim +<line> +\"sil! call cursor(0, <column>)\" <file>"'
 
 map -builtin <BS> :back<CR>
 map -builtin <Del> :forward<CR>
