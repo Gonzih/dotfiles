@@ -39,6 +39,8 @@ set editor='xfce4-terminal -e "vim +<line> +\"sil! call cursor(0, <column>)\" <f
 map -builtin <BS> :back<CR>
 map -builtin <Del> :forward<CR>
 
+map -builtin -b <Space>h ;
+
 javascript <<EOF
         hints.addMode("m", "Open video in mplayer", (elem, loc) => CommandExMode().open("!youtube-stream '" + loc + "'"))
 EOF
