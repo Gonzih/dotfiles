@@ -32,7 +32,7 @@ map -builtin -m i <C-a> <C-v><C-a>
 
 map -builtin -m i <C-e> <C-i>
 
-map -builtin -ex gm :js CommandExMode().open("!youtube-play '" + content.location + "'")
+map -builtin -ex gm :js CommandExMode().open("!youtube-stream '" + content.location + "'")
 
 set editor='xfce4-terminal -e "vim +<line> +\"sil! call cursor(0, <column>)\" <file>"'
 
