@@ -22,7 +22,7 @@ colorscheme solarized-dark
 
 js editor.defaultRegister="+"
 
-set defsearch=google
+set defsearch=duckduckgo
 set hintkeys="aoeuidhtns"
 set guioptions=bCrsn
 
