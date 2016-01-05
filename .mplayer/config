@@ -2,3 +2,4 @@
 # Write your default config options here!
 subcp = cp1251
 vo = gl
+ao = pulse
