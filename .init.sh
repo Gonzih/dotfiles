@@ -24,6 +24,6 @@ git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-bu
 git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 
 cd ~/.vim/bundle/vimproc.vim && make && cd
-vim -c "execute 'NeoBundleInstall!' | qa!"
+vim +NeoBundleInstall +qall
 
 fish
