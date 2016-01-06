@@ -33,6 +33,7 @@ map -builtin -m i <C-a> <C-v><C-a>
 map -builtin -m i <C-e> <C-i>
 
 map -builtin -ex <Space>yc :js commands.execute("!youtube-stream '" + content.location + "'")
+map -builtin -ex <Space>tc :js commands.execute("!twitch-stream '" + content.location + "'")
 
 set editor='xfce4-terminal -e "vim +<line> +\"sil! call cursor(0, <column>)\" <file>"'
 
