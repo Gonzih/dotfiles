@@ -4,18 +4,6 @@
   become: true
   tasks:
 
-    - name: create gnzh user
-      user:
-        name: gnzh
-        comment: "Max Gonzih"
-        shell: /usr/bin/fish
-        generate_ssh_key: yes
-        ssh_key_bits: 4096
-        ssh_key_file: .ssh/id_rsa.pub
-        append: yes
-        groups: gnzh,wheel,lock,video,audio,users
-        update_password: on_create
-
     - name: upgrade system
       pacman: update_cache=yes upgrade=yes
 
@@ -28,12 +16,27 @@
           - wget
           - curl
           - fish
+          - tmux
           - xmonad
           - xmonad-contrib
           - xfce4
           - xfce4-goodies
           - go
+          - firefox
+          - thunderbird
         state: present
+
+    - name: create gnzh user
+      user:
+        name: gnzh
+        comment: "Max Gonzih"
+        shell: /usr/bin/fish
+        generate_ssh_key: yes
+        ssh_key_bits: 4096
+        ssh_key_file: .ssh/id_rsa.pub
+        append: yes
+        groups: gnzh,wheel,lock,video,audio,users
+        update_password: on_create
 
 - name: Provision my configuration on my new machine!
   hosts: localhost
