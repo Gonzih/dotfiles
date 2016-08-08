@@ -9,6 +9,7 @@ mv ~/dotfiles/.* -t ~/ -f
 rm ~/dotfiles -rf
 git reset --hard
 
+test -e /usr/bin/ansible || (sudo pacman -Sy ansible --noconfirm)
 sudo ansible-playbook provision.yml
 
 sh ~/.vim/init.sh
