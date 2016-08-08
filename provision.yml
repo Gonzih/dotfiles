@@ -1,0 +1,12 @@
+- name: Provision localhost
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: create gnzh user
+      user: >
+        name=gnzh comment="Max Gonzih"
+        shell=/usr/bin/fish
+        generate_ssh_key=yes
+        ssh_key_bits=4096
+        ssh_key_file=.ssh/id_rsa.pub
+        groups=bumblebee,docker,gnzh,wheel,uupc,lock,video,audio,users
