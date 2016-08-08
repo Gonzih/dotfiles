@@ -10,7 +10,7 @@ rm ~/dotfiles -rf
 git reset --hard
 
 test -e /usr/bin/ansible || (sudo pacman -Sy ansible --noconfirm)
-sudo ansible-playbook provision.yml
+ansible-playbook --ask-sudo-pass provision.yml
 
 cd ~/.vim/bundle/vimproc.vim && make && cd
 vim +NeoBundleInstall +qall

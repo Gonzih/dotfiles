@@ -1,7 +1,9 @@
 - name: Provision archlinux on my new machine!
   hosts: localhost
   connection: local
+  become: true
   tasks:
+
     - name: create gnzh user
       user:
         name: gnzh
