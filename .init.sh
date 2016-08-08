@@ -12,9 +12,6 @@ git reset --hard
 test -e /usr/bin/ansible || (sudo pacman -Sy ansible --noconfirm)
 sudo ansible-playbook provision.yml
 
-sh ~/.vim/init.sh
-# sh ~/.mutt/init.sh
-
 cd ~/.vim/bundle/vimproc.vim && make && cd
 vim +NeoBundleInstall +qall
 

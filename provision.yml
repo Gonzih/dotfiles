@@ -2,7 +2,6 @@
   hosts: localhost
   connection: local
   tasks:
-
     - name: create gnzh user
       user:
         name: gnzh
@@ -31,49 +30,62 @@
           - xmonad-contrib
           - xfce4
           - xfce4-goodies
+          - go
         state: present
+
+- name: Provision my configuration on my new machine!
+  hosts: localhost
+  connection: local
+  become: yes
+  become_user: gnzh
+  tasks:
 
     - name: install spacemacs
       git: accept_hostkey=true accept_hostkey=true repo=https://github.com/syl20bnr/spacemacs dest=~/.emacs.d
-      become: yes
-      become_user: gnzh
 
     - name: install vimrc
       git: accept_hostkey=true accept_hostkey=true repo=git@github.com:Gonzih/.vim.git dest=~/.vim
-      become: yes
-      become_user: gnzh
 
     - name: install neobundle for vim
       git: accept_hostkey=true repo=https://github.com/Shougo/neobundle.vim dest=~/.vim/bundle/neobundle.vim
-      become: yes
-      become_user: gnzh
 
     - name: install mc config
       git: accept_hostkey=true force=true accept_hostkey=true repo=git@github.com:Gonzih/.mc.git dest=~/.config/mc
-      become: yes
-      become_user: gnzh
 
     - name: install fish config
       git: accept_hostkey=true accept_hostkey=true repo=git@github.com:Gonzih/.fish.git dest=~/.config/fish
-      become: yes
-      become_user: gnzh
 
     - name: install xmonad config
       git: accept_hostkey=true accept_hostkey=true repo=git@github.com:Gonzih/.xmonad.git dest=~/.xmonad
-      become: yes
-      become_user: gnzh
 
     - name: install mutt config
       git: accept_hostkey=true accept_hostkey=true repo=git@github.com:Gonzih/.mutt.git dest=~/.mutt
-      become: yes
-      become_user: gnzh
 
     - name: install rbenv
       git: accept_hostkey=true repo=https://github.com/sstephenson/rbenv.git dest=~/.rbenv
-      become: yes
-      become_user: gnzh
 
     - name: install ruby-build
       git: accept_hostkey=true repo=https://github.com/sstephenson/ruby-build.git dest=~/.rbenv/plugins/ruby-build
-      become: yes
-      become_user: gnzh
+
+    - name: go get gocode
+      command: go get -u github.com/nsf/gocode creates=~/go-projects/bin/gocode
+      environment:
+        GOPATH: /home/gnzh/go-projects
+
+    - name: go get goimports
+      command: go get -u golang.org/x/tools/cmd/goimports creates=~/go-projects/bin/goimports
+      environment:
+        GOPATH: /home/gnzh/go-projects
+
+    - name: go get golint
+      command: go get -u github.com/golang/lint/golint creates=~/go-projects/bin/golint
+      environment:
+        GOPATH: /home/gnzh/go-projects
+
+    - name: go get errcheck
+      command: go get -u github.com/kisielk/errcheck creates=~/go-projects/bin/errcheck
+      environment:
+        GOPATH: /home/gnzh/go-projects
+
+    - file: src=~/.vim/vimrc dest=~/.vimrc state=link
+    - file: src=~/.vim/vimrc dest=~/.gvimrc state=link
