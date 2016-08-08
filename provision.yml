@@ -1,4 +1,4 @@
-- name: Provision localhost
+- name: Provision archlinux on my new machine!
   hosts: localhost
   connection: local
   tasks:
