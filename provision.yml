@@ -47,44 +47,29 @@
     GOPATH: /home/gnzh/go-projects
   tasks:
 
-    - name: install spacemacs
-      git: accept_hostkey=true accept_hostkey=true repo=https://github.com/syl20bnr/spacemacs dest=~/.emacs.d
+    - name: install dotfiles
+      git: accept_hostkey=true repo={{ item.url }} dest={{ item.dest }}
+      with_items:
+        - { url: 'https://github.com/syl20bnr/spacemacs',         dest: '~/.emacs.d' }
+        - { url: 'git@github.com:Gonzih/.vim.git',                dest: '~/.vim' }
+        - { url: 'https://github.com/Shougo/neobundle.vim',       dest: '~/.vim/bundle/neobundle.vim' }
+        - { url: 'git@github.com:Gonzih/.mc.git',                 dest: '~/.config/mc' }
+        - { url: 'git@github.com:Gonzih/.fish.git',               dest: '~/.config/fish' }
+        - { url: 'git@github.com:Gonzih/.xmonad.git',             dest: '~/.xmonad' }
+        - { url: 'git@github.com:Gonzih/.mutt.git',               dest: '~/.mutt' }
+        - { url: 'https://github.com/sstephenson/rbenv.git',      dest: '~/.rbenv' }
+        - { url: 'https://github.com/sstephenson/ruby-build.git', dest: '~/.rbenv/plugins/ruby-build' }
 
-    - name: install vimrc
-      git: accept_hostkey=true accept_hostkey=true repo=git@github.com:Gonzih/.vim.git dest=~/.vim
+    - name: get go packages
+      command: go get -u {{ item.url }}  creates=~/go-projects/bin/{{ item.bin }}
+      with_items:
+        - { url: 'github.com/nsf/gocode',            bin: 'gocode' }
+        - { url: 'golang.org/x/tools/cmd/goimports', bin: 'goimports' }
+        - { url: 'github.com/golang/lint/golint',    bin: 'golint' }
+        - { url: 'github.com/kisielk/errcheck',      bin: 'errcheck' }
 
-    - name: install neobundle for vim
-      git: accept_hostkey=true repo=https://github.com/Shougo/neobundle.vim dest=~/.vim/bundle/neobundle.vim
-
-    - name: install mc config
-      git: accept_hostkey=true force=true accept_hostkey=true repo=git@github.com:Gonzih/.mc.git dest=~/.config/mc
-
-    - name: install fish config
-      git: accept_hostkey=true accept_hostkey=true repo=git@github.com:Gonzih/.fish.git dest=~/.config/fish
-
-    - name: install xmonad config
-      git: accept_hostkey=true accept_hostkey=true repo=git@github.com:Gonzih/.xmonad.git dest=~/.xmonad
-
-    - name: install mutt config
-      git: accept_hostkey=true accept_hostkey=true repo=git@github.com:Gonzih/.mutt.git dest=~/.mutt
-
-    - name: install rbenv
-      git: accept_hostkey=true repo=https://github.com/sstephenson/rbenv.git dest=~/.rbenv
-
-    - name: install ruby-build
-      git: accept_hostkey=true repo=https://github.com/sstephenson/ruby-build.git dest=~/.rbenv/plugins/ruby-build
-
-    - name: go get gocode
-      command: go get -u github.com/nsf/gocode creates=~/go-projects/bin/gocode
-
-    - name: go get goimports
-      command: go get -u golang.org/x/tools/cmd/goimports creates=~/go-projects/bin/goimports
-
-    - name: go get golint
-      command: go get -u github.com/golang/lint/golint creates=~/go-projects/bin/golint
-
-    - name: go get errcheck
-      command: go get -u github.com/kisielk/errcheck creates=~/go-projects/bin/errcheck
-
-    - file: src=~/.vim/vimrc dest=~/.vimrc state=link
-    - file: src=~/.vim/vimrc dest=~/.gvimrc state=link
+    - name: symlink .vimrc
+      file: src=~/.vim/vimrc dest={{ item }} state=link
+      with_items:
+        - ~/.vimrc
+        - ~/.gvimrc
