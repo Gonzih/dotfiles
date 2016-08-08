@@ -2,15 +2,78 @@
   hosts: localhost
   connection: local
   tasks:
+
     - name: create gnzh user
-      user: >
-        name=gnzh comment="Max Gonzih"
-        shell=/usr/bin/fish
-        generate_ssh_key=yes
-        ssh_key_bits=4096
-        ssh_key_file=.ssh/id_rsa.pub
-        groups=bumblebee,docker,gnzh,wheel,uupc,lock,video,audio,users
+      user:
+        name: gnzh
+        comment: "Max Gonzih"
+        shell: /usr/bin/fish
+        generate_ssh_key: yes
+        ssh_key_bits: 4096
+        ssh_key_file: .ssh/id_rsa.pub
+        append: yes
+        groups: bumblebee,docker,gnzh,wheel,lock,video,audio,users
+        update_password: on_create
+
     - name: upgrade system
       pacman: update_cache=yes upgrade=yes
-    - name: install vim
-      pacman: name=vim state=present
+
+    - name: install packages
+      pacman:
+        name:
+          - gvim
+          - git
+          - emacs
+          - wget
+          - curl
+          - fish
+          - xmonad
+          - xmonad-contrib
+          - xfce4
+          - xfce4-goodies
+        state: present
+
+    - name: install spacemacs
+      git: accept_hostkey=true accept_hostkey=true repo=https://github.com/syl20bnr/spacemacs dest=~/.emacs.d
+      become: yes
+      become_user: gnzh
+
+    - name: install vimrc
+      git: accept_hostkey=true accept_hostkey=true repo=git@github.com:Gonzih/.vim.git dest=~/.vim
+      become: yes
+      become_user: gnzh
+
+    - name: install neobundle for vim
+      git: accept_hostkey=true repo=https://github.com/Shougo/neobundle.vim dest=~/.vim/bundle/neobundle.vim
+      become: yes
+      become_user: gnzh
+
+    - name: install mc config
+      git: accept_hostkey=true force=true accept_hostkey=true repo=git@github.com:Gonzih/.mc.git dest=~/.config/mc
+      become: yes
+      become_user: gnzh
+
+    - name: install fish config
+      git: accept_hostkey=true accept_hostkey=true repo=git@github.com:Gonzih/.fish.git dest=~/.config/fish
+      become: yes
+      become_user: gnzh
+
+    - name: install xmonad config
+      git: accept_hostkey=true accept_hostkey=true repo=git@github.com:Gonzih/.xmonad.git dest=~/.xmonad
+      become: yes
+      become_user: gnzh
+
+    - name: install mutt config
+      git: accept_hostkey=true accept_hostkey=true repo=git@github.com:Gonzih/.mutt.git dest=~/.mutt
+      become: yes
+      become_user: gnzh
+
+    - name: install rbenv
+      git: accept_hostkey=true repo=https://github.com/sstephenson/rbenv.git dest=~/.rbenv
+      become: yes
+      become_user: gnzh
+
+    - name: install ruby-build
+      git: accept_hostkey=true repo=https://github.com/sstephenson/ruby-build.git dest=~/.rbenv/plugins/ruby-build
+      become: yes
+      become_user: gnzh
