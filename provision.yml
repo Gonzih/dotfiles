@@ -10,3 +10,7 @@
         ssh_key_bits=4096
         ssh_key_file=.ssh/id_rsa.pub
         groups=bumblebee,docker,gnzh,wheel,uupc,lock,video,audio,users
+    - name: upgrade system
+      pacman: update_cache=yes upgrade=yes
+    - name: install vim
+      pacman: name=vim state=present
