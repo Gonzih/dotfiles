@@ -6,11 +6,5 @@
   * `wget --no-check-certificate https://raw.githubusercontent.com/Gonzih/dotfiles/master/.init.sh -O - | sh`
 
 ## requirements:
-  * git
-  * vim
-  * emacs
-  * wget
-  * curl
-  * bash
   * sh
-  * fish
+  * ansible
