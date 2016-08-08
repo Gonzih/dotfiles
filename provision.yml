@@ -12,7 +12,7 @@
         ssh_key_bits: 4096
         ssh_key_file: .ssh/id_rsa.pub
         append: yes
-        groups: bumblebee,docker,gnzh,wheel,lock,video,audio,users
+        groups: gnzh,wheel,lock,video,audio,users
         update_password: on_create
 
     - name: upgrade system
