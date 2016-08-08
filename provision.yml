@@ -38,6 +38,8 @@
   connection: local
   become: yes
   become_user: gnzh
+  environment:
+    GOPATH: /home/gnzh/go-projects
   tasks:
 
     - name: install spacemacs
@@ -69,23 +71,15 @@
 
     - name: go get gocode
       command: go get -u github.com/nsf/gocode creates=~/go-projects/bin/gocode
-      environment:
-        GOPATH: /home/gnzh/go-projects
 
     - name: go get goimports
       command: go get -u golang.org/x/tools/cmd/goimports creates=~/go-projects/bin/goimports
-      environment:
-        GOPATH: /home/gnzh/go-projects
 
     - name: go get golint
       command: go get -u github.com/golang/lint/golint creates=~/go-projects/bin/golint
-      environment:
-        GOPATH: /home/gnzh/go-projects
 
     - name: go get errcheck
       command: go get -u github.com/kisielk/errcheck creates=~/go-projects/bin/errcheck
-      environment:
-        GOPATH: /home/gnzh/go-projects
 
     - file: src=~/.vim/vimrc dest=~/.vimrc state=link
     - file: src=~/.vim/vimrc dest=~/.gvimrc state=link
