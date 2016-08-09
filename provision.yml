@@ -17,14 +17,20 @@
           - curl
           - fish
           - tmux
+          - htop
+          - nethougs
           - xmonad
           - xmonad-contrib
           - xfce4
           - xfce4-goodies
+          - xscreensaver
           - go
           - firefox
           - thunderbird
-        state: present
+          - youtube-dl
+          - base
+          - base-devel
+        state: latest
 
     - name: create gnzh user
       user:
