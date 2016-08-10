@@ -3,7 +3,6 @@
   connection: local
   become: true
   tasks:
-
     - name: upgrade system
       pacman: update_cache=yes upgrade=yes
 
