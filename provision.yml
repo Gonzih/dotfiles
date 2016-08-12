@@ -18,17 +18,30 @@
           - tmux
           - htop
           - nethogs
+          - mosh
           - xmonad
           - xmonad-contrib
           - xfce4
           - xfce4-goodies
+          - lightdm
+          - lightdm-gtk-greeter
           - xscreensaver
+          - xorg-server
           - go
           - firefox
           - thunderbird
           - youtube-dl
           - base
           - base-devel
+          - vlc
+          - mplayer
+          - livestreamer
+          - wicd
+          - wicd-gtk
+          - xclip
+          - ncurses
+          - wpa_supplicant
+          - dialog
         state: latest
 
     - name: create gnzh user
