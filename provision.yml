@@ -91,6 +91,3 @@
       with_items:
         - ~/.vimrc
         - ~/.gvimrc
-
-    - name: xmonad recompile
-      command: xmonad --recompile
