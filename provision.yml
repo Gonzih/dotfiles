@@ -1,4 +1,4 @@
-- name: Provision archlinux on my new machine!
+- name: Provision archlinux packages
   hosts: localhost
   connection: local
   become: true
@@ -56,7 +56,7 @@
         groups: gnzh,wheel,lock,video,audio,users
         update_password: on_create
 
-- name: Provision my configuration on my new machine!
+- name: Provision my configuration
   hosts: localhost
   connection: local
   become: yes
