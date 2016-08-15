@@ -42,6 +42,7 @@
           - ncurses
           - wpa_supplicant
           - dialog
+          - etckeeper
         state: latest
 
     - name: create gnzh user
