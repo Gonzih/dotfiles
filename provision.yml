@@ -3,10 +3,10 @@
   connection: local
   become: true
   tasks:
-    - name: upgrade system
+    - name: Upgrade system
       pacman: update_cache=yes upgrade=yes
 
-    - name: install packages
+    - name: Install packages
       pacman:
         name:
           - gvim
@@ -45,7 +45,10 @@
           - etckeeper
         state: latest
 
-    - name: create gnzh user
+    - name: Init etckeeper
+      command: etckeeper init creates=/etc/.etckeeper
+
+    - name: Create gnzh user
       user:
         name: gnzh
         comment: "Max Gonzih"
@@ -66,7 +69,7 @@
     GOPATH: /home/gnzh/go-projects
   tasks:
 
-    - name: install dotfiles
+    - name: Install dotfiles
       git: accept_hostkey=true repo={{ item.url }} dest={{ item.dest }}
       with_items:
         - { url: 'https://github.com/syl20bnr/spacemacs',         dest: '~/.emacs.d' }
@@ -79,7 +82,7 @@
         - { url: 'https://github.com/sstephenson/rbenv.git',      dest: '~/.rbenv' }
         - { url: 'https://github.com/sstephenson/ruby-build.git', dest: '~/.rbenv/plugins/ruby-build' }
 
-    - name: get go packages
+    - name: Get go packages
       command: go get -u {{ item.url }}  creates=~/go-projects/bin/{{ item.bin }}
       with_items:
         - { url: 'github.com/nsf/gocode',            bin: 'gocode' }
@@ -87,7 +90,7 @@
         - { url: 'github.com/golang/lint/golint',    bin: 'golint' }
         - { url: 'github.com/kisielk/errcheck',      bin: 'errcheck' }
 
-    - name: symlink .vimrc
+    - name: Symlink .vimrc
       file: src=~/.vim/vimrc dest={{ item }} state=link
       with_items:
         - ~/.vimrc
