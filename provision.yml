@@ -31,8 +31,6 @@
           - firefox
           - thunderbird
           - youtube-dl
-          - base
-          - base-devel
           - vlc
           - mplayer
           - livestreamer
