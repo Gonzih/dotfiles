@@ -55,7 +55,7 @@
         ssh_key_bits: 4096
         ssh_key_file: .ssh/id_rsa.pub
         append: yes
-        groups: gnzh,wheel,lock,video,audio,users
+        groups: wheel,lock,video,audio,users
         update_password: on_create
 
 - name: Provision my configuration
