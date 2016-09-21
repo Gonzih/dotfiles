@@ -35,23 +35,23 @@
     - name: Install dotfiles
       git: accept_hostkey=true repo={{ item.url }} dest={{ item.dest }}
       with_items:
-        - { url: 'https://github.com/syl20bnr/spacemacs',         dest: '~/.emacs.d' }
-        - { url: 'git@github.com:Gonzih/.vim.git',                dest: '~/.vim' }
+        - { url: 'https://github.com/syl20bnr/spacemacs',         dest: '~/.emacs.d'                  }
         - { url: 'https://github.com/Shougo/neobundle.vim',       dest: '~/.vim/bundle/neobundle.vim' }
-        - { url: 'git@github.com:Gonzih/.mc.git',                 dest: '~/.config/mc' }
-        - { url: 'git@github.com:Gonzih/.fish.git',               dest: '~/.config/fish' }
-        - { url: 'git@github.com:Gonzih/.xmonad.git',             dest: '~/.xmonad' }
-        - { url: 'git@github.com:Gonzih/.mutt.git',               dest: '~/.mutt' }
-        - { url: 'https://github.com/sstephenson/rbenv.git',      dest: '~/.rbenv' }
+        - { url: 'https://github.com/sstephenson/rbenv.git',      dest: '~/.rbenv'                    }
         - { url: 'https://github.com/sstephenson/ruby-build.git', dest: '~/.rbenv/plugins/ruby-build' }
+        - { url: 'git@github.com:Gonzih/.vim.git',                dest: '~/.vim'                      }
+        - { url: 'git@github.com:Gonzih/.mc.git',                 dest: '~/.config/mc'                }
+        - { url: 'git@github.com:Gonzih/.fish.git',               dest: '~/.config/fish'              }
+        - { url: 'git@github.com:Gonzih/.xmonad.git',             dest: '~/.xmonad'                   }
+        - { url: 'git@github.com:Gonzih/.mutt.git',               dest: '~/.mutt'                     }
 
     - name: Get go packages
       command: go get -u {{ item.url }}  creates=~/go-projects/bin/{{ item.bin }}
       with_items:
-        - { url: 'github.com/nsf/gocode',            bin: 'gocode' }
+        - { url: 'github.com/nsf/gocode',            bin: 'gocode'    }
         - { url: 'golang.org/x/tools/cmd/goimports', bin: 'goimports' }
-        - { url: 'github.com/golang/lint/golint',    bin: 'golint' }
-        - { url: 'github.com/kisielk/errcheck',      bin: 'errcheck' }
+        - { url: 'github.com/golang/lint/golint',    bin: 'golint'    }
+        - { url: 'github.com/kisielk/errcheck',      bin: 'errcheck'  }
 
     - name: Symlink .vimrc
       file: src=~/.vim/vimrc dest={{ item }} state=link
@@ -59,4 +59,4 @@
         - ~/.vimrc
         - ~/.gvimrc
 
-# vim:ft=yaml:
+# vim:ft=ansible:
