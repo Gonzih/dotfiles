@@ -54,7 +54,7 @@
         - { url: 'github.com/kisielk/errcheck',      bin: 'errcheck'  }
 
     - name: Install glide for go
-      command: curl https://glide.sh/get | sh creates=~/go-projects/bin/glide
+      command: bash -c 'curl https://glide.sh/get | sh' creates=~/go-projects/bin/glide
 
     - name: Symlink .vimrc
       file: src=~/.vim/vimrc dest={{ item }} state=link
