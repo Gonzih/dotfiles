@@ -1,5 +1,6 @@
 {:user {:plugins [[lein-kibit "0.0.8" :exclusions [org.clojure/clojure]]
                   [lein-ancient "0.6.10" :exclusions [org.clojure/clojure]]
+                  [lein-plz "0.4.0-SNAPSHOT"]
                   [lein-simpleton "1.1.0"]
                   [lein-try "0.4.3"]
                   [lein-gorilla "0.3.6"]]
