@@ -3,8 +3,8 @@
   connection: local
   become: true
   tasks:
-    - name: Upgrade system
-      pacman: update_cache=yes upgrade=yes
+    # - name: Upgrade system
+    #   pacman: update_cache=yes upgrade=yes
 
     - name: Install packages
       pacman:
