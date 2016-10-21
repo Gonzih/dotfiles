@@ -35,7 +35,8 @@
     - name: Install dotfiles
       git: accept_hostkey=true repo={{ item.url }} dest={{ item.dest }}
       with_items:
-        - { url: 'https://github.com/syl20bnr/spacemacs',         dest: '~/.emacs.d'                  }
+        # - { url: 'https://github.com/syl20bnr/spacemacs',         dest: '~/.emacs.d'                  }
+        - { url: 'git@github.com:Gonzih/spacemacs.git',           dest: '~/.emacs.d'                  }
         - { url: 'https://github.com/Shougo/neobundle.vim',       dest: '~/.vim/bundle/neobundle.vim' }
         - { url: 'https://github.com/sstephenson/rbenv.git',      dest: '~/.rbenv'                    }
         - { url: 'https://github.com/sstephenson/ruby-build.git', dest: '~/.rbenv/plugins/ruby-build' }
