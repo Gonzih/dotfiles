@@ -62,7 +62,7 @@ values."
      puppet
      react
      yaml
-     (keyboard-layout :variables kl-layout 'dvorak)
+     (keyboard-layout :variables kl-layout 'dvp)
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
