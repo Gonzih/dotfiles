@@ -336,6 +336,15 @@ values."
     "ZQ" 'with-editor-cancel
     "ZZ" 'with-editor-finish))
 
+(defun gnzh/add-paredit-hooks ()
+  (add-hook 'clojure-mode-hook    (lambda () (paredit-mode 1)))
+  (add-hook 'cider-repl-mode-hook (lambda () (paredit-mode 1)))
+  (add-hook 'emacs-lisp-mode-hook (lambda () (paredit-mode 1))))
+
+(defun gnzh/add-clojure-hooks ()
+  (add-hook 'cider-repl-mode-hook #'company-mode)
+  (add-hook 'cider-mode-hook #'company-mode))
+
 
 ;; ============================================ END MY FUNCTIONS ============================================
 
@@ -380,6 +389,11 @@ you should place your code here."
   (evil-leader/set-key (kbd "er") 'lisp-eval-region)
 
   (setq magit-push-always-verify nil)
+
+  (gnzh/customize-git-commit-mode)
+
+  (gnzh/add-paredit-hooks)
+  (gnzh/add-clojure-hooks)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
