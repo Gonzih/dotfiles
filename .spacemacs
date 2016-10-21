@@ -140,7 +140,8 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
+   dotspacemacs-themes '(gruvbox
+                         spacemacs-dark
                          spacemacs-light)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
@@ -297,6 +298,7 @@ values."
    dotspacemacs-whitespace-cleanup nil
    ))
 
+;; ============================================ MY FUNCTIONS ============================================
 
 (defun gnzh/add-vim-like-paredit-bindings ()
   (evil-leader/set-key ">" 'paredit-forward-slurp-sexp)
@@ -328,6 +330,14 @@ values."
   ;; documentation of it.
   ;;(set-quit-char (kbd "C-c"))
   )
+
+(defun gnzh/customize-git-commit-mode ()
+  (evil-define-key 'normal git-commit-mode-map
+    "ZQ" 'with-editor-cancel
+    "ZZ" 'with-editor-finish))
+
+
+;; ============================================ END MY FUNCTIONS ============================================
 
 (defun dotspacemacs/user-init ()
   "Initialization function for user code.
