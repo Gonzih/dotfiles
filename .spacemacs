@@ -360,7 +360,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 (defun gnzh/customize-window-map ()
   (define-key evil-window-map "-" 'split-window-vertically)
   (define-key evil-window-map "\\" 'split-window-horizontally)
-  (define-key evil-window-map "d" 'evil-windo-left)
+  (define-key evil-window-map "d" 'evil-window-left)
   (define-key evil-window-map "h" 'evil-window-down)
   (define-key evil-window-map "t" 'evil-window-up)
   (define-key evil-window-map "n" 'evil-window-right)
