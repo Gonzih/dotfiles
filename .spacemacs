@@ -49,10 +49,11 @@ values."
      ruby
      git
      html
+     lisp
+     emacs-lisp
      scheme
      racket
      (clojure :variables clojure-enable-fancify-symbols t)
-     emacs-lisp
      (git :variables git-gutter-use-fringe t)
      markdown
      org
