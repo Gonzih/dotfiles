@@ -64,7 +64,16 @@ values."
      yaml
      ansible
      systemd
-     (keyboard-layout :variables kl-layout 'dvp)
+     (keyboard-layout :variables
+                      kl-layout 'dvp
+                      kl--base-rebinding-maps '((dvp . (("d" . "h")
+                                                        ("h" . "j")
+                                                        ("t" . "k")
+                                                        ("n" . "l")
+                                                        ;;
+                                                        ("j" . "d")
+                                                        ("k" . "t")
+                                                        ("l" . "n")))))
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
