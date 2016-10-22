@@ -347,6 +347,64 @@ values."
   (add-hook 'cider-repl-mode-hook #'company-mode)
   (add-hook 'cider-mode-hook #'company-mode))
 
+(defun gnzh/remap-dired-keys ()
+  (eval-after-load 'dired
+    '(progn
+       ;; use the standard Dired bindings as a base
+       (evil-make-overriding-map dired-mode-map 'normal t)
+       (evil-define-key 'normal dired-mode-map
+         "d" 'evil-backward-char
+         "h" 'evil-next-line
+         "t" 'evil-previous-line
+         "n" 'evil-forward-char
+         "H" 'dired-goto-file
+         "T" 'dired-do-kill-lines
+         "r" 'dired-do-redisplay))))
+
+(defun gnzh/remap-org-mode-keys ()
+  (eval-after-load 'evil-org
+    '(progn
+       ;; normal state shortcuts
+       (evil-define-key 'normal evil-org-mode-map
+         "d" 'evil-backward-char
+         "h" 'evil-next-line
+         "t" 'evil-previous-line
+         "n" 'evil-forward-char
+         "gd" 'outline-up-heading
+         "gh" (if (fboundp 'org-forward-same-level) ;to be backward compatible with older org version
+                  'org-forward-same-level
+                'org-forward-heading-same-level)
+         "gt" (if (fboundp 'org-backward-same-level)
+                  'org-backward-same-level
+                'org-backward-heading-same-level)
+         "gn" 'outline-next-visible-heading
+         "k" 'org-todo
+         "K" '(lambda () (interactive) (evil-org-eol-call (lambda() (org-insert-todo-heading nil))))
+         "D" 'org-beginning-of-line
+         "N" 'org-end-of-line
+         "-" 'org-end-of-line
+         "_" 'org-beginning-of-line
+         "+" 'org-cycle-list-bullet
+         (kbd "TAB") 'org-cycle)
+
+       ;; normal & insert state shortcuts.
+       (mapc (lambda (state)
+               (evil-define-key state evil-org-mode-map
+                 (kbd "M-n") 'org-metaright
+                 (kbd "M-d") 'org-metaleft
+                 (kbd "M-t") 'org-metaup
+                 (kbd "M-h") 'org-metadown
+                 (kbd "M-N") 'org-shiftmetaright
+                 (kbd "M-D") 'org-shiftmetaleft
+                 (kbd "M-T") 'org-shiftmetaup
+                 (kbd "M-H") 'org-shiftmetadown
+                 (kbd "M-k") '(lambda () (interactive)
+                                (evil-org-eol-call
+                                 '(lambda()
+                                    (org-insert-todo-heading nil)
+                                    (org-metaright))))))
+             '(normal insert)))))
+
 
 ;; ============================================ END MY FUNCTIONS ============================================
 
@@ -396,6 +454,10 @@ you should place your code here."
 
   (gnzh/add-paredit-hooks)
   (gnzh/add-clojure-hooks)
+
+  (gnzh/remap-dired-keys)
+
+  (gnzh/remap-org-mode-keys)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
