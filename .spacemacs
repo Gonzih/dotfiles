@@ -453,6 +453,8 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (global-linum-mode)
 
+  (global-git-commit-mode t)
+
   (gnzh/add-vim-like-paredit-bindings)
 
   (setup-C-c-key)
