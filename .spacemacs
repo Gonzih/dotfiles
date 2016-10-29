@@ -49,8 +49,8 @@ values."
      ruby
      git
      (version-control :variables
-                      version-control-diff-tool 'git-gutter
-                      version-control-global-margin t)
+                      ;; version-control-global-margin t
+                      version-control-diff-tool 'git-gutter)
      html
      lisp
      emacs-lisp
