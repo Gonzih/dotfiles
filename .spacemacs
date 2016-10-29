@@ -433,8 +433,13 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (define-key evil-window-map "d" 'evil-window-left)
   (define-key evil-window-map "h" 'evil-window-down)
   (define-key evil-window-map "t" 'evil-window-up)
-  (define-key evil-window-map "n" 'evil-window-right)
-  )
+  (define-key evil-window-map "n" 'evil-window-right))
+
+(defun gnzh/remap-arrows ()
+  (define-key evil-normal-state-map (kbd "<right>") 'evil-window-increase-width)
+  (define-key evil-normal-state-map (kbd "<left>") 'evil-window-decrease-width)
+  (define-key evil-normal-state-map (kbd "<down>") 'evil-window-increase-height)
+  (define-key evil-normal-state-map (kbd "<up>")   'evil-window-decrease-height))
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -456,6 +461,8 @@ you should place your code here."
   (define-key evil-motion-state-map "-" 'evil-end-of-line)
 
   (gnzh/customize-window-map)
+
+  (gnzh/remap-arrows)
 
   (evil-leader/set-key (kbd "ed") 'lisp-eval-defun)
   (evil-leader/set-key (kbd "er") 'lisp-eval-region)
