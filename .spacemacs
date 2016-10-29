@@ -48,9 +48,7 @@ values."
      scala
      ruby
      git
-     (version-control :variables
-                      ;; version-control-global-margin t
-                      version-control-diff-tool 'git-gutter)
+     ;; (version-control :variables version-control-global-margin f version-control-diff-tool 'git-gutter)
      html
      lisp
      emacs-lisp
@@ -418,18 +416,6 @@ values."
                                     (org-metaright))))))
              '(normal insert)))))
 
-
-;; ============================================ END MY FUNCTIONS ============================================
-
-(defun dotspacemacs/user-init ()
-  "Initialization function for user code.
-It is called immediately after `dotspacemacs/init', before layer configuration
-executes.
- This function is mostly useful for variables that need to be set
-before packages are loaded. If you are unsure, you should try in setting them in
-`dotspacemacs/user-config' first."
-  )
-
 (defun gnzh/customize-window-map ()
   (define-key evil-window-map "-" 'split-window-vertically)
   (define-key evil-window-map "\\" 'split-window-horizontally)
@@ -443,6 +429,17 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (define-key evil-normal-state-map (kbd "<left>") 'evil-window-decrease-width)
   (define-key evil-normal-state-map (kbd "<down>") 'evil-window-increase-height)
   (define-key evil-normal-state-map (kbd "<up>")   'evil-window-decrease-height))
+
+;; ============================================ END MY FUNCTIONS ============================================
+
+(defun dotspacemacs/user-init ()
+  "Initialization function for user code.
+It is called immediately after `dotspacemacs/init', before layer configuration
+executes.
+ This function is mostly useful for variables that need to be set
+before packages are loaded. If you are unsure, you should try in setting them in
+`dotspacemacs/user-config' first."
+  )
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
