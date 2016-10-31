@@ -349,6 +349,11 @@ values."
     "ZQ" 'with-editor-cancel
     "ZZ" 'with-editor-finish))
 
+(defun gnzh/customize-magit-mode ()
+  (evil-define-key 'normal magit-diff-mode-map
+    "t" 'magit-section-backward
+    "h" 'magit-section-forward))
+
 (defun gnzh/add-paredit-hooks ()
   (add-hook 'clojure-mode-hook    (lambda () (paredit-mode 1)))
   (add-hook 'cider-repl-mode-hook (lambda () (paredit-mode 1)))
@@ -472,6 +477,8 @@ you should place your code here."
   (setq magit-push-always-verify nil)
 
   (gnzh/customize-git-commit-mode)
+
+  (gnzh/customize-magit-mode)
 
   (gnzh/add-paredit-hooks)
   (gnzh/add-clojure-hooks)
