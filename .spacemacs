@@ -48,7 +48,7 @@ values."
      scala
      ruby
      git
-     ;; (version-control :variables version-control-global-margin f version-control-diff-tool 'git-gutter)
+     (version-control :variables version-control-global-margin f version-control-diff-tool 'diff-hl)
      html
      lisp
      emacs-lisp
