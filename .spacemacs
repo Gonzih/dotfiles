@@ -350,9 +350,14 @@ values."
     "ZZ" 'with-editor-finish))
 
 (defun gnzh/customize-magit-mode ()
-  (evil-define-key 'normal magit-diff-mode-map
-    "t" 'magit-section-backward
-    "h" 'magit-section-forward))
+  (dolist (target-mode-map '(magit-diff-mode-map
+                             magit-log-mode-map
+                             magit-log-select-mode-map
+                             magit-blame-mode-map))
+    (eval
+     `(evil-define-key 'normal ,target-mode-map
+        "t" 'magit-section-backward
+        "h" 'magit-section-forward))))
 
 (defun gnzh/add-paredit-hooks ()
   (add-hook 'clojure-mode-hook    (lambda () (paredit-mode 1)))
