@@ -486,6 +486,8 @@ you should place your code here."
   (gnzh/remap-dired-keys)
 
   (gnzh/remap-org-mode-keys)
+
+  (global-spacemacs-whitespace-cleanup-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
