@@ -347,7 +347,10 @@ values."
 (defun gnzh/customize-git-commit-mode ()
   (evil-define-key 'normal git-commit-mode-map
     "ZQ" 'with-editor-cancel
-    "ZZ" 'with-editor-finish))
+    "ZZ" 'with-editor-finish)
+  (evil-define-key 'normal git-rebase-mode-map
+    "h" 'evil-next-visual-line
+    "t" 'evil-previous-visual-line))
 
 (defun gnzh/customize-magit-mode ()
   (dolist (target-mode-map '(magit-diff-mode-map
