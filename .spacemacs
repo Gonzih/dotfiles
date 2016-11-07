@@ -350,7 +350,9 @@ values."
     "ZZ" 'with-editor-finish)
   (evil-define-key 'normal git-rebase-mode-map
     "h" 'evil-next-visual-line
-    "t" 'evil-previous-visual-line))
+    "t" 'evil-previous-visual-line
+    "H" 'git-rebase-move-line-down
+    "T" 'git-rebase-move-line-up))
 
 (defun gnzh/customize-magit-mode ()
   (dolist (target-mode-map '(magit-diff-mode-map
