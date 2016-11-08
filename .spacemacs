@@ -352,13 +352,15 @@ values."
     "h" 'evil-next-visual-line
     "t" 'evil-previous-visual-line
     "H" 'git-rebase-move-line-down
-    "T" 'git-rebase-move-line-up))
+    "T" 'git-rebase-move-line-up)
+  (evil-define-key 'normal magit-blame-mode-map
+    "h" 'evil-next-visual-line
+    "t" 'evil-previous-visual-line))
 
 (defun gnzh/customize-magit-mode ()
   (dolist (target-mode-map '(magit-diff-mode-map
                              magit-log-mode-map
-                             magit-log-select-mode-map
-                             magit-blame-mode-map))
+                             magit-log-select-mode-map))
     (eval
      `(evil-define-key 'normal ,target-mode-map
         "t" 'magit-section-backward
