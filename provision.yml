@@ -22,6 +22,7 @@
           - xmonad
           - xmonad-contrib
           - rsync
+          - the_silver_searcher
         state: latest
 
 - name: Provision my configuration
