@@ -33,11 +33,16 @@
     GOPATH: /home/gnzh/go-projects
   tasks:
 
+    - name: Get dein script
+      get_url: url=https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh dest=/tmp/dein.sh
+
+    - name: Install dein
+      command: "sh /tmp/dein.sh ~/.vim/bundle/dein.vim"
+
     - name: Install dotfiles
       git: accept_hostkey=true repo={{ item.url }} dest={{ item.dest }}
       with_items:
         - { url: 'https://github.com/syl20bnr/spacemacs',         dest: '~/.emacs.d'                  }
-        - { url: 'https://github.com/Shougo/dein.vim',            dest: '~/.vim/bundle/dein.vim' }
         - { url: 'https://github.com/sstephenson/rbenv.git',      dest: '~/.rbenv'                    }
         - { url: 'https://github.com/sstephenson/ruby-build.git', dest: '~/.rbenv/plugins/ruby-build' }
         - { url: 'git@github.com:Gonzih/.vim.git',                dest: '~/.vim'                      }
