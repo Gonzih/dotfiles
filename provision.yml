@@ -51,6 +51,16 @@
         - { url: 'git@github.com:Gonzih/.fish.git',               dest: '~/.config/fish'              }
         - { url: 'git@github.com:Gonzih/.xmonad.git',             dest: '~/.xmonad'                   }
         - { url: 'git@github.com:Gonzih/.mutt.git',               dest: '~/.mutt'                     }
+      async: 1000
+      poll: 0
+      register: git_jobs
+
+    - name: Wait for git updates
+      async_status: jid="{{ item.ansible_job_id }}"
+      register: git_result
+      until: git_result.finished
+      retries: 1000
+      with_items: "{{ git_jobs.results }}"
 
     - name: Get go packages
       command: go get -u {{ item.url }}  creates=~/go-projects/bin/{{ item.bin }}
