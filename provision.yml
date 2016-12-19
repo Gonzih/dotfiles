@@ -38,7 +38,7 @@
       get_url: url=https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh dest=/tmp/dein.sh
 
     - name: Install dein
-      command: "sh /tmp/dein.sh ~/.vim/bundle/dein.vim"
+      command: sh /tmp/dein.sh ~/.vim/bundle/dein.vim
 
     - name: Install dotfiles
       git: accept_hostkey=true repo={{ item.url }} dest={{ item.dest }}
@@ -71,7 +71,7 @@
         - { url: 'github.com/kisielk/errcheck',      bin: 'errcheck'  }
 
     - name: Install glide for go
-      command: bash -c 'curl https://glide.sh/get | sh' creates=~/go-projects/bin/glide
+      shell: curl https://glide.sh/get | sh creates=~/go-projects/bin/glide
 
     - name: Symlink .vimrc
       file: src=~/.vim/vimrc dest={{ item }} state=link
