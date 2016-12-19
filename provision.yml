@@ -56,7 +56,7 @@
       register: git_jobs
 
     - name: Wait for git updates
-      async_status: jid="{{ item.ansible_job_id }}"
+      async_status: jid={{ item.ansible_job_id }}
       register: git_result
       until: git_result.finished
       retries: 1000
