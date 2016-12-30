@@ -23,6 +23,10 @@
           - xmonad-contrib
           - rsync
           - the_silver_searcher
+          # rust
+          - rust-racer
+          - rustup
+          - rustfmt
         state: latest
 
 - name: Provision my configuration
