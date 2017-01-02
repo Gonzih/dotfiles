@@ -27,6 +27,7 @@
           - rust-racer
           - rustup
           - rustfmt
+          - cargo
         state: latest
 
 - name: Provision my configuration
