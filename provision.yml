@@ -11,7 +11,7 @@
       get_url: url=https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh dest=/tmp/dein.sh
 
     - name: Install dein
-      command: sh /tmp/dein.sh ~/.vim/bundle/dein.vim
+      command: sh /tmp/dein.sh ~/.vim/bundle/dein.vim creates=~/.vim/bundle/dein.vim
 
     - name: Install dotfiles
       git: accept_hostkey=true repo={{ item.url }} dest={{ item.dest }}
