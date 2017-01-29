@@ -24,24 +24,14 @@
         - { url: 'git@github.com:Gonzih/.fish.git',               dest: '~/.config/fish'              }
         - { url: 'git@github.com:Gonzih/.xmonad.git',             dest: '~/.xmonad'                   }
         - { url: 'git@github.com:Gonzih/.mutt.git',               dest: '~/.mutt'                     }
-      async: 1000
-      poll: 0
-      register: git_jobs
-
-    - name: Wait for git updates
-      async_status: jid={{ item.ansible_job_id }}
-      register: git_result
-      until: git_result.finished
-      retries: 1000
-      with_items: "{{ git_jobs.results }}"
 
     - name: Get go packages
-      command: go get -u {{ item.url }}  creates=~/go-projects/bin/{{ item.bin }}
+      command: go get -u {{ item.url }}
       with_items:
-        - { url: 'github.com/nsf/gocode',            bin: 'gocode'    }
-        - { url: 'golang.org/x/tools/cmd/goimports', bin: 'goimports' }
-        - { url: 'github.com/golang/lint/golint',    bin: 'golint'    }
-        - { url: 'github.com/kisielk/errcheck',      bin: 'errcheck'  }
+        - { url: 'github.com/nsf/gocode'            }
+        - { url: 'golang.org/x/tools/cmd/goimports' }
+        - { url: 'github.com/golang/lint/golint'    }
+        - { url: 'github.com/kisielk/errcheck'      }
 
     - name: Install glide for go
       shell: curl https://glide.sh/get | sh creates=~/go-projects/bin/glide
