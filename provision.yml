@@ -26,12 +26,13 @@
         - { url: 'git@github.com:Gonzih/.mutt.git',               dest: '~/.mutt'                     }
 
     - name: Get go packages
-      command: go get -u {{ item.url }}
+      command: go get -u {{ item }}
       with_items:
-        - { url: 'github.com/nsf/gocode'            }
-        - { url: 'golang.org/x/tools/cmd/goimports' }
-        - { url: 'github.com/golang/lint/golint'    }
-        - { url: 'github.com/kisielk/errcheck'      }
+        - 'github.com/nsf/gocode'
+        - 'golang.org/x/tools/cmd/goimports'
+        - 'github.com/golang/lint/golint'
+        - 'github.com/kisielk/errcheck'
+        - 'github.com/Gonzih/go-breathing'
 
     - name: Install glide for go
       shell: curl https://glide.sh/get | sh creates=~/go-projects/bin/glide
