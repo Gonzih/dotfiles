@@ -42,9 +42,11 @@ Xft.antialias: true
 Xft.dpi: 96
 Xft.rgba: rgb
 
+! Disable unicode pasting mode that I dont understand
 URxvt.iso14755_52: false
 
 URxvt.depth: 32
+URxvt.letterSpace: -1
 
 !-*- Perl extensions -*-
 
