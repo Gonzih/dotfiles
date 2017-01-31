@@ -61,7 +61,10 @@ URxvt.keysym.C-C: perl:clipboard:copy
 URxvt.keysym.C-V: perl:clipboard:paste
 URxvt.clipboard.autocopy: true
 
-URxvt.font: xft:iosevka\ term:style=medium:size=11
+URxvt.font: xft:Iosevka Term:style=medium:size=11,xft:DejaVu Sans:size=6
+URxvt.boldFont: xft:Iosevka Term:style=bold:size=11,xft:DejaVu Sans:style=bold:size=6
+URxvt.italicFont: xft:Iosevka Term:style=italic:size=11,xft:DejaVu Sans:style=medium:size=6
+URxvt.boldItalicFont: xft:Iosevka Term:style=medium:size=11,xft:DejaVu Sans:style=medium:size=6
 
 URxvt.scrollBar: false
 URxvt.scrollBar_right: false
