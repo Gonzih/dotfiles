@@ -33,6 +33,7 @@
         - 'github.com/golang/lint/golint'
         - 'github.com/kisielk/errcheck'
         - 'github.com/Gonzih/go-breathing'
+        - 'github.com/asciimoo/wuzz'
 
     - name: Install glide for go
       shell: curl https://glide.sh/get | sh creates=~/go-projects/bin/glide
