@@ -26,7 +26,7 @@
       command: sh /tmp/dein.sh ~/.vim/bundle/dein.vim creates=~/.vim/bundle/dein.vim
 
     - name: Stash changes in dotfiles
-      shell: cd {{ item.dest }} && git stash clear && git stash
+      shell: cd {{ item.dest }} && git stash
       with_items: "{{ dotfiles }}"
 
     - name: Install dotfiles
