@@ -35,6 +35,7 @@
 
     - name: Pop changes in dotfiles
       shell: cd {{ item.dest }} && git stash pop
+      ignore_errors: yes
       with_items: "{{ dotfiles }}"
 
     - name: Get go packages
