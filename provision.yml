@@ -5,6 +5,18 @@
   become_user: gnzh
   environment:
     GOPATH: /home/gnzh/go-projects
+
+  vars:
+    dotfiles:
+      - { url: 'https://github.com/syl20bnr/spacemacs',         dest: '~/.emacs.d'                  }
+      - { url: 'https://github.com/sstephenson/rbenv.git',      dest: '~/.rbenv'                    }
+      - { url: 'https://github.com/sstephenson/ruby-build.git', dest: '~/.rbenv/plugins/ruby-build' }
+      - { url: 'git@github.com:Gonzih/.vim.git',                dest: '~/.vim'                      }
+      - { url: 'git@github.com:Gonzih/.mc.git',                 dest: '~/.config/mc'                }
+      - { url: 'git@github.com:Gonzih/.fish.git',               dest: '~/.config/fish'              }
+      - { url: 'git@github.com:Gonzih/.xmonad.git',             dest: '~/.xmonad'                   }
+      - { url: 'git@github.com:Gonzih/.mutt.git',               dest: '~/.mutt'                     }
+
   tasks:
 
     - name: Get dein script
@@ -13,17 +25,17 @@
     - name: Install dein
       command: sh /tmp/dein.sh ~/.vim/bundle/dein.vim creates=~/.vim/bundle/dein.vim
 
+    - name: Stash changes in dotfiles
+      shell: cd {{ item.dest }} && git stash clear && git stash
+      with_items: "{{ dotfiles }}"
+
     - name: Install dotfiles
       git: accept_hostkey=true repo={{ item.url }} dest={{ item.dest }}
-      with_items:
-        - { url: 'https://github.com/syl20bnr/spacemacs',         dest: '~/.emacs.d'                  }
-        - { url: 'https://github.com/sstephenson/rbenv.git',      dest: '~/.rbenv'                    }
-        - { url: 'https://github.com/sstephenson/ruby-build.git', dest: '~/.rbenv/plugins/ruby-build' }
-        - { url: 'git@github.com:Gonzih/.vim.git',                dest: '~/.vim'                      }
-        - { url: 'git@github.com:Gonzih/.mc.git',                 dest: '~/.config/mc'                }
-        - { url: 'git@github.com:Gonzih/.fish.git',               dest: '~/.config/fish'              }
-        - { url: 'git@github.com:Gonzih/.xmonad.git',             dest: '~/.xmonad'                   }
-        - { url: 'git@github.com:Gonzih/.mutt.git',               dest: '~/.mutt'                     }
+      with_items: "{{ dotfiles }}"
+
+    - name: Pop changes in dotfiles
+      shell: cd {{ item.dest }} && git stash pop
+      with_items: "{{ dotfiles }}"
 
     - name: Get go packages
       command: go get -u {{ item }}
