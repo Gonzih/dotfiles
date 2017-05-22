@@ -56,6 +56,7 @@
       file: src=~/.vim/vimrc dest={{ item }} state=link
       with_items:
         - ~/.vimrc
+        - ~/.nvimrc
         - ~/.gvimrc
 
 # vim:ft=ansible:
