@@ -52,11 +52,14 @@
     - name: Install glide for go
       shell: curl https://glide.sh/get | sh creates=~/go-projects/bin/glide
 
+    - name: Symlink .vim
+      file: src=~/.vim/vimrc dest=~/.config/.vim state=link
+
     - name: Symlink .vimrc
       file: src=~/.vim/vimrc dest={{ item }} state=link
       with_items:
         - ~/.vimrc
-        - ~/.nvimrc
+        - ~/.config/nvim/init.vim
         - ~/.gvimrc
 
 # vim:ft=ansible:
