@@ -53,7 +53,7 @@
       shell: curl https://glide.sh/get | sh creates=~/go-projects/bin/glide
 
     - name: Symlink .vim
-      file: src=~/.vim/vimrc dest=~/.config/.vim state=link
+      file: src=~/.vim dest=~/.config/nvim state=link
 
     - name: Symlink .vimrc
       file: src=~/.vim/vimrc dest={{ item }} state=link
