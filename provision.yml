@@ -52,6 +52,9 @@
     - name: Install glide for go
       shell: curl https://glide.sh/get | sh creates=~/go-projects/bin/glide
 
+    - name: Symlink nvim
+      file: src=/usr/bin/nvim dest=~/bin/vim state=link
+
     - name: Symlink .vim
       file: src=~/.vim dest=~/.config/nvim state=link
 
