@@ -22,9 +22,22 @@ colorscheme solarized-dark
 
 js editor.defaultRegister="+"
 
+set guioptions=bCrsn
+
 set defsearch=google
 set hintkeys="aoeuidhtns"
-set guioptions=bCrsn
+hi -a Hint font-size: 11pt !important;
+
+set scrollsteps=1
+set scrolltime=0
+
+set incfind
+set hlfind
+
+set findcase=smart
+
+map -b zi ZI
+map -b zo ZO
 
 map -builtin -m i <C-p> <C-v><C-v>
 map -builtin -m i <C-y> <C-v><C-c>
@@ -44,4 +57,12 @@ map -builtin -b <Space>yf ;m
 
 javascript <<EOF
         hints.addMode("m", "Open video in mplayer", (elem, loc) => commands.execute("!youtube-stream '" + loc + "'"))
+EOF
+
+command private-tab -nargs=+ -description "Open Private Tab" -javascript <<EOF
+        privateTab.readyToOpenTab(true);
+        gBrowser.addTab("about:blank");
+        dactyl.execute(":tablast");
+        dactyl.execute(":open " + args);
+        privateTab.stopToOpenTabs();
 EOF
