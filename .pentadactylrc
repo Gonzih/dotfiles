@@ -18,8 +18,6 @@ map -builtin -b D :tabmove -1<CR>
 map -builtin -b N :tabmove +1<CR>
 map -builtin -b , @:
 
-colorscheme solarized-dark
-
 js editor.defaultRegister="+"
 
 set guioptions=bCrsn
