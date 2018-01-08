@@ -19,12 +19,6 @@
 
   tasks:
 
-    - name: Get dein script
-      get_url: url=https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh dest=/tmp/dein.sh
-
-    - name: Install dein
-      command: sh /tmp/dein.sh ~/.vim/bundle/dein.vim creates=~/.vim/bundle/dein.vim
-
     - name: Stash changes in dotfiles
       shell: cd {{ item.dest }} && git stash
       args:
@@ -41,6 +35,12 @@
       failed_when: no
       changed_when: yes
       with_items: "{{ dotfiles }}"
+
+    - name: Get dein script
+      get_url: url=https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh dest=/tmp/dein.sh
+
+    - name: Install dein
+      command: sh /tmp/dein.sh ~/.vim/bundle/dein.vim creates=~/.vim/bundle/dein.vim
 
     - name: Get go packages
       command: go get -u {{ item }}
