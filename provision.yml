@@ -51,6 +51,7 @@
         - 'github.com/golang/lint/golint'
         - 'github.com/kisielk/errcheck'
         - 'github.com/golang/dep/cmd/dep'
+        - 'github.com/ddollar/forego'
 
     - name: Symlink nvim
       file: src=/usr/bin/nvim dest=~/bin/vim state=link
