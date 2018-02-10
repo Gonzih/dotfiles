@@ -52,6 +52,7 @@
         - 'github.com/kisielk/errcheck'
         - 'github.com/golang/dep/cmd/dep'
         - 'github.com/ddollar/forego'
+        - 'github.com/erning/gorun'
 
     - name: Symlink nvim
       file: src=/usr/bin/nvim dest=~/bin/vim state=link
