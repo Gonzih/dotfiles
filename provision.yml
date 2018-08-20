@@ -68,4 +68,13 @@
         - ~/.config/nvim/init.vim
         - ~/.gvimrc
 
-# vim:ft=ansible:
+    - name: Run post update tasks
+      shell: "{{ item }}"
+      environment:
+        DISPLAY: 0
+      with_items:
+        - xmonad --recompile && xmonad --restart
+        - xrdb -merge {{ ansible_env.HOME }}/.Xresources
+        - vim -E -s -c 'source ~/.vimrc' -c 'call dein#update()' -c 'qall'
+
+# vim:ft=yaml.ansible:
