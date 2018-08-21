@@ -71,10 +71,10 @@
     - name: Run post update tasks
       shell: "{{ item }}"
       environment:
-        DISPLAY: 0
+        DISPLAY: ':0'
       with_items:
         - xmonad --recompile && xmonad --restart
         - xrdb -merge {{ ansible_env.HOME }}/.Xresources
-        - vim -E -s -c 'source ~/.vimrc' -c 'call dein#update()' -c 'qall'
+        - vim -Es -c 'source ~/.vimrc' -c 'call dein#update()' -c 'qall' || echo done
 
 # vim:ft=yaml.ansible:
