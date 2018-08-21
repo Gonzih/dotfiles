@@ -50,11 +50,18 @@
       changed_when: yes
       with_items: "{{ dotfiles }}"
 
+    - name: Check if dein.vim exists
+      stat:
+        path: ~/.vim/bundle/dein.vim
+      register: dein_stat
+
     - name: Get dein script
       get_url: url=https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh dest=/tmp/dein.sh
+      when: dein_stat.stat.exists == False
 
     - name: Install dein
-      command: sh /tmp/dein.sh ~/.vim/bundle/dein.vim creates=~/.vim/bundle/dein.vim
+      command: sh /tmp/dein.sh ~/.vim/bundle/dein.vim
+      when: dein_stat.stat.exists == False
 
     - name: Get go packages
       command: go get -u {{ gotools | join(" ") }}
