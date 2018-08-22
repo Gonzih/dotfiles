@@ -17,6 +17,17 @@
       - { url: 'git@github.com:Gonzih/.xmonad.git',             dest: '~/.xmonad'                   }
       - { url: 'git@github.com:Gonzih/.mutt.git',               dest: '~/.mutt'                     }
 
+    gotools:
+      - 'github.com/nsf/gocode'
+      - 'golang.org/x/tools/cmd/goimports'
+      - 'golang.org/x/tools/cmd/godoc'
+      - 'github.com/golang/lint/golint'
+      - 'github.com/kisielk/errcheck'
+      - 'github.com/golang/dep/cmd/dep'
+      - 'github.com/alecthomas/gometalinter'
+      - 'github.com/ddollar/forego'
+      - 'golang.org/x/vgo'
+
   tasks:
 
     - name: Stash changes in dotfiles
@@ -43,17 +54,7 @@
       command: sh /tmp/dein.sh ~/.vim/bundle/dein.vim creates=~/.vim/bundle/dein.vim
 
     - name: Get go packages
-      command: go get -u {{ item }}
-      with_items:
-        - 'github.com/nsf/gocode'
-        - 'golang.org/x/tools/cmd/goimports'
-        - 'golang.org/x/tools/cmd/godoc'
-        - 'github.com/golang/lint/golint'
-        - 'github.com/kisielk/errcheck'
-        - 'github.com/golang/dep/cmd/dep'
-        - 'github.com/alecthomas/gometalinter'
-        - 'github.com/ddollar/forego'
-        - 'golang.org/x/vgo'
+      command: go get -u {{ gotools | join(" ") }}
 
     - name: Symlink nvim
       file: src=/usr/bin/nvim dest=~/bin/vim state=link
