@@ -38,6 +38,7 @@
   glog = log --graph
   st = status -s
   ci = commit --verbose
+  cis = commit -S --verbose
   w = whatchanged
   br = branch
   hist = "!tig"
