@@ -37,8 +37,8 @@
   co = checkout
   glog = log --graph
   st = status -s
-  ci = commit --verbose
-  cis = commit -S --verbose
+  ci = commit --gpg-sign=gonzih@gmail.com --verbose
+  cins = commit --verbose
   w = whatchanged
   br = branch
   hist = "!tig"
