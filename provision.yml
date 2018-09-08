@@ -30,6 +30,9 @@
 
   tasks:
 
+    - name: Pull updates to the gpg key
+      command: gpg --keyserver hkps://pgp.mit.edu --recv-keys 7DE9280D5ED997D8
+
     - name: Stash changes in dotfiles
       shell: cd {{ item.dest }} && git stash
       args:
