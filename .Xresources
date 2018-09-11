@@ -1,3 +1,11 @@
+xscreensaver.Dialog.headingFont:        -*-dejavu sans-bold-r-*--12-*-*-*-*-*-*-*
+xscreensaver.Dialog.bodyFont:           -*-dejavu sans-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.labelFont:          -*-dejavu sans-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.unameFont:          -*-dejavu sans-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.buttonFont:         -*-dejavu sans-bold-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.dateFont:           -*-dejavu sans-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.passwd.passwdFont:         -*-dejavu sans-bold-r-*-*-12-*-*-*-*-*-*-*
+
 xscreensaver.splash: false
 
 !general dialog box (affects main hostname, username, password text)
@@ -28,9 +36,10 @@ xscreensaver.dateFormat:    %I:%M%P %a %b %d, %Y
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintfull
-Xft.hinting: true
-Xft.antialias: true
-Xft.dpi: 96
+Xft.hinting: 1
+Xft.antialias: 1
+!Xft.dpi: 96
+!Xft.dpi: 92
 Xft.rgba: rgb
 
 ! Disable unicode pasting mode that I dont understand
@@ -51,10 +60,10 @@ URxvt.keysym.C-C: perl:clipboard:copy
 URxvt.keysym.C-V: perl:clipboard:paste
 URxvt.clipboard.autocopy: true
 
-URxvt.font: xft:Iosevka Term:style=medium:size=11
-URxvt.boldFont: xft:Iosevka Term:style=bold:size=11
-URxvt.italicFont: xft:Iosevka Term:style=italic:size=11
-URxvt.boldItalicFont: xft:Iosevka Term:style=medium:size=11
+URxvt.font: xft:Iosevka Term:style=medium:size=13
+URxvt.boldFont: xft:Iosevka Term:style=bold:size=13
+URxvt.italicFont: xft:Iosevka Term:style=italic:size=13
+URxvt.boldItalicFont: xft:Iosevka Term:style=medium:size=13
 
 URxvt.scrollBar: false
 URxvt.scrollBar_right: false
