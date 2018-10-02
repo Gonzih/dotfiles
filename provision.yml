@@ -27,6 +27,7 @@
       - 'github.com/alecthomas/gometalinter'
       - 'github.com/ddollar/forego'
       - 'golang.org/x/vgo'
+      - 'github.com/Gonzih/simpleton'
 
   tasks:
 
