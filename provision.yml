@@ -79,7 +79,7 @@
         - ~/.gvimrc
 
     - name: Symlink .ideavim
-      file: src=~/.ideavimrc dest=~/ideavimrc state=link
+      file: src=~/.vim/ideavimrc dest=~/.ideavimrc state=link
 
     - name: Run post update tasks
       shell: "{{ item }}"
