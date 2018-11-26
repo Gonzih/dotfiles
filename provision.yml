@@ -78,6 +78,9 @@
         - ~/.config/nvim/init.vim
         - ~/.gvimrc
 
+    - name: Symlink .ideavim
+      file: src=~/.ideavimrc dest=~/.ideavimrc state=link
+
     - name: Run post update tasks
       shell: "{{ item }}"
       environment:
