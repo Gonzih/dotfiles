@@ -31,6 +31,11 @@
 
     - name: Pull updates to the gpg key
       command: gpg --keyserver hkps://pgp.mit.edu --recv-keys 7DE9280D5ED997D8
+      register: task_result
+      until: task_result.rc == 0
+      retries: 10
+      delay: 1
+      ignore_errors: yes
 
     - name: Stash changes in dotfiles
       shell: cd {{ item.dest }} && git stash
