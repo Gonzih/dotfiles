@@ -74,9 +74,9 @@
 [commit]
 	gpgsign = true
 [merge]
-	tool = vscode
-[mergetool "vscode"]
-	cmd = "code --wait $MERGED"
+	tool = nvim
+[mergetool "nvim"]
+        cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
 [diff]
 	tool = vscode
 [difftool "vscode"]
