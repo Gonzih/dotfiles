@@ -18,7 +18,7 @@
       - { url: 'git@github.com:Gonzih/.mutt.git',               dest: '~/.mutt'                     }
 
     gotools:
-      - 'github.com/mdempsky/gocode'
+      - 'github.com/stamblerre/gocode'
       - 'golang.org/x/tools/cmd/goimports'
       - 'golang.org/x/tools/cmd/godoc'
       - 'github.com/golang/lint/golint'
