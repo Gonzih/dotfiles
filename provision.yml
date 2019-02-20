@@ -23,6 +23,7 @@
       - 'github.com/kisielk/errcheck'
       - 'github.com/ddollar/forego'
       - 'github.com/Gonzih/simpleton'
+      - 'github.com/Gonzih/screensaver-off-go'
 
   tasks:
 
