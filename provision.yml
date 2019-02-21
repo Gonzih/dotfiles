@@ -22,6 +22,7 @@
       - 'github.com/golang/lint/golint'
       - 'github.com/kisielk/errcheck'
       - 'github.com/ddollar/forego'
+      - 'github.com/zmb3/gogetdoc'
       - 'github.com/Gonzih/simpleton'
       - 'github.com/Gonzih/screensaver-off-go'
       - 'github.com/Gonzih/external-screen-xps-helper'
