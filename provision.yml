@@ -8,7 +8,6 @@
 
   vars:
     dotfiles:
-      - { url: 'https://github.com/syl20bnr/spacemacs',         dest: '~/.emacs.d'                  }
       - { url: 'git@github.com:Gonzih/.vim.git',                dest: '~/.vim'                      }
       - { url: 'git@github.com:Gonzih/.mc.git',                 dest: '~/.config/mc'                }
       - { url: 'git@github.com:Gonzih/.fish.git',               dest: '~/.config/fish'              }
