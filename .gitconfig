@@ -64,6 +64,7 @@
   rebase = preserve
 [rebase]
 	autostash = true
+	instructionFormat = (%an <%ae>) %s
 [rerere]
 	enabled = true
 [filter "lfs"]
