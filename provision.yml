@@ -18,7 +18,7 @@
       - 'github.com/stamblerre/gocode'
       - 'golang.org/x/tools/cmd/goimports'
       - 'golang.org/x/tools/cmd/godoc'
-      - 'github.com/golang/lint/golint'
+      - 'golang.org/x/lint/golint'
       - 'github.com/kisielk/errcheck'
       - 'github.com/ddollar/forego'
       - 'github.com/zmb3/gogetdoc'
