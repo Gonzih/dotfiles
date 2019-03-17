@@ -69,7 +69,7 @@
 
     - name: Get go packages
       command: go get -u {{ item }}
-      with_items: {{ gotools }}
+      with_items: "{{ gotools }}"
 
     - name: Symlink nvim
       file: src=/usr/bin/nvim dest=~/bin/vim state=link
