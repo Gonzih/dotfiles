@@ -38,7 +38,7 @@
       ignore_errors: yes
 
     - name: Stash changes in dotfiles
-      shell: test -f {{ item.dest }} && cd {{ item.dest }} && git stash || echo "No folder to stash"
+      shell: test -d {{ item.dest }} && cd {{ item.dest }} && git stash || echo "No folder to stash"
       args:
         executable: /bin/sh
       with_items: "{{ dotfiles }}"
