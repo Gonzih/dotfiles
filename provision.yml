@@ -94,6 +94,6 @@
       with_items:
         - xmonad --recompile && xmonad --restart
         - xrdb -merge {{ ansible_env.HOME }}/.Xresources
-        - vim -Es -c 'source ~/.vimrc' -c 'call dein#update()' -c 'qall' || echo done
+        - nvim -Es -c 'source ~/.vimrc' -c 'call dein#update()' -c 'qall' || echo done
 
 # vim:ft=yaml.ansible:
