@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-set -e
-cd ~
+set -ex
 
+cd ~
 git clone git@github.com:Gonzih/dotfiles.git
-rsync ~/dotfiles/* -t ~/ -f
+rsync -avzh ~/dotfiles/. ~/
 rm ~/dotfiles -rf
 git reset --hard
 
-fish -c dotfiles-update
+ansible-playbook provision.yml
