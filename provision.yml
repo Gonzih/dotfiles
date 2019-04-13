@@ -71,8 +71,11 @@
       command: go get -u {{ item }}
       with_items: "{{ gotools }}"
 
+    - shell: which nvim
+      register: which_nvim
+
     - name: Symlink nvim
-      file: src=/usr/bin/nvim dest=~/bin/vim state=link
+      file: src={{ which_nvim.stdout }} dest=~/bin/vim state=link
 
     - name: Symlink .vim
       file: src=~/.vim dest=~/.config/nvim state=link
