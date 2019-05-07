@@ -77,7 +77,7 @@
 [merge]
 	tool = nvim
 [mergetool "nvim"]
-        cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
+        cmd = nvim -f -c \"Gvdiff\" \"$MERGED\"
 [diff]
 	tool = vscode
 [difftool "vscode"]
