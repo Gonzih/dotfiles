@@ -51,7 +51,7 @@ URxvt.letterSpace: -1
 !-*- Perl extensions -*-
 
 URxvt.perl-ext-common: default,clipboard,matcher
-URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.url-launcher: xdg-open
 URxvt.matcher.button: 1
 URxvt.matcher.rend.0: Uline Bold
 
