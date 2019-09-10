@@ -84,3 +84,5 @@
         cmd = "code --wait --diff $LOCAL $REMOTE"
 [alias]
     todo = grep -n -e TODO -e FIXME -e XXX -e OPTIMIZE
+[gpg]
+	program = gpg2

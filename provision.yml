@@ -34,7 +34,15 @@
   tasks:
 
     - name: Pull updates to the gpg key
-      command: gpg --keyserver hkps://keys.gnupg.net --recv-keys 7DE9280D5ED997D8
+      command: gpg --keyserver hkps://keys.gnupg.net --recv-keys 04BA9DC3F7F0A914
+      register: task_result
+      until: task_result.rc == 0
+      retries: 10
+      delay: 1
+      ignore_errors: yes
+
+    - name: Delete old gpg key
+      command: gpg --delete-key --yes 7DE9280D5ED997D8
       register: task_result
       until: task_result.rc == 0
       retries: 10
