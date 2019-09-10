@@ -34,7 +34,7 @@
   tasks:
 
     - name: Pull updates to the gpg key
-      command: gpg --keyserver hkps://keys.gnupg.net --recv-keys 04BA9DC3F7F0A914
+      command: gpg --keyserver hkps://keys.gnupg.net --recv-keys E098E40080AE48C3
       register: task_result
       until: task_result.rc == 0
       retries: 10
