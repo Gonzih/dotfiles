@@ -41,14 +41,6 @@
       delay: 1
       ignore_errors: yes
 
-    - name: Delete old gpg key
-      command: gpg --delete-key --yes 7DE9280D5ED997D8
-      register: task_result
-      until: task_result.rc == 0
-      retries: 10
-      delay: 1
-      ignore_errors: yes
-
     - name: Stash changes in dotfiles
       shell: test -d {{ item.dest }} && cd {{ item.dest }} && git stash || echo "No folder to stash"
       args:
