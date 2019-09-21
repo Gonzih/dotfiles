@@ -31,7 +31,7 @@
   pager = less -FRSX
   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol,space-before-tab
   excludesfile = /home/gnzh/.gitignore.global
-	editor = vim
+  editor = vim
 
 [alias]
   co = checkout
@@ -62,27 +62,33 @@
 
 [pull]
   rebase = preserve
+
 [rebase]
-	autostash = true
-	instructionFormat = (%an <%ae>) %s
+  autostash = true
+  instructionFormat = (%an <%ae>) %s
+
 [rerere]
-	enabled = true
+  enabled = true
+
 [filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+
 [commit]
-	gpgsign = true
+  gpgsign = true
+
 [merge]
-	tool = nvim
+  tool = nvim
+
 [mergetool "nvim"]
-        cmd = nvim -f -c \"Gvdiff\" \"$MERGED\"
-[diff]
-	tool = vscode
-[difftool "vscode"]
-        cmd = "code --wait --diff $LOCAL $REMOTE"
+  cmd = nvim -f -c \"Gvdiff\" \"$MERGED\"
+
 [alias]
-    todo = grep -n -e TODO -e FIXME -e XXX -e OPTIMIZE
+  todo = grep -n -e TODO -e FIXME -e XXX -e OPTIMIZE
+
 [gpg]
-	program = gpg2
+  program = gpg2
+
+# vim:ts=2:sts=2:sw=2:expandtab
