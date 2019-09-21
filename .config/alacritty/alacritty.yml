@@ -171,7 +171,7 @@ font:
 draw_bold_text_with_bright_colors: true
 
 schemes:
-  tomorrow_night_bright: &tomorrow_night_bright
+  tomorrow_night_bright: &tomorrow_night_bright # {{{
     # Colors (Tomorrow Night Bright)
     # Default colors
     primary:
@@ -198,9 +198,9 @@ schemes:
           blue:    '0x7aa6da'
           magenta: '0xb77ee0'
           cyan:    '0x54ced6'
-          white:   '0x2a2a2a'
+          white:   '0x2a2a2a' # }}}
 
-  xterm: &xterm
+  xterm: &xterm # {{{
     # XTerm's default colors
     # Default colors
     primary:
@@ -226,9 +226,40 @@ schemes:
       blue:    '0x5c5cff'
       magenta: '0xff00ff'
       cyan:    '0x00ffff'
-      white:   '0xffffff'
+      white:   '0xffffff' # }}}
 
-colors: *xterm
+  hyper: &hyper # {{{
+     # Default colors
+    primary:
+      background: '0x000000'
+      foreground: '0xffffff'
+    cursor:
+      text: '0xF81CE5'
+      cursor: '0xffffff'
+
+    # Normal colors
+    normal:
+      black:   '0x000000'
+      red:     '0xfe0100'
+      green:   '0x33ff00'
+      yellow:  '0xfeff00'
+      blue:    '0x0066ff'
+      magenta: '0xcc00ff'
+      cyan:    '0x00ffff'
+      white:   '0xd0d0d0'
+
+    # Bright colors
+    bright:
+      black:   '0x808080'
+      red:     '0xfe0100'
+      green:   '0x33ff00'
+      yellow:  '0xfeff00'
+      blue:    '0x0066ff'
+      magenta: '0xcc00ff'
+      cyan:    '0x00ffff'
+      white:   '0xFFFFFF'# }}}
+
+colors: *hyper
 
 # Visual Bell
 #
