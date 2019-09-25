@@ -113,5 +113,6 @@
         - rustup default nightly
         - rustup component add rust-src
         - cargo +nightly install racer
+        - racer complete std::io::B
 
 # vim:ft=yaml.ansible:
