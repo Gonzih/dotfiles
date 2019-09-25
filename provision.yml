@@ -112,6 +112,7 @@
       with_items:
         - rustup default nightly
         - rustup component add rust-src
+        - rustup component add rustfmt
         - cargo +nightly install racer
         - racer complete std::io::B
 
