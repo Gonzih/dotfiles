@@ -113,7 +113,11 @@
         - rustup default nightly
         - rustup component add rust-src
         - rustup component add rustfmt
-        - cargo +nightly install racer
-        - racer complete std::io::B
+
+    - name: Try to install racer
+      command: cargo +nightly install racer creates=/home/gnzh/.cargo/bin/racer
+
+    - name: Test racer
+      command: racer complete std::io::B
 
 # vim:ft=yaml.ansible:
