@@ -107,4 +107,11 @@
         - xrdb -merge {{ ansible_env.HOME }}/.Xresources
         - nvim -Es -c 'source ~/.vimrc' -c 'call dein#update()' -c 'qall' || echo done
 
+    - name: Setup rust
+      command: "{{ item }}"
+      with_items:
+        - rustup default nightly
+        - rustup component add rust-src
+        - cargo +nightly install racer
+
 # vim:ft=yaml.ansible:
