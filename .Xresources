@@ -60,20 +60,20 @@ URxvt.keysym.C-C: perl:clipboard:copy
 URxvt.keysym.C-V: perl:clipboard:paste
 URxvt.clipboard.autocopy: true
 
-URxvt.font: xft:Iosevka:style=medium:size=14
-URxvt.boldFont: xft:Iosevka:style=bold:size=14
-URxvt.italicFont: xft:Iosevka:style=italic:size=14
-URxvt.boldItalicFont: xft:Iosevka:style=medium:size=14
+URxvt.font: xft:Victor Mono:style=medium:size=15
+URxvt.boldFont: xft:Victor Mono:style=bold:size=15
+URxvt.italicFont: xft:Victor Mono:style=italic:size=15
+URxvt.boldItalicFont: xft:Victor Mono:style=medium:size=15
 
-URxvt.keysym.M-C-1:command:\033]710;xft:Iosevka:style=medium:size=11\007
-URxvt.keysym.M-C-2:command:\033]710;xft:Iosevka:style=medium:size=12\007
-URxvt.keysym.M-C-3:command:\033]710;xft:Iosevka:style=medium:size=13\007
-URxvt.keysym.M-C-4:command:\033]710;xft:Iosevka:style=medium:size=14\007
-URxvt.keysym.M-C-5:command:\033]710;xft:Iosevka:style=medium:size=15\007
-URxvt.keysym.M-C-6:command:\033]710;xft:Iosevka:style=medium:size=16\007
-URxvt.keysym.M-C-7:command:\033]710;xft:Iosevka:style=medium:size=17\007
-URxvt.keysym.M-C-8:command:\033]710;xft:Iosevka:style=medium:size=18\007
-URxvt.keysym.M-C-9:command:\033]710;xft:Iosevka:style=medium:size=19\007
+URxvt.keysym.M-C-1:command:\033]710;xft:Victor Mono:style=medium:size=11\007
+URxvt.keysym.M-C-2:command:\033]710;xft:Victor Mono:style=medium:size=12\007
+URxvt.keysym.M-C-3:command:\033]710;xft:Victor Mono:style=medium:size=13\007
+URxvt.keysym.M-C-4:command:\033]710;xft:Victor Mono:style=medium:size=14\007
+URxvt.keysym.M-C-5:command:\033]710;xft:Victor Mono:style=medium:size=15\007
+URxvt.keysym.M-C-6:command:\033]710;xft:Victor Mono:style=medium:size=16\007
+URxvt.keysym.M-C-7:command:\033]710;xft:Victor Mono:style=medium:size=17\007
+URxvt.keysym.M-C-8:command:\033]710;xft:Victor Mono:style=medium:size=18\007
+URxvt.keysym.M-C-9:command:\033]710;xft:Victor Mono:style=medium:size=19\007
 
 URxvt.scrollBar: false
 URxvt.scrollBar_right: false
