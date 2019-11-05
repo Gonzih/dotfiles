@@ -113,6 +113,8 @@
         - rustup default nightly
         - rustup component add rust-src
         - rustup component add rustfmt
+        - rustup component add clippy
+        - rustup target add x86_64-unknown-linux-musl
 
     - name: Try to install racer
       command: cargo +nightly install racer creates=/home/gnzh/.cargo/bin/racer
