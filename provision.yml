@@ -116,10 +116,4 @@
         - rustup component add rust-analysis
         - rustup component add rls
 
-    - name: Try to install racer
-      command: cargo +nightly install racer creates=/home/gnzh/.cargo/bin/racer
-
-    - name: Test racer
-      command: racer complete std::io::B
-
 # vim:ft=yaml.ansible:
