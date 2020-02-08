@@ -75,9 +75,9 @@
       command: go get -u {{ item }}
       with_items: "{{ gotools }}"
 
-    - name: Get ocaml tools
-      command: opam install -y {{ item }}
-      with_items: "{{ ocamltools }}"
+    # - name: Get ocaml tools
+    #   command: opam install -y {{ item }}
+    #   with_items: "{{ ocamltools }}"
 
     - shell: which nvim
       register: which_nvim
