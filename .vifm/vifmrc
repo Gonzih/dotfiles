@@ -9,4 +9,6 @@ noremap n l
 noremap ; :
 nnoremap b :bmgo<space>
 
-filetype *.pdf evince %f &
+filetype *.pdf evince %i &
+filetype *.mkv,*.avi,*.mp4 vlc %i &
+filetype *.png,*.jpg,*.jpeg,*.gif gwenview %i &
