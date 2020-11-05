@@ -1,0 +1,4 @@
+noremap h j
+noremap t k
+noremap d h
+noremap n l
