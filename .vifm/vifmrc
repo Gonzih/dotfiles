@@ -1,9 +1,12 @@
 noremap h j
 noremap k t
 noremap t k
+noremap t k
 noremap d h
+noremap j d
+noremap jj dd
 noremap n l
 noremap ; :
 nnoremap b :bmgo<space>
 
-filetype *.pdf evince
+filetype *.pdf evince %f &
