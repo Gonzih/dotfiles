@@ -1,4 +1,7 @@
 noremap h j
+noremap k t
 noremap t k
 noremap d h
 noremap n l
+noremap ; :
+nnoremap b :bmgo<space>
