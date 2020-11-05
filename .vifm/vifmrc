@@ -5,3 +5,5 @@ noremap d h
 noremap n l
 noremap ; :
 nnoremap b :bmgo<space>
+
+filetype *.pdf evince
