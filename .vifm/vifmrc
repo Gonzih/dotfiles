@@ -26,3 +26,5 @@ filetype *.zip,*.jar,*.war,*.ear
 filetype *.tar,*.tar.bz2,*.tbz2,*.tgz,*.tar.gz,*.tar.xz,*.txz,*.deb
        \ {Mount with avfs}
        \ FUSE_MOUNT3|mount-avfs %DESTINATION_DIR %SOURCE_FILE
+
+" vim:ft=vim
