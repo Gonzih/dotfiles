@@ -14,6 +14,7 @@
       - { url: 'git@github.com:Gonzih/.xmonad.git',  dest: '~/.xmonad'         }
       - { url: 'git@github.com:Gonzih/.mutt.git',    dest: '~/.mutt'           }
       - { url: 'git@github.com:Gonzih/nix-home.git', dest: '~/.config/nixpkgs' }
+      - { url: 'https://github.com/oh-my-fish/plugin-foreign-env.git', dest: '~/.config/plugin-foreign-env' }
 
     ocamltools:
       - 'merlin'
