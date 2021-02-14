@@ -8,11 +8,12 @@
 
   vars:
     dotfiles:
-      - { url: 'git@github.com:Gonzih/.vim.git',    dest: '~/.vim'         }
-      - { url: 'git@github.com:Gonzih/.mc.git',     dest: '~/.config/mc'   }
-      - { url: 'git@github.com:Gonzih/.fish.git',   dest: '~/.config/fish' }
-      - { url: 'git@github.com:Gonzih/.xmonad.git', dest: '~/.xmonad'      }
-      - { url: 'git@github.com:Gonzih/.mutt.git',   dest: '~/.mutt'        }
+      - { url: 'git@github.com:Gonzih/.vim.git',     dest: '~/.vim'            }
+      - { url: 'git@github.com:Gonzih/.mc.git',      dest: '~/.config/mc'      }
+      - { url: 'git@github.com:Gonzih/.fish.git',    dest: '~/.config/fish'    }
+      - { url: 'git@github.com:Gonzih/.xmonad.git',  dest: '~/.xmonad'         }
+      - { url: 'git@github.com:Gonzih/.mutt.git',    dest: '~/.mutt'           }
+      - { url: 'git@github.com:Gonzih/nix-home.git', dest: '~/.config/nixpkgs' }
 
     ocamltools:
       - 'merlin'
