@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-exec cargo rustc --profile=check -- -Zunstable-options --pretty=expanded
