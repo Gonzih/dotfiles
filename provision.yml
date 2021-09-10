@@ -35,14 +35,6 @@
 
   tasks:
 
-    - name: Pull updates to the gpg key
-      command: gpg --keyserver hkps://keys.openpgp.org --recv-keys E098E40080AE48C3
-      register: task_result
-      until: task_result.rc == 0
-      retries: 10
-      delay: 1
-      ignore_errors: yes
-
     - name: Stash changes in dotfiles
       shell: test -d {{ item.dest }} && cd {{ item.dest }} && git stash || echo "No folder to stash"
       args:
@@ -62,7 +54,7 @@
 
     - name: Check if dein.vim exists
       stat:
-        path: ~/.vim/bundle/dein.vim
+        path: ~/.cache/dein.vim
       register: dein_stat
 
     - name: Get dein script
@@ -70,12 +62,12 @@
       when: dein_stat.stat.exists == False
 
     - name: Install dein
-      command: sh /tmp/dein.sh ~/.vim/bundle/dein.vim
+      command: sh /tmp/dein.sh ~/.cache/dein.vim
       when: dein_stat.stat.exists == False
 
-    - name: Get go packages
-      command: go get -u {{ item }}
-      with_items: "{{ gotools }}"
+    # - name: Get go packages
+    #   command: go get -u {{ item }}
+    #   with_items: "{{ gotools }}"
 
     # - name: Get ocaml tools
     #   command: opam install -y {{ item }}
@@ -105,17 +97,17 @@
       environment:
         DISPLAY: ':0'
       with_items:
-        - xmonad --recompile && xmonad --restart
-        - xrdb -merge {{ ansible_env.HOME }}/.Xresources
-        - nvim -Es -c 'source ~/.vimrc' -c 'call dein#update()' -c 'qall' || echo done
+        # - xmonad --recompile && xmonad --restart
+        # - xrdb -merge {{ ansible_env.HOME }}/.Xresources
+        # - nvim -Es -c 'source ~/.vimrc' -c 'call dein#update()' -c 'qall' || echo done
 
-    - name: Setup rust
-      command: "{{ item }}"
-      with_items:
-        - rustup component add rust-src
-        - rustup component add rustfmt
-        - rustup component add clippy
-        - rustup component add rust-analysis
-        - rustup component add rls
+#     - name: Setup rust
+#       command: "{{ item }}"
+#       with_items:
+#         - rustup component add rust-src
+#         - rustup component add rustfmt
+#         - rustup component add clippy
+#         - rustup component add rust-analysis
+#         - rustup component add rls
 
 # vim:ft=yaml.ansible:
