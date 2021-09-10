@@ -89,6 +89,6 @@
   todo = grep -n -e TODO -e FIXME -e XXX -e OPTIMIZE
 
 [gpg]
-  program = gpg2
+  program = gpg
 
 # vim:ts=2:sts=2:sw=2:expandtab
