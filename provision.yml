@@ -79,27 +79,8 @@
     - name: Symlink nvim
       file: src={{ which_nvim.stdout }} dest=~/bin/vim state=link
 
-    - name: Symlink .vim
-      file: src=~/.vim dest=~/.config/nvim state=link
-
-    - name: Symlink .vimrc
-      file: src=~/.vim/vimrc dest={{ item }} state=link
-      with_items:
-        - ~/.vimrc
-        - ~/.config/nvim/init.vim
-        - ~/.gvimrc
-
-    - name: Symlink .ideavim
-      file: src=~/.vim/ideavimrc dest=~/.ideavimrc state=link
-
-    - name: Run post update tasks
-      shell: "{{ item }}"
-      environment:
-        DISPLAY: ':0'
-      with_items:
-        # - xmonad --recompile && xmonad --restart
-        # - xrdb -merge {{ ansible_env.HOME }}/.Xresources
-        # - nvim -Es -c 'source ~/.vimrc' -c 'call dein#update()' -c 'qall' || echo done
+    - name: Symlink nvim
+      file: src=~/.config/nixpkgs/nix/lib/dotfiles/.tmux.conf dest=~/.tmux.conf state=link
 
 #     - name: Setup rust
 #       command: "{{ item }}"
