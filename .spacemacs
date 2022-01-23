@@ -1178,7 +1178,9 @@ dump."
        ;; use the standard Dired bindings as a base
        (evil-make-overriding-map dired-mode-map 'normal t)
        (evil-define-key 'normal dired-mode-map
+         "%" 'dired-create-empty-file
          "d" 'evil-backward-char
+         "j" 'dired-create-directory
          "h" 'evil-next-line
          "t" 'evil-previous-line
          "n" 'evil-forward-char
