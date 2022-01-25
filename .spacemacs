@@ -62,6 +62,7 @@ This function should only modify configuration layer settings."
      ;; clojure
      ;; scala
      ;; julia
+     (nixos :variables nixos-format-on-save t)
      shell-scripts
      sql
      graphql
