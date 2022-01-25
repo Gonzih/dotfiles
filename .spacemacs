@@ -62,6 +62,7 @@ This function should only modify configuration layer settings."
      ;; clojure
      ;; scala
      ;; julia
+     shell-scripts
      sql
      graphql
      html
