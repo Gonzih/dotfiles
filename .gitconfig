@@ -77,7 +77,7 @@
   smudge = git-lfs smudge -- %f
 
 [commit]
-  gpgsign = false
+  gpgsign = true
 
 [merge]
   tool = nvim
