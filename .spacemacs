@@ -72,6 +72,7 @@ This function should only modify configuration layer settings."
      typescript
      solidity
      markdown
+     (unicode-fonts :variables unicode-fonts-enable-ligatures t)
      (keyboard-layout :variables kl-layout 'dvp))
 
 
