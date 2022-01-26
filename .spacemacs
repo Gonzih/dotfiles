@@ -260,9 +260,9 @@ It should only modify the values of Spacemacs settings."
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
    dotspacemacs-default-font '("Cascadia Code PL"
-                               :size 11.0
+                               :size 10.0
                                :slant normal
-                               :weight semi-bold
+                               :weight normal
                                :width normal)
 
    ;; The leader key (default "SPC")
