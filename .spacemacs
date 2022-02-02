@@ -77,6 +77,7 @@ This function should only modify configuration layer settings."
      ansible
      docker
      terraform
+     protobuf
      (unicode-fonts :variables unicode-fonts-enable-ligatures t)
      (keyboard-layout :variables kl-layout 'dvp))
 
