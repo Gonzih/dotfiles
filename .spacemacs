@@ -61,7 +61,7 @@ This function should only modify configuration layer settings."
      (python :variables python-poetry-activate t python-backend 'lsp python-lsp-server 'pylsp)
      yaml
      ;; c-c++
-     ;; clojure
+     clojure
      ;; scala
      ;; julia
      (nixos :variables nixos-format-on-save t)
