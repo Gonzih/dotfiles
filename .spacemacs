@@ -600,6 +600,10 @@ dump."
          "T" 'dired-do-kill-lines
          "r" 'dired-do-redisplay))) )
 
+(defun gnzh/add-to-path (pth)
+ (setenv "PATH" (concat (getenv "PATH") ":" pth))
+ (setq exec-path (append exec-path (list pth))))
+
 (defun dotspacemacs/user-config ()
   "Configuration for user code:
 This function is called at the very end of Spacemacs startup, after layer
@@ -607,7 +611,8 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (gnzh/remap-evil-abit)
-  (gnzh/remap-dired-abit))
+  (gnzh/remap-dired-abit)
+  (gnzh/add-to-path "/home/gnzh/go/bin"))
 
 
 ;; Do not write anything past this comment. This is where Emacs will
