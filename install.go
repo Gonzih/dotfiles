@@ -64,6 +64,8 @@ func process(ignores []string, path string) error {
 		sc := filepath.Join(source, path)
 		must(os.RemoveAll(tg))
 		must(os.Symlink(sc, tg))
+	} else {
+		fmt.Printf("Skipping %s\n", path)
 	}
 
 	return nil
