@@ -604,7 +604,7 @@ dump."
          "n" 'evil-forward-char
          "H" 'dired-goto-file
          "T" 'dired-do-kill-lines
-         "r" 'dired-do-redisplay))) )
+         "r" 'dired-do-redisplay))))
 
 (defun gnzh/add-to-path (pth)
  (setenv "PATH" (concat (getenv "PATH") ":" pth))
