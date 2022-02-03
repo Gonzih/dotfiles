@@ -65,6 +65,7 @@ This function should only modify configuration layer settings."
      ;; scala
      ;; julia
      (nixos :variables nixos-format-on-save t)
+     systemd
      shell-scripts
      sql
      graphql
