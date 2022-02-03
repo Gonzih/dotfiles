@@ -59,6 +59,7 @@ This function should only modify configuration layer settings."
      rust
      dap
      (go :variables
+         go-backend 'lsp
          go-tab-width 4
          go-format-before-save t
          gofmt-command "goimports"
