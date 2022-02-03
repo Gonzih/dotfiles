@@ -57,6 +57,7 @@ This function should only modify configuration layer settings."
      version-control
      ;; treemacs
      rust
+     dap
      (go :variables
          go-tab-width 4
          go-format-before-save t
