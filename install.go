@@ -73,7 +73,7 @@ func main() {
 	flag.Parse()
 
 	ignores := strings.Split(ignore, ",")
-	ignores = append(ignores, ".git")
+	ignores = append(ignores, ".git", ".config")
 
 	files, err := ioutil.ReadDir(source)
 	must(err)
