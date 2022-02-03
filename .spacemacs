@@ -60,7 +60,8 @@ This function should only modify configuration layer settings."
      (go :variables
          go-tab-width 4
          go-format-before-save t
-         gofmt-command "goimports")
+         gofmt-command "goimports"
+         go-use-golangci-lint t)
      (python :variables python-poetry-activate t python-backend 'lsp python-lsp-server 'pylsp)
      yaml
      ;; c-c++
