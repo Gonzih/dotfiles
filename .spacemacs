@@ -605,6 +605,8 @@ dump."
          "n" 'evil-forward-char
          "H" 'dired-goto-file
          "T" 'dired-do-kill-lines
+         "Z" 'quit-window
+         "c" 'dired-do-compress
          "r" 'dired-do-redisplay))))
 
 (defun gnzh/add-to-path (pth)
