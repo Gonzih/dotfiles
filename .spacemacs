@@ -56,7 +56,7 @@ This function should only modify configuration layer settings."
      syntax-checking
      version-control
      ;; treemacs
-     rust
+     (rust :variables rust-format-on-save t)
      dap
      (go :variables
          go-backend 'lsp
