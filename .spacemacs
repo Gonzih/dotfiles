@@ -589,6 +589,8 @@ dump."
   (define-key evil-insert-state-map (kbd "C-c") 'evil-normal-state)
   (define-key evil-visual-state-map (kbd "C-c") 'evil-normal-state)
 
+  (define-key evil-motion-state-map (kbd "C-l") 'spacemacs/evil-search-clear-highlight)
+
   (define-key evil-motion-state-map (kbd "C-i") 'dired-jump)
   (define-key evil-motion-state-map ";" 'evil-ex))
 
