@@ -622,6 +622,7 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (gnzh/remap-evil-abit)
   (gnzh/remap-dired-abit)
+  (gnzh/add-to-path "/home/gnzh/.cargo/bin")
   (gnzh/add-to-path "/home/gnzh/go/bin"))
 
 
