@@ -77,8 +77,10 @@ This function should only modify configuration layer settings."
      graphql
      html
      json
-     ;; javascript
-     typescript
+     (javascript :variables
+                 typescript-fmt-on-save t)
+     (typescript :variables
+                 typescript-fmt-on-save t)
      solidity
      markdown
      ansible
