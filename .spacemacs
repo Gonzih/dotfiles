@@ -87,6 +87,7 @@ This function should only modify configuration layer settings."
      docker
      terraform
      protobuf
+     julia
      (unicode-fonts :variables unicode-fonts-enable-ligatures t)
      (keyboard-layout :variables kl-layout 'dvp))
 
