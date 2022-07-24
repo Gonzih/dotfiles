@@ -80,6 +80,8 @@ This function should only modify configuration layer settings."
      (javascript :variables
                  typescript-fmt-on-save t)
      (typescript :variables
+                 typescript-fmt-tool 'typescript-formatter
+                 typescript-linter 'tslint
                  typescript-fmt-on-save t)
      solidity
      markdown
