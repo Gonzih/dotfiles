@@ -624,6 +624,23 @@ dump."
  (setenv "PATH" (concat (getenv "PATH") ":" pth))
  (setq exec-path (append exec-path (list pth))))
 
+(defun gnzh/web-setup-indent (n)
+  (setq coffee-tab-width n)
+  (setq javascript-indent-level n)
+  (setq js-indent-level n)
+  (setq js2-basic-offset n)
+  (setq web-mode-markup-indent-offset n)
+  (setq web-mode-css-indent-offset n)
+  (setq web-mode-code-indent-offset n)
+  (setq css-indent-offset n)
+  (setq typescript-indent-level n)
+  )
+
+(defun gnzh/set-indent-level ()
+  (setq standard-indent 2)
+  (gnzh/web-setup-indent 2)
+  )
+
 (defun dotspacemacs/user-config ()
   "Configuration for user code:
 This function is called at the very end of Spacemacs startup, after layer
@@ -632,6 +649,7 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (gnzh/remap-evil-abit)
   (gnzh/remap-dired-abit)
+  (gnzh/set-indent-level)
   (gnzh/add-to-path "/home/gnzh/.cargo/bin")
   (gnzh/add-to-path "/home/gnzh/go/bin"))
 
