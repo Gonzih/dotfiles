@@ -638,6 +638,12 @@ dump."
 (defun gnzh/set-indent-level ()
   (setq standard-indent 2)
   (gnzh/web-setup-indent 2)
+  ;; This disables spacemacs indent on yank paste
+  (setq spacemacs-yank-indent-threshold 0)
+  )
+
+(defun gnzh/add-hooks ()
+
   )
 
 (defun dotspacemacs/user-config ()
@@ -649,6 +655,7 @@ before packages are loaded."
   (gnzh/remap-evil-abit)
   (gnzh/remap-dired-abit)
   (gnzh/set-indent-level)
+  (gnzh/add-hooks)
   (gnzh/add-to-path "/home/gnzh/.cargo/bin")
   (gnzh/add-to-path "/home/gnzh/go/bin"))
 
