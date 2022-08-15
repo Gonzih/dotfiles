@@ -64,7 +64,11 @@ This function should only modify configuration layer settings."
          go-format-before-save t
          gofmt-command "goimports"
          go-use-golangci-lint t)
-     (python :variables python-poetry-activate t python-backend 'lsp python-lsp-server 'pylsp)
+     (python :variables
+             python-poetry-activate t
+             python-format-on-save t
+             python-backend 'lsp
+             python-lsp-server 'pylsp)
      yaml
      ;; c-c++
      clojure
