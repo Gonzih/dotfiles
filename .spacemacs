@@ -44,6 +44,8 @@ This function should only modify configuration layer settings."
      git
      helm
      lsp
+     lua
+     swift
      markdown
      multiple-cursors
      (org :variabels
