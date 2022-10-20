@@ -52,18 +52,18 @@
       changed_when: yes
       with_items: "{{ dotfiles }}"
 
-    - name: Check if dein.vim exists
-      stat:
-        path: ~/.cache/dein.vim
-      register: dein_stat
+    # - name: Check if dein.vim exists
+    #   stat:
+    #     path: ~/.cache/dein.vim
+    #   register: dein_stat
 
-    - name: Get dein script
-      get_url: url=https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh dest=/tmp/dein.sh
-      when: dein_stat.stat.exists == False
+    # - name: Get dein script
+    #   get_url: url=https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh dest=/tmp/dein.sh
+    #   when: dein_stat.stat.exists == False
 
-    - name: Install dein
-      command: sh /tmp/dein.sh ~/.cache/dein.vim
-      when: dein_stat.stat.exists == False
+    # - name: Install dein
+    #   command: sh /tmp/dein.sh ~/.cache/dein.vim
+    #   when: dein_stat.stat.exists == False
 
     # - name: Get go packages
     #   command: go get -u {{ item }}
@@ -73,14 +73,14 @@
     #   command: opam install -y {{ item }}
     #   with_items: "{{ ocamltools }}"
 
-    - shell: which nvim
-      register: which_nvim
+    # - shell: which nvim
+    #   register: which_nvim
 
-    - name: Symlink nvim
-      file: src={{ which_nvim.stdout }} dest=~/bin/vim state=link
+    # - name: Symlink nvim
+    #   file: src={{ which_nvim.stdout }} dest=~/bin/vim state=link
 
-    - name: Symlink nvim
-      file: src=~/.config/nixpkgs/nix/lib/dotfiles/.tmux.conf dest=~/.tmux.conf state=link
+    # - name: Symlink nvim
+    #   file: src=~/.config/nixpkgs/nix/lib/dotfiles/.tmux.conf dest=~/.tmux.conf state=link
 
 #     - name: Setup rust
 #       command: "{{ item }}"
