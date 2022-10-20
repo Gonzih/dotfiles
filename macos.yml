@@ -1,0 +1,17 @@
+- name: MacOS config
+  hosts: localhost
+  connection: local
+  become: yes
+  become_user: gnzh
+
+  tasks:
+
+    - name: brew
+      community.general.homebrew:
+        name:
+          - mc
+          - fish
+          - htop
+          - homebrew/cask/telegram-desktop
+          - homebrew/cask/signal
+          - homebrew/cask/brave
