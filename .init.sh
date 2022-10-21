@@ -4,5 +4,5 @@ set -ex
 
 cd ~
 git clone git@github.com:Gonzih/dotfiles.git
-cd dotfiles && go run install.go
+cd dotfiles && amm install.scala
 cd dotfiles && ansible-playbook provision.yml
