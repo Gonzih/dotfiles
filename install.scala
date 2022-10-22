@@ -7,17 +7,20 @@ import scala.reflect.io.Directory
 val home = System.getProperty("user.home")
 val source = System.getProperty("user.dir")
 val ignores = List(".git", ".config", ".", "..")
-var yes = false
+var noAll = false
+var yesAll = false
 
 def exists(path: Path): Boolean =
   new File(path.toUri()).exists()
 
 def confirm(f: Path): Boolean = {
-  println(s"File $f exists, overwrite? (A/Y/n)")
+  println(s"File $f exists, overwrite? (A/Y/n/N)")
   val answer = readLine()
   if (answer == "A")
-    yes = true
-  yes || answer == "Y" || answer == ""
+    yesAll = true
+  if (answer == "N")
+    noAll = true
+  !noAll && (yesAll || answer == "Y" || answer == "")
 }
 
 def rm(p: Path) = {
@@ -34,9 +37,11 @@ def process(file: String): Unit = {
   val dest = Paths.get(home, file).toAbsolutePath()
 
   if (exists(dest))
-    if (yes || confirm(dest))
+    if (!noAll && (yesAll || confirm(dest)))
       println(s"Removing $dest")
       rm(dest)
+    else
+      println(s"Skipping $dest")
 
   if (!exists(dest))
     println(s"Linking $dest -> $src")
@@ -44,4 +49,7 @@ def process(file: String): Unit = {
 }
 
 @main def main(): Unit =
-  s"ls -a $source".!!.linesIterator.filter(!ignores.contains(_)).foreach(process)
+  s"ls -a $source".!!
+    .linesIterator
+    .filter(!ignores.contains(_))
+    .foreach(process)
