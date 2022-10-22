@@ -17,8 +17,10 @@ def confirm(f: Path): Boolean = {
   println(s"File $f exists, overwrite? (A/Y/n/N)")
   val answer = readLine()
   if (answer == "A")
+    println("YES to All")
     yesAll = true
   if (answer == "N")
+    println("NO to All")
     noAll = true
   !noAll && (yesAll || answer == "Y" || answer == "")
 }
@@ -30,6 +32,11 @@ def rm(p: Path) = {
     new Directory(f).deleteRecursively()
   else
     f.delete()
+}
+
+def ln(dest: Path, src: Path) = {
+    println(s"Linking $dest -> $src")
+    Files.createSymbolicLink(dest, src)
 }
 
 
@@ -44,8 +51,7 @@ def process(file: String): Unit = {
       println(s"Skipping $dest")
 
   if (!exists(dest))
-    println(s"Linking $dest -> $src")
-    Files.createSymbolicLink(dest, src)
+    ln(dest, src)
 }
 
 @main def main(): Unit =
