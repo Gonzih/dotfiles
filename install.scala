@@ -24,6 +24,7 @@ def confirm(f: Path): Boolean = {
 }
 
 def rm(p: Path) = {
+  println(s"Removing $p")
   val f = new File(p.toUri())
   if (f.isDirectory())
     new Directory(f).deleteRecursively()
@@ -38,7 +39,6 @@ def process(file: String): Unit = {
 
   if (exists(dest))
     if (!noAll && (yesAll || confirm(dest)))
-      println(s"Removing $dest")
       rm(dest)
     else
       println(s"Skipping $dest")
