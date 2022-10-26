@@ -14,15 +14,17 @@ def exists(path: Path): Boolean =
   new File(path.toUri()).exists()
 
 def confirm(f: Path): Boolean = {
-  println(s"File $f exists, overwrite? (A/Y/n/N)")
+  println(s"File $f exists, overwrite? (A/y/n/N)")
   val answer = readLine()
-  if (answer == "A")
+  if (answer == "A") {
     println("YES to All")
     yesAll = true
-  if (answer == "N")
+  }
+  if (answer == "N") {
     println("NO to All")
     noAll = true
-  !noAll && (yesAll || answer == "Y" || answer == "")
+  }
+  !noAll && (yesAll || answer == "y")
 }
 
 def rm(p: Path) = {
