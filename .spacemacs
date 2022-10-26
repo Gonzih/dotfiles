@@ -289,7 +289,7 @@ It should only modify the values of Spacemacs settings."
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
    dotspacemacs-default-font '("Cascadia Code PL"
-                               :size 14.0
+                               :size 13.0
                                :slant normal
                                :weight normal
                                :width normal)
