@@ -111,7 +111,11 @@ This function should only modify configuration layer settings."
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages
+    '((copilot :location (recipe
+                       :fetcher github
+                       :repo "zerolfx/copilot.el"
+                       :files ("*.el" "dist"))))
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -577,6 +581,8 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+  ;; For some reason this needs to be here
+  (add-hook 'prog-mode-hook 'copilot-mode)
 )
 
 
@@ -650,8 +656,25 @@ dump."
   )
 
 (defun gnzh/add-hooks ()
-
   )
+
+(defun gnzh/add-copilot ()
+  (setq copilot-node-executable "/Users/gnzh/.nvm/versions/node/v17.9.1/bin/node")
+
+  (with-eval-after-load 'company
+    ;; disable inline previews
+    (delq 'company-preview-if-just-one-frontend company-frontends))
+
+  (with-eval-after-load 'copilot
+    (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
+    (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
+
+    (define-key evil-insert-state-map (kbd "C-<tab>") 'copilot-accept-completion-by-word)
+    (define-key evil-insert-state-map (kbd "C-TAB") 'copilot-accept-completion-by-word)
+    (define-key evil-insert-state-map (kbd "C-n") 'copilot-accept-completion-by-word)
+    (define-key evil-insert-state-map (kbd "C-h") 'copilot-next-completion)
+    (define-key evil-insert-state-map (kbd "C-t") 'copilot-previous-completion)
+    ))
 
 (defun dotspacemacs/user-config ()
   "Configuration for user code:
@@ -659,12 +682,15 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  (gnzh/add-hooks)
   (gnzh/remap-evil-abit)
   (gnzh/remap-dired-abit)
   (gnzh/set-indent-level)
-  (gnzh/add-hooks)
+  (gnzh/add-to-path "/Users/gnzh/.nvm/versions/node/v18.12.0/bin")
   (gnzh/add-to-path "/home/gnzh/.cargo/bin")
-  (gnzh/add-to-path "/home/gnzh/go/bin"))
+  (gnzh/add-to-path "/home/gnzh/go/bin")
+  (gnzh/add-copilot)
+  )
 
 
 ;; Do not write anything past this comment. This is where Emacs will
