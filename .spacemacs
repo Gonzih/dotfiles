@@ -671,7 +671,7 @@ dump."
 
     (define-key evil-insert-state-map (kbd "C-TAB") 'copilot-accept-completion-by-word)
     (define-key evil-insert-state-map (kbd "C-<tab>") 'copilot-accept-completion-by-word)
-    (define-key evil-insert-state-map (kbd "C-n") 'copilot-accept-completion-by-word)
+    (define-key evil-insert-state-map (kbd "C-n") 'copilot-accept-completion)
 
     (define-key evil-insert-state-map (kbd "C-h") 'copilot-next-completion)
     (define-key evil-insert-state-map (kbd "C-t") 'copilot-previous-completion)
