@@ -1,3 +1,2 @@
-PATH=/opt/homebrew/bin:"/home/gnzh/Library/Application Support/Coursier/bin":$PATH
-export PATH
+export PATH=/opt/homebrew/bin:$PATH
 exec fish
