@@ -659,6 +659,7 @@ dump."
   )
 
 (defun gnzh/add-hooks ()
+  (add-hook 'swift-mode-hook (lambda () (lsp)))
   )
 
 (defun gnzh/add-copilot ()
