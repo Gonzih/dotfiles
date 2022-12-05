@@ -45,6 +45,7 @@ This function should only modify configuration layer settings."
      helm
      lsp
      lua
+     dart
      swift
      ruby
      markdown
