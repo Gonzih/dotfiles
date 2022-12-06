@@ -663,8 +663,11 @@ dump."
   (add-hook 'swift-mode-hook (lambda () (lsp)))
   )
 
+(defun gnzh/prepend-home (path)
+  (format "%s/%s" (getenv "HOME") path))
+
 (defun gnzh/add-copilot ()
-  (setq copilot-node-executable "/Users/gnzh/.nvm/versions/node/v17.9.1/bin/node")
+  (setq copilot-node-executable (gnzh/prepend-home "/.nvm/versions/node/v17.9.1/bin/node"))
 
   (with-eval-after-load 'company
     ;; disable inline previews
@@ -688,13 +691,13 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  (gnzh/add-to-path (gnzh/prepend-home "/.nvm/versions/node/v18.12.0/bin"))
+  (gnzh/add-to-path (gnzh/prepend-home "/.cargo/bin"))
+  (gnzh/add-to-path (gnzh/prepend-home "/go/bin"))
   (gnzh/add-hooks)
   (gnzh/remap-evil-abit)
   (gnzh/remap-dired-abit)
   (gnzh/set-indent-level)
-  (gnzh/add-to-path "/Users/gnzh/.nvm/versions/node/v18.12.0/bin")
-  (gnzh/add-to-path "/home/gnzh/.cargo/bin")
-  (gnzh/add-to-path "/home/gnzh/go/bin")
   (gnzh/add-copilot)
   )
 
