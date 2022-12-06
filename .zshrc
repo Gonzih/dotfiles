@@ -1,2 +1,2 @@
-export PATH=/opt/homebrew/bin:/home/gnzh/go/bin:$PATH
+export PATH=/opt/homebrew/bin:$HOME/go/bin:$PATH
 exec fish
