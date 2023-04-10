@@ -96,7 +96,9 @@ This function should only modify configuration layer settings."
                  typescript-linter 'tslint
                  typescript-fmt-on-save t
                  )
-     svelte
+     (sveltei :variables
+              svelte-backend 'lsp
+              )
      solidity
      markdown
      ansible
